@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8B620A775C400B00291 /* AppDelegate.swift */; };
-		A925A8B920A775C400B00291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8B820A775C400B00291 /* ViewController.swift */; };
+		A925A8B920A775C400B00291 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8B820A775C400B00291 /* ConnectViewController.swift */; };
 		A925A8BC20A775C400B00291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A925A8BA20A775C400B00291 /* Main.storyboard */; };
 		A925A8BE20A775C600B00291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A925A8BD20A775C600B00291 /* Assets.xcassets */; };
 		A925A8C120A775C600B00291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A925A8BF20A775C600B00291 /* LaunchScreen.storyboard */; };
 		A925A8CC20A775C600B00291 /* cartrolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8CB20A775C600B00291 /* cartrolTests.swift */; };
+		A925A8D920A77AC000B00291 /* ctButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8D820A77AC000B00291 /* ctButton.swift */; };
+		A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */; };
+		A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DE20A77C7F00B00291 /* Sender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +31,7 @@
 /* Begin PBXFileReference section */
 		A925A8B320A775C400B00291 /* cartrol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartrol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A925A8B620A775C400B00291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A925A8B820A775C400B00291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A925A8B820A775C400B00291 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		A925A8BB20A775C400B00291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A925A8BD20A775C600B00291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A925A8C020A775C600B00291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		A925A8C720A775C600B00291 /* cartrolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cartrolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A925A8CB20A775C600B00291 /* cartrolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartrolTests.swift; sourceTree = "<group>"; };
 		A925A8CD20A775C600B00291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A925A8D820A77AC000B00291 /* ctButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ctButton.swift; sourceTree = "<group>"; };
+		A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrateViewController.swift; sourceTree = "<group>"; };
+		A925A8DE20A77C7F00B00291 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,10 @@
 		A925A8B520A775C400B00291 /* cartrol */ = {
 			isa = PBXGroup;
 			children = (
+				A925A8DD20A77C5C00B00291 /* Utilities */,
+				A925A8D720A77AA500B00291 /* Controls */,
+				A925A8D620A775EC00B00291 /* ViewControllers */,
 				A925A8B620A775C400B00291 /* AppDelegate.swift */,
-				A925A8B820A775C400B00291 /* ViewController.swift */,
 				A925A8BA20A775C400B00291 /* Main.storyboard */,
 				A925A8BD20A775C600B00291 /* Assets.xcassets */,
 				A925A8BF20A775C600B00291 /* LaunchScreen.storyboard */,
@@ -94,6 +102,31 @@
 				A925A8CD20A775C600B00291 /* Info.plist */,
 			);
 			path = cartrolTests;
+			sourceTree = "<group>";
+		};
+		A925A8D620A775EC00B00291 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A925A8B820A775C400B00291 /* ConnectViewController.swift */,
+				A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A925A8D720A77AA500B00291 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A925A8D820A77AC000B00291 /* ctButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		A925A8DD20A77C5C00B00291 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A925A8DE20A77C7F00B00291 /* Sender.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A925A8B920A775C400B00291 /* ViewController.swift in Sources */,
+				A925A8B920A775C400B00291 /* ConnectViewController.swift in Sources */,
+				A925A8D920A77AC000B00291 /* ctButton.swift in Sources */,
+				A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */,
 				A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */,
+				A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,24 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IZX-vd-e4h">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Connect View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConnectViewController" customModule="cartrol" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-vC-J1d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address of Target" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GcY-6W-zKF">
+                                        <rect key="frame" x="8" y="24" width="261" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Zjc-c9-K5W"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-1v-SUt" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="285" y="24" width="78" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mmY-BF-Q6Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title=" Connect "/>
+                                        <connections>
+                                            <action selector="doConnectButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aN-nt-KPt"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Command" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S30-IB-vCa">
+                                        <rect key="frame" x="79" y="70" width="284" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="o38-4N-yB3"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-7c-49T" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="70" width="51" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="SFp-wY-ulK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title=" Send "/>
+                                        <connections>
+                                            <action selector="doCommandButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CkX-Fz-viC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="112" width="111.5" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="doClearButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zaZ-u1-btG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="131.5" y="112" width="111" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VFs-tF-OkV"/>
+                                        </constraints>
+                                        <state key="normal" title="Calibrate"/>
+                                        <connections>
+                                            <segue destination="qXb-Qq-Vgb" kind="show" identifier="toCalibratePage" id="Gig-5h-427"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="251" y="112" width="112" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="z14-sp-hFN"/>
+                                        </constraints>
+                                        <state key="normal" title="Control"/>
+                                        <connections>
+                                            <action selector="doControlButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMM-hC-nQB"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-CK-9n0">
+                                        <rect key="frame" x="8" y="154" width="359" height="300"/>
+                                        <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Xmt-Jo-wZa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="0cz-Xo-xzK"/>
+                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="12" id="2XM-9T-99C"/>
+                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="leading" secondItem="XUS-gi-82e" secondAttribute="trailing" constant="8" id="5XD-1O-spM"/>
+                                    <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="12" id="8Gg-6J-a3G"/>
+                                    <constraint firstItem="8zg-7c-49T" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="C6f-Xa-7EY"/>
+                                    <constraint firstItem="S30-IB-vCa" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="trailing" constant="16" id="CVH-zn-Jhl"/>
+                                    <constraint firstAttribute="trailing" secondItem="IWn-Ng-IzR" secondAttribute="trailing" constant="12" id="G9x-bG-Zik"/>
+                                    <constraint firstItem="jvn-1v-SUt" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="HSF-OU-JUy"/>
+                                    <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="16" id="I9P-tZ-jBK"/>
+                                    <constraint firstItem="XUS-gi-82e" firstAttribute="width" secondItem="4Uw-Fk-HP8" secondAttribute="width" id="Jt2-4f-hhe"/>
+                                    <constraint firstItem="jvn-1v-SUt" firstAttribute="leading" secondItem="GcY-6W-zKF" secondAttribute="trailing" constant="16" id="MFr-vh-DwT"/>
+                                    <constraint firstItem="XUS-gi-82e" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="12" id="OQ6-TW-vbR"/>
+                                    <constraint firstItem="XUS-gi-82e" firstAttribute="leading" secondItem="4Uw-Fk-HP8" secondAttribute="trailing" constant="8" id="ObG-qR-2Io"/>
+                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="8" id="SxN-ka-ndl"/>
+                                    <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="16" id="T2u-0k-kNp"/>
+                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="bottom" constant="12" id="V26-LZ-Vf1"/>
+                                    <constraint firstItem="XUS-gi-82e" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="ZoV-vh-6ai"/>
+                                    <constraint firstItem="GcY-6W-zKF" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="iAz-TA-tnA"/>
+                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="width" secondItem="4Uw-Fk-HP8" secondAttribute="width" id="jbS-ug-jQc"/>
+                                    <constraint firstAttribute="trailing" secondItem="BTs-CK-9n0" secondAttribute="trailing" constant="8" id="ndO-3p-Pym"/>
+                                    <constraint firstItem="GcY-6W-zKF" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="8" id="opV-hA-mXu"/>
+                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="12" id="rVA-22-Zp2"/>
+                                    <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="12" id="t4P-Yj-Es8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="T2Y-vC-J1d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8T8-nE-jGS"/>
+                            <constraint firstItem="T2Y-vC-J1d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BGh-1V-sh2"/>
+                            <constraint firstItem="T2Y-vC-J1d" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iFO-ea-EO1"/>
+                            <constraint firstItem="T2Y-vC-J1d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="twh-De-zvc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Gva-6z-1uQ"/>
+                    <connections>
+                        <outlet property="calibrateButton" destination="XUS-gi-82e" id="adX-Pr-w1F"/>
+                        <outlet property="clearButton" destination="4Uw-Fk-HP8" id="a6D-4b-TfB"/>
+                        <outlet property="commandButton" destination="8zg-7c-49T" id="7zf-bh-nYz"/>
+                        <outlet property="commandTextField" destination="S30-IB-vCa" id="7D7-vt-Ocm"/>
+                        <outlet property="commandView" destination="T2Y-vC-J1d" id="EN0-zZ-efR"/>
+                        <outlet property="connectButton" destination="jvn-1v-SUt" id="iep-ld-uKF"/>
+                        <outlet property="controlButton" destination="IWn-Ng-IzR" id="AzO-mn-pOn"/>
+                        <outlet property="responseDisplayTextView" destination="BTs-CK-9n0" id="fMm-Jj-Gp4"/>
+                        <outlet property="targetAddressTextField" destination="GcY-6W-zKF" id="RG6-9B-aQK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jEQ-kq-CYd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="IZX-vd-e4h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dzf-t0-ogB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NFo-kZ-C2s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HjJ-ru-XXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="134"/>
+        </scene>
+        <!--Calibrate View Controller-->
+        <scene sceneID="dhB-8j-uHd">
+            <objects>
+                <viewController id="qXb-Qq-Vgb" customClass="CalibrateViewController" customModule="cartrol" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3sY-HP-AqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                <rect key="frame" x="195.5" y="617" width="163.5" height="30"/>
+                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="s0S-tV-mTE"/>
+                                </constraints>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="doConfirmButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="XiP-m3-xR5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                <rect key="frame" x="16" y="617" width="163.5" height="30"/>
+                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Tos-Q1-FhO"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="doCancelButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="DrK-P4-Mhs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bPw-wh-MIL" firstAttribute="width" secondItem="E7Y-Yd-0YR" secondAttribute="width" id="5mv-nc-7ea"/>
+                            <constraint firstItem="C48-Xk-o41" firstAttribute="bottom" secondItem="E7Y-Yd-0YR" secondAttribute="bottom" constant="20" id="7aG-EN-okg"/>
+                            <constraint firstItem="C48-Xk-o41" firstAttribute="bottom" secondItem="bPw-wh-MIL" secondAttribute="bottom" constant="20" id="AWj-Xs-1Om"/>
+                            <constraint firstItem="E7Y-Yd-0YR" firstAttribute="leading" secondItem="C48-Xk-o41" secondAttribute="leading" constant="16" id="O9V-Ha-Uqy"/>
+                            <constraint firstItem="bPw-wh-MIL" firstAttribute="leading" secondItem="E7Y-Yd-0YR" secondAttribute="trailing" constant="16" id="RyL-xa-eTY"/>
+                            <constraint firstItem="C48-Xk-o41" firstAttribute="trailing" secondItem="bPw-wh-MIL" secondAttribute="trailing" constant="16" id="lBO-kn-PRx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C48-Xk-o41"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="E7Y-Yd-0YR" id="djx-bI-quu"/>
+                        <outlet property="confirmButton" destination="bPw-wh-MIL" id="PBF-DX-JFy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vb7-ac-J8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="134"/>
         </scene>
     </scenes>
 </document>
