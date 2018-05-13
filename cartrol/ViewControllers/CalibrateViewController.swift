@@ -11,8 +11,26 @@ import UIKit
 
 class CalibrateViewController: UIViewController {
 	
+	@IBOutlet var speedSlider: UISlider!
+	@IBOutlet var speedLeftButton: UIButton!
+	@IBOutlet var speedRightButton: UIButton!
+	@IBOutlet var speedButton: UIButton!
+	@IBOutlet var saveButton: CTButton!
+	@IBOutlet var showButton: CTButton!
+	@IBOutlet var resetButton: CTButton!
+	
+	@IBOutlet var leftMotorSpeed: UISlider!
+	@IBOutlet var rightMotorSpeed: UISlider!
+	
+	@IBOutlet var forwardButton: CTButton!
+	@IBOutlet var setupButton: CTButton!
+	@IBOutlet var reverseButton: CTButton!
+	
+	@IBOutlet var responseTextView: UITextView!
+	
 	@IBOutlet var cancelButton: CTButton!
 	@IBOutlet var confirmButton: CTButton!
+	
 	
 	
 	override func viewDidLoad() {
