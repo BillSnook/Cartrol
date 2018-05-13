@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A914804C20A8115A000444B2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914804B20A81159000444B2 /* GameViewController.swift */; };
+		A914805020A81327000444B2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A914804E20A81327000444B2 /* GameScene.sks */; };
+		A914805120A81327000444B2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A914804F20A81327000444B2 /* Actions.sks */; };
+		A914805420A81DC2000444B2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914805320A81DC2000444B2 /* GameScene.swift */; };
 		A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8B620A775C400B00291 /* AppDelegate.swift */; };
 		A925A8B920A775C400B00291 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8B820A775C400B00291 /* ConnectViewController.swift */; };
 		A925A8BC20A775C400B00291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A925A8BA20A775C400B00291 /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A914804B20A81159000444B2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A914804E20A81327000444B2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		A914804F20A81327000444B2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		A914805320A81DC2000444B2 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A925A8B320A775C400B00291 /* cartrol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartrol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A925A8B620A775C400B00291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A925A8B820A775C400B00291 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A914804D20A81310000444B2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A914804F20A81327000444B2 /* Actions.sks */,
+				A914804E20A81327000444B2 /* GameScene.sks */,
+				A914805320A81DC2000444B2 /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		A925A8AA20A775C400B00291 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +101,7 @@
 		A925A8B520A775C400B00291 /* cartrol */ = {
 			isa = PBXGroup;
 			children = (
+				A914804D20A81310000444B2 /* Scenes */,
 				A925A8DD20A77C5C00B00291 /* Utilities */,
 				A925A8D720A77AA500B00291 /* Controls */,
 				A925A8D620A775EC00B00291 /* ViewControllers */,
@@ -109,6 +128,7 @@
 			children = (
 				A925A8B820A775C400B00291 /* ConnectViewController.swift */,
 				A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */,
+				A914804B20A81159000444B2 /* GameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,9 +230,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A914805020A81327000444B2 /* GameScene.sks in Resources */,
 				A925A8C120A775C600B00291 /* LaunchScreen.storyboard in Resources */,
 				A925A8BE20A775C600B00291 /* Assets.xcassets in Resources */,
 				A925A8BC20A775C400B00291 /* Main.storyboard in Resources */,
+				A914805120A81327000444B2 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +256,8 @@
 				A925A8D920A77AC000B00291 /* ctButton.swift in Sources */,
 				A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */,
 				A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */,
+				A914804C20A8115A000444B2 /* GameViewController.swift in Sources */,
+				A914805420A81DC2000444B2 /* GameScene.swift in Sources */,
 				A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

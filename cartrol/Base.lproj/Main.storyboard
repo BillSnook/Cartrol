@@ -91,6 +91,7 @@
                                         <state key="normal" title="Control"/>
                                         <connections>
                                             <action selector="doControlButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMM-hC-nQB"/>
+                                            <segue destination="De8-Pz-ViW" kind="show" identifier="toRemotePage" id="R5J-tA-RQd"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-CK-9n0">
@@ -222,7 +223,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb7-ac-J8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="134"/>
+            <point key="canvasLocation" x="1873" y="-154"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="Etq-mn-Cnj">
+            <objects>
+                <viewController id="De8-Pz-ViW" customClass="GameViewController" customModule="cartrol" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H6t-i4-uMf" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2yb-ZL-rkj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09u-dq-DiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="562"/>
         </scene>
     </scenes>
 </document>
