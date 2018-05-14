@@ -31,7 +31,7 @@ class CalibrateViewController: UIViewController {
 	@IBOutlet var cancelButton: CTButton!
 	@IBOutlet var confirmButton: CTButton!
 	
-	
+	var speedIndex = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -82,6 +82,34 @@ class CalibrateViewController: UIViewController {
 	
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+	
+	@IBAction func doSpeedIndexIncrement(_ sender: UIButton) {
+		
+	}
+	
+	@IBAction func doSaveButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "w\n" );
+	}
+	
+	@IBAction func doShowButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "h\n" );
+	}
+	
+	@IBAction func doResetButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "i\n" );
+	}
+	
+	@IBAction func doForwardButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "g\(speedIndex)\n" );
+	}
+	
+	@IBAction func doSetupButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "i\n" );
+	}
+	
+	@IBAction func doReverseButtonTouch(_ sender: CTButton) {
+		responseTextView.text = targetPort.sendPi( "g\(speedIndex)\n" );
 	}
 	
 	@IBAction func doCancelButtonTouch(_ sender: CTButton) {

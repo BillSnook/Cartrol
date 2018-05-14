@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ConnectViewController: UIViewController {
 
+let targetPort = Sender()
+
+class ConnectViewController: UIViewController {
 
 	@IBOutlet var commandView: UIView!
 	@IBOutlet var targetAddressTextField: UITextField!
@@ -22,7 +24,6 @@ class ConnectViewController: UIViewController {
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
 	var isConnected = false
-	let targetPort = Sender()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -91,10 +92,10 @@ class ConnectViewController: UIViewController {
 				print( "\nConnecting to host \(targetAddressTextField.text!)" )
 				targetAddressTextField.isEnabled = false
 				connectButton.isEnabled = false
-				//				activityIndicator.startAnimating()
+//				activityIndicator.startAnimating()
 				let hostName = self.targetAddressTextField.text!
 				DispatchQueue.global( qos: .userInitiated ).async {
-					self.isConnected = self.targetPort.doMakeConnection( to: hostName, at: 5555 )
+					self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
 					DispatchQueue.main.async {
 						if self.isConnected {
 							self.connectButton.setTitle( " Disconnect ", for:  .normal )
@@ -102,7 +103,7 @@ class ConnectViewController: UIViewController {
 							self.targetAddressTextField.isEnabled = true
 						}
 						self.connectButton.isEnabled = true
-						//						self.activityIndicator.stopAnimating()
+//						self.activityIndicator.stopAnimating()
 					}
 				}
 			}
@@ -138,4 +139,3 @@ class ConnectViewController: UIViewController {
 	}
 	
 }
-
