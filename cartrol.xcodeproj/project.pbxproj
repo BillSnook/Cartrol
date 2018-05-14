@@ -37,6 +37,7 @@
 		A914804E20A81327000444B2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A914804F20A81327000444B2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		A914805320A81DC2000444B2 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A914805520A9518B000444B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A925A8B320A775C400B00291 /* cartrol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartrol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A925A8B620A775C400B00291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A925A8B820A775C400B00291 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 				A925A8BD20A775C600B00291 /* Assets.xcassets */,
 				A925A8BF20A775C600B00291 /* LaunchScreen.storyboard */,
 				A925A8C220A775C600B00291 /* Info.plist */,
+				A914805520A9518B000444B2 /* README.md */,
 			);
 			path = cartrol;
 			sourceTree = "<group>";
