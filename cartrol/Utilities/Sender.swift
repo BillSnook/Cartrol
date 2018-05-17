@@ -107,7 +107,7 @@ public class Sender {
 		
 		guard socketConnected else { return "Socket is not connected" }
 		let command = message + "\n"
-		var writeBuffer: [CChar] = [CChar](repeating: 0, count: 256)
+		var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
 		strcpy( &writeBuffer, command )
 		let len = strlen( &writeBuffer )
 		let sndLen = write( socketfd, &writeBuffer, Int(len) )
@@ -117,8 +117,8 @@ public class Sender {
 			return "ERROR writing to socket"
 		}
 		
-		var readBuffer: [CChar] = [CChar](repeating: 0, count: 256)
-		let rcvLen = read( socketfd, &readBuffer, 255 )
+		var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
+		let rcvLen = read( socketfd, &readBuffer, 1024 )
 		if (rcvLen < 0) {
 			if let stat = strerror( errno ) {
 				print( "\n\nERROR reading from socket:  \(String( describing: stat ))" )

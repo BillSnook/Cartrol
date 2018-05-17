@@ -34,6 +34,7 @@ class ConnectViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 		
+		setupButtons()
 		print( "In viewWillAppear in ConnectViewController" )
 	}
 	
@@ -75,6 +76,30 @@ class ConnectViewController: UIViewController {
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
+	
+	func setupButtons() {
+		if ( isConnected ) {
+			targetAddressTextField.isEnabled = false
+			connectButton.setTitle( " Disconnect ", for: .normal )
+			connectButton.isEnabled = true
+			commandButton.isHidden = false
+			commandTextField.isHidden = false
+			clearButton.isHidden = false
+			calibrateButton.isHidden = false
+			controlButton.isHidden = false
+			responseDisplayTextView.isHidden = false
+			responseDisplayTextView.text = ""
+		} else {
+			targetAddressTextField.isEnabled = true
+			connectButton.setTitle( " Connect ", for: .normal )
+			commandButton.isHidden = true
+			commandTextField.isHidden = true
+			clearButton.isHidden = true
+			calibrateButton.isHidden = true
+			controlButton.isHidden = true
+			responseDisplayTextView.isHidden = true
+		}
+	}
 
 	@IBAction func doConnectButtonTouch(_ sender: CTButton) {
 		print( "In doConnectButtonTouch" )
@@ -84,28 +109,30 @@ class ConnectViewController: UIViewController {
 			print( "\nDisconnecting from host \(targetAddressTextField.text!)" )
 			targetPort.doBreakConnection()
 			isConnected = false
-			targetAddressTextField.isEnabled = true
-			connectButton.setTitle( " Connect ", for:  .normal )
-			responseDisplayTextView.text = ""
+			setupButtons()
 		} else {					// Else we must be connecting
-			if targetAddressTextField.text!.count >= 0 {
+			if targetAddressTextField.text!.count > 0 {
+				connectButton.setTitle( " Connecting... ", for: .normal )
 				print( "\nConnecting to host \(targetAddressTextField.text!)" )
 				targetAddressTextField.isEnabled = false
 				connectButton.isEnabled = false
-//				activityIndicator.startAnimating()
+////				activityIndicator.startAnimating()
 				let hostName = self.targetAddressTextField.text!
 				DispatchQueue.global( qos: .userInitiated ).async {
 					self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
 					DispatchQueue.main.async {
-						if self.isConnected {
-							self.connectButton.setTitle( " Disconnect ", for:  .normal )
-						} else {
-							self.targetAddressTextField.isEnabled = true
-						}
-						self.connectButton.isEnabled = true
+						self.setupButtons()
+//						if self.isConnected {
+//							self.connectButton.setTitle( " Disconnect ", for:  .normal )
+//						} else {
+//							self.targetAddressTextField.isEnabled = true
+//						}
+////						self.connectButton.isEnabled = true
 //						self.activityIndicator.stopAnimating()
 					}
 				}
+			} else { 	// Need a target name
+				
 			}
 		}
 	}

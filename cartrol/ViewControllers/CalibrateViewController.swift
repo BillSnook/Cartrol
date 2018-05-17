@@ -21,8 +21,14 @@ let SPEED_ARRAY = 8
 	@IBOutlet var showButton: CTButton!
 	@IBOutlet var resetButton: CTButton!
 	
-	@IBOutlet var rightMotorSpeed: UISlider!
 	@IBOutlet var leftMotorSpeed: UISlider!
+	@IBOutlet var rightMotorSpeed: UISlider!
+
+	@IBOutlet var leftStepper: UIStepper!
+	@IBOutlet var rightStepper: UIStepper!
+	
+	@IBOutlet var leftOffsetButton: UIButton!
+	@IBOutlet var rightOffsetButton: UIButton!
 	
 	@IBOutlet var forwardButton: CTButton!
 	@IBOutlet var stopButton: CTButton!
@@ -43,7 +49,7 @@ let SPEED_ARRAY = 8
 		let statusArray = targetPort.sendPi( "z\n" )
 		print( "In viewDidLoad response for status call: \(statusArray)" )
 		
-		speedSlider.value = 0
+		speedSlider.value = 1
 		speedSlider.minimumValue = Float(-SPEED_ARRAY + 1)
 		speedSlider.maximumValue = Float(SPEED_ARRAY - 1)
 //		speedSlider.addTarget(self, action: Selector("indexValueChanged:"), for: .valueChanged)
@@ -108,10 +114,11 @@ let SPEED_ARRAY = 8
 		responseTextView.text = targetPort.sendPi( "j \(speedIndex)\n" )
 	}
 	
+	
 	@IBAction func doDecrementSpeedIndex(_ sender: UIButton) {
 		speedIndex -= 1
 		if ( speedIndex <= -SPEED_ARRAY ) {
-			speedIndex += 1
+			speedIndex = -SPEED_ARRAY + 1
 			return
 		}
 		speedSlider.value = Float(speedIndex)
@@ -122,8 +129,8 @@ let SPEED_ARRAY = 8
 	@IBAction func doIncrementSpeedIndex(_ sender: UIButton) {
 		speedIndex += 1
 		if ( speedIndex >= SPEED_ARRAY ) {
-			speedIndex -= 1
-			return
+			speedIndex = SPEED_ARRAY - 1
+//			return
 		}
 		speedSlider.value = Float(speedIndex)
 		speedButton.setTitle( "\(speedIndex)", for: .normal )
@@ -146,8 +153,22 @@ let SPEED_ARRAY = 8
 		responseTextView.text = targetPort.sendPi( "i\n" )
 	}
 	
+	
+	@IBAction func leftOffsetValueChanged(_ sender: UISlider) {
+	}
+	
+	@IBAction func rightOffsetValueChanged(_ sender: UISlider) {
+	}
+	
+	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
+	}
+	
+	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
+	}
+
+	
 	@IBAction func doForwardButtonTouch(_ sender: CTButton) {
-		responseTextView.text = targetPort.sendPi( "g\(speedIndex)\n" )
+		responseTextView.text = targetPort.sendPi( "g \(speedIndex)\n" )
 	}
 	
 	@IBAction func doStopButtonTouch(_ sender: CTButton) {
@@ -155,7 +176,7 @@ let SPEED_ARRAY = 8
 	}
 	
 	@IBAction func doReverseButtonTouch(_ sender: CTButton) {
-		responseTextView.text = targetPort.sendPi( "g\(speedIndex)\n" )
+		responseTextView.text = targetPort.sendPi( "g \(speedIndex)\n" )
 	}
 	
 	@IBAction func doCancelButtonTouch(_ sender: CTButton) {
