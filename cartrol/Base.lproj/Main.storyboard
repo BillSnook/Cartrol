@@ -88,7 +88,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-CK-9n0">
                                         <rect key="frame" x="12" y="154" width="296" height="386"/>
                                         <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-1v-SUt" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
@@ -259,7 +259,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-UG-qtZ">
                                         <rect key="frame" x="20" y="280" width="280" height="198"/>
                                         <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
@@ -426,7 +426,6 @@
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="6" id="7ug-9M-eed"/>
                                             <constraint firstItem="RNg-7Q-k5I" firstAttribute="top" secondItem="qOu-q6-poh" secondAttribute="bottom" constant="18" id="LLk-Bf-BuB"/>
                                             <constraint firstItem="yhp-kZ-Dou" firstAttribute="leading" secondItem="z93-1Y-h1b" secondAttribute="trailing" constant="8" id="Mzv-h5-XER"/>
-                                            <constraint firstItem="V4V-Zy-Lz1" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="11" id="PwQ-5A-6MQ"/>
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="centerY" secondItem="qOu-q6-poh" secondAttribute="centerY" id="TJr-hC-50d"/>
                                             <constraint firstItem="V4V-Zy-Lz1" firstAttribute="centerX" secondItem="a5q-EU-vqq" secondAttribute="centerX" id="U39-mj-EdS"/>
                                             <constraint firstItem="qOu-q6-poh" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="6" id="aKj-65-Mlu"/>

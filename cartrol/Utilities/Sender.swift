@@ -6,16 +6,25 @@
 //  Copyright © 2018 billsnook. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Darwin.C
+
+
+public protocol CommandResponder {
+	func handleReply( msg: String )
+}
 
 
 public class Sender {
 	
 	var socketfd: Int32 = 0
 	var socketConnected = false
+	var commandResponder: CommandResponder?
 	
-	public init() {
+	public init() {}
+	
+	public func setCommandResponder( _ responder: CommandResponder ) {
+		commandResponder = responder
 	}
 	
 	deinit {
@@ -118,14 +127,56 @@ public class Sender {
 		}
 		
 		var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
-		let rcvLen = read( socketfd, &readBuffer, 1024 )
-		if (rcvLen < 0) {
-			if let stat = strerror( errno ) {
-				print( "\n\nERROR reading from socket:  \(String( describing: stat ))" )
+
+		DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
+
+			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
+			if (rcvLen < 0) {
+				if let stat = strerror( errno ) {
+					print( "\n\nRead \(rcvLen) bytes from socket:  \(String( describing: stat ))" )
+				}
+			} else {
+				DispatchQueue.main.async {
+					if self?.commandResponder != nil {
+						self!.commandResponder!.handleReply( msg: String( cString: readBuffer ) )
+					}
+				}
 			}
-			return "ERROR reading from socket"
 		}
-		return String( cString: readBuffer )
+		return ""
+	}
+
+	public func sendCommand( _ message: String, with useResponder: CommandResponder? ) {
+		
+		guard socketConnected else { return }
+		DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
+			
+			let command = message + "\n"
+			var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
+			strcpy( &writeBuffer, command )
+			let len = strlen( &writeBuffer )
+			
+			guard let skt = self?.socketfd else { return }
+			let sndLen = write( skt, &writeBuffer, Int(len) )
+			if ( sndLen < 0 ) {
+				let stat = strerror( errno )
+				print( "\n\nERROR writing to socket: \(String( describing: stat ))" )
+				return
+			}
+			var readBuffer = [CChar](repeating: 0, count: 1024)
+		
+			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
+			if (rcvLen < 0) {
+				if let stat = strerror( errno ) {
+					print( "\n\nRead \(rcvLen) bytes from socket:  \(String( describing: stat ))" )
+				}
+			} else {
+				DispatchQueue.main.async {
+					if useResponder != nil {
+						useResponder!.handleReply( msg: String( cString: readBuffer ) )
+					}
+				}
+			}
+		}
 	}
 }
-

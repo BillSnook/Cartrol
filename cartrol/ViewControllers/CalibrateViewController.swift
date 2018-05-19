@@ -11,7 +11,7 @@ import UIKit
 
 let SPEED_ARRAY = 8
 
-@objc class CalibrateViewController: UIViewController {
+@objc class CalibrateViewController: UIViewController, CommandResponder {
 	
 	@IBOutlet var speedSlider: UISlider!
 	@IBOutlet var speedIndexIncrementButton: UIButton!
@@ -44,6 +44,8 @@ let SPEED_ARRAY = 8
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		targetPort.setCommandResponder( self )
+
 		print( "In viewDidLoad in CalibrateViewController" )
 		
 		let statusArray = targetPort.sendPi( "z\n" )
@@ -102,6 +104,17 @@ let SPEED_ARRAY = 8
 		return true
 	}
 
+	// MARK: - Motor-specific code next
+	
+	func handleReply(msg: String) {
+		if let oldMsg = responseTextView.text {
+			responseTextView.text = oldMsg + "\n" + msg
+		} else {
+			responseTextView.text = msg
+		}
+	}
+	
+	
 	@IBAction func indexValueChanged(_ sender: UISlider) {
 		speedIndex = Int(sender.value)
 		if ( speedIndex <= -SPEED_ARRAY ) {

@@ -11,8 +11,8 @@ import UIKit
 
 let targetPort = Sender()
 
-class ConnectViewController: UIViewController {
-
+class ConnectViewController: UIViewController, CommandResponder {
+	
 	@IBOutlet var commandView: UIView!
 	@IBOutlet var targetAddressTextField: UITextField!
 	@IBOutlet var connectButton: CTButton!
@@ -27,6 +27,8 @@ class ConnectViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		targetPort.setCommandResponder( self )
 		
 		print( "In viewDidLoad in ConnectViewController" )
 	}
@@ -76,6 +78,18 @@ class ConnectViewController: UIViewController {
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
+	
+	
+	// MARK: - Interactions
+	
+	func handleReply(msg: String) {
+		if let oldMsg = responseDisplayTextView.text {
+			responseDisplayTextView.text = oldMsg + "\n" + msg
+		} else {
+			responseDisplayTextView.text = msg
+		}
+	}
+	
 	
 	func setupButtons() {
 		if ( isConnected ) {
