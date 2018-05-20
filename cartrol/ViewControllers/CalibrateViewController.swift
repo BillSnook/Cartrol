@@ -156,6 +156,7 @@ extension String {
 			if let testAdjustStartValue = Int( paramArray[3] ) {
 				adjustStartValue = testAdjustStartValue
 			}
+			print( "In handleReply for getting params with speedMax: \(speedMax), adjustMaxValue: \(adjustMaxValue), adjustStartValue: \(adjustStartValue)" )
 			setupControls()
 		default:
 			if let oldMsg = responseTextView.text {
