@@ -9,7 +9,11 @@
 import UIKit
 
 
-let SPEED_ARRAY = 8
+extension String {
+	subscript (i: Int) -> Character {
+		return self[index(startIndex, offsetBy: i)]
+	}
+}
 
 @objc class CalibrateViewController: UIViewController, CommandResponder {
 	
@@ -40,6 +44,12 @@ let SPEED_ARRAY = 8
 	@IBOutlet var confirmButton: CTButton!
 	
 	var speedIndex = 0
+	var leftAdjust = 0
+	var rightAdjust = 0
+	
+	var speedMax = 8				// Same as SPEED_ARRAY
+	var adjustMaxValue = 256
+	var adjustStartValue = 128
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -50,13 +60,39 @@ let SPEED_ARRAY = 8
 		
 		let statusArray = targetPort.sendPi( "z\n" )
 		print( "In viewDidLoad response for status call: \(statusArray)" )
-		
-		speedSlider.value = 1
-		speedSlider.minimumValue = Float(-SPEED_ARRAY + 1)
-		speedSlider.maximumValue = Float(SPEED_ARRAY - 1)
-//		speedSlider.addTarget(self, action: Selector("indexValueChanged:"), for: .valueChanged)
-		
+	}
+	
+	public func setupControls() {
+		speedIndex = 1
+		speedSlider.value = Float( speedIndex )
+		speedSlider.minimumValue = Float(-speedMax + 1)
+		speedSlider.maximumValue = Float(speedMax - 1)
+		speedSlider.isContinuous = false	// Continuous updates not wanted
 		speedButton.setTitle( "\(speedIndex)", for: .normal )
+		
+		leftAdjust = adjustStartValue
+		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		leftMotorSpeed.minimumValue = Float(0)
+		leftMotorSpeed.maximumValue = Float(leftAdjust * 2)
+		leftMotorSpeed.value = Float( leftAdjust )
+		leftMotorSpeed.isContinuous = false	// Continuous updates not wanted
+		leftStepper.minimumValue = Double(0)
+		leftStepper.maximumValue = Double(leftAdjust * 2)
+		leftStepper.stepValue = Double( 8 )
+		leftStepper.value = Double( leftAdjust )
+		leftStepper.isContinuous = false	// Continuous updates not wanted
+
+		rightAdjust = adjustStartValue
+		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		rightMotorSpeed.minimumValue = Float(0)
+		rightMotorSpeed.maximumValue = Float(rightAdjust * 2)
+		rightMotorSpeed.value = Float( rightAdjust )
+		rightMotorSpeed.isContinuous = false	// Continuous updates not wanted
+		rightStepper.minimumValue = Double(0)
+		rightStepper.maximumValue = Double(rightAdjust * 2)
+		rightStepper.stepValue = Double( 8 )
+		rightStepper.value = Double( rightAdjust )
+		rightStepper.isContinuous = false	// Continuous updates not wanted
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -107,21 +143,38 @@ let SPEED_ARRAY = 8
 	// MARK: - Motor-specific code next
 	
 	func handleReply(msg: String) {
-		if let oldMsg = responseTextView.text {
-			responseTextView.text = oldMsg + "\n" + msg
-		} else {
-			responseTextView.text = msg
+		switch msg[0] {
+		case "@":
+			let paramArray = msg.components(separatedBy: " ")
+			guard paramArray.count >= 4 else { return }
+			if let testSpeedMax = Int( paramArray[1] ) {
+				speedMax = testSpeedMax
+			}
+			if let testAdjustMaxValue = Int( paramArray[2] ) {
+				adjustMaxValue = testAdjustMaxValue
+			}
+			if let testAdjustStartValue = Int( paramArray[3] ) {
+				adjustStartValue = testAdjustStartValue
+			}
+			setupControls()
+		default:
+			if let oldMsg = responseTextView.text {
+				responseTextView.text = oldMsg + "\n" + msg
+			} else {
+				responseTextView.text = msg
+			}
 		}
 	}
 	
 	
+	// Main speed slider moved
 	@IBAction func indexValueChanged(_ sender: UISlider) {
 		speedIndex = Int(sender.value)
-		if ( speedIndex <= -SPEED_ARRAY ) {
-			speedIndex = -SPEED_ARRAY + 1
+		if ( speedIndex <= -speedMax ) {
+			speedIndex = -speedMax + 1
 		}
-		if ( speedIndex >= SPEED_ARRAY ) {
-			speedIndex = SPEED_ARRAY - 1
+		if ( speedIndex >= speedMax ) {
+			speedIndex = speedMax - 1
 		}
 		speedButton.setTitle( "\(speedIndex)", for: .normal )
 		responseTextView.text = targetPort.sendPi( "j \(speedIndex)\n" )
@@ -130,9 +183,8 @@ let SPEED_ARRAY = 8
 	
 	@IBAction func doDecrementSpeedIndex(_ sender: UIButton) {
 		speedIndex -= 1
-		if ( speedIndex <= -SPEED_ARRAY ) {
-			speedIndex = -SPEED_ARRAY + 1
-			return
+		if ( speedIndex <= -speedMax ) {
+			speedIndex = -speedMax + 1
 		}
 		speedSlider.value = Float(speedIndex)
 		speedButton.setTitle( "\(speedIndex)", for: .normal )
@@ -141,9 +193,8 @@ let SPEED_ARRAY = 8
 	
 	@IBAction func doIncrementSpeedIndex(_ sender: UIButton) {
 		speedIndex += 1
-		if ( speedIndex >= SPEED_ARRAY ) {
-			speedIndex = SPEED_ARRAY - 1
-//			return
+		if ( speedIndex >= speedMax ) {
+			speedIndex = speedMax - 1
 		}
 		speedSlider.value = Float(speedIndex)
 		speedButton.setTitle( "\(speedIndex)", for: .normal )
@@ -151,7 +202,7 @@ let SPEED_ARRAY = 8
 	}
 	
 	@IBAction func doSpeedIndexIncrement(_ sender: UIButton) {
-		
+		// This button is for display only for now
 	}
 	
 	@IBAction func doSaveButtonTouch(_ sender: CTButton) {
@@ -168,15 +219,55 @@ let SPEED_ARRAY = 8
 	
 	
 	@IBAction func leftOffsetValueChanged(_ sender: UISlider) {
+		leftAdjust = Int(sender.value)
+		if ( leftAdjust <= -adjustMaxValue ) {
+			leftAdjust = -adjustMaxValue + 1
+		}
+		if ( leftAdjust >= adjustMaxValue ) {
+			leftAdjust = adjustMaxValue - 1
+		}
+		leftStepper.value = Double( leftAdjust )
+		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		responseTextView.text = targetPort.sendPi( "l \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetValueChanged(_ sender: UISlider) {
+		rightAdjust = Int(sender.value)
+		if ( rightAdjust <= -adjustMaxValue ) {
+			rightAdjust = -adjustMaxValue + 1
+		}
+		if ( rightAdjust >= adjustMaxValue ) {
+			rightAdjust = adjustMaxValue - 1
+		}
+		rightStepper.value = Double( rightAdjust )
+		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		responseTextView.text = targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
 	
 	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
+		leftAdjust = Int(sender.value)
+		if ( leftAdjust <= -adjustMaxValue ) {
+			leftAdjust = -adjustMaxValue + 1
+		}
+		if ( leftAdjust >= adjustMaxValue ) {
+			leftAdjust = adjustMaxValue - 1
+		}
+		leftMotorSpeed.value = Float( leftAdjust )
+		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		responseTextView.text = targetPort.sendPi( "k \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
+		rightAdjust = Int(sender.value)
+		if ( rightAdjust <= -adjustMaxValue ) {
+			rightAdjust = -adjustMaxValue + 1
+		}
+		if ( rightAdjust >= adjustMaxValue ) {
+			rightAdjust = adjustMaxValue - 1
+		}
+		rightMotorSpeed.value = Float( rightAdjust )
+		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		responseTextView.text = targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
 
 	
@@ -189,7 +280,7 @@ let SPEED_ARRAY = 8
 	}
 	
 	@IBAction func doReverseButtonTouch(_ sender: CTButton) {
-		responseTextView.text = targetPort.sendPi( "g \(speedIndex)\n" )
+		responseTextView.text = targetPort.sendPi( "g \(-speedIndex)\n" )
 	}
 	
 	@IBAction func doCancelButtonTouch(_ sender: CTButton) {
@@ -201,7 +292,7 @@ let SPEED_ARRAY = 8
 	@IBAction func doConfirmButtonTouch(_ sender: CTButton) {
 		print( "In doConfirmButtonTouch" )
 		
-		// Save new speed table now
+		// Check to save new speed table now
 		guard let nav = self.navigationController else { return }
 		nav.popViewController( animated: true )
 	}

@@ -53,8 +53,8 @@ public class Sender {
 		
 		let result = doConnect( targetAddr, port: at )
 		guard result >= 0 else {
-			//			let strerr = strerror( errno )
-			//			print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
+//			let strerr = strerror( errno )
+//			print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
 			return false
 		}
 		socketConnected = true
@@ -112,7 +112,7 @@ public class Sender {
 		return connectResult
 	}
 	
-	public func sendPi( _ message: String ) -> String {
+	@discardableResult public func sendPi( _ message: String ) -> String {
 		
 		guard socketConnected else { return "Socket is not connected" }
 		let command = message + "\n"
@@ -123,12 +123,12 @@ public class Sender {
 		if ( sndLen < 0 ) {
 			let stat = strerror( errno )
 			print( "\n\nERROR writing to socket: \(String( describing: stat ))" )
-			return "ERROR writing to socket"
+			return "ERROR writing to socket, returned: \(sndLen)"
 		}
 		
 		var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
 
-		DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
+		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
 
 			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
 			if (rcvLen < 0) {
@@ -149,7 +149,7 @@ public class Sender {
 	public func sendCommand( _ message: String, with useResponder: CommandResponder? ) {
 		
 		guard socketConnected else { return }
-		DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
+		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
 			
 			let command = message + "\n"
 			var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
@@ -174,6 +174,10 @@ public class Sender {
 				DispatchQueue.main.async {
 					if useResponder != nil {
 						useResponder!.handleReply( msg: String( cString: readBuffer ) )
+					} else {
+						if self?.commandResponder != nil {
+							self!.commandResponder!.handleReply( msg: String( cString: readBuffer ) )
+						}
 					}
 				}
 			}

@@ -28,6 +28,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		targetAddressTextField.text = "Saturn"
 		targetPort.setCommandResponder( self )
 		
 		print( "In viewDidLoad in ConnectViewController" )
@@ -83,7 +84,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 	// MARK: - Interactions
 	
 	func handleReply(msg: String) {
-		if let oldMsg = responseDisplayTextView.text {
+		if let oldMsg = responseDisplayTextView.text, !oldMsg.isEmpty {
 			responseDisplayTextView.text = oldMsg + "\n" + msg
 		} else {
 			responseDisplayTextView.text = msg
@@ -130,18 +131,12 @@ class ConnectViewController: UIViewController, CommandResponder {
 				print( "\nConnecting to host \(targetAddressTextField.text!)" )
 				targetAddressTextField.isEnabled = false
 				connectButton.isEnabled = false
-////				activityIndicator.startAnimating()
+//				activityIndicator.startAnimating()
 				let hostName = self.targetAddressTextField.text!
 				DispatchQueue.global( qos: .userInitiated ).async {
 					self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
 					DispatchQueue.main.async {
 						self.setupButtons()
-//						if self.isConnected {
-//							self.connectButton.setTitle( " Disconnect ", for:  .normal )
-//						} else {
-//							self.targetAddressTextField.isEnabled = true
-//						}
-////						self.connectButton.isEnabled = true
 //						self.activityIndicator.stopAnimating()
 					}
 				}
@@ -157,8 +152,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 			!command.isEmpty,
 			let priorText = responseDisplayTextView.text
 			else { return }
-		let response = targetPort.sendPi( command )
-		responseDisplayTextView.text = priorText + response
+		targetPort.sendPi( command )
 	}
 
 	@IBAction func doClearButtonTouch(_ sender: CTButton) {
