@@ -30,14 +30,20 @@ public class Sender {
 	deinit {
 		if socketConnected {
 			socketConnected = false
-			close( socketfd )
+			if socketfd != 0 {
+				close( socketfd )
+				socketfd = 0
+			}
 		}
 	}
 	
 	public func doBreakConnection() {
 		if socketConnected {
 			socketConnected = false
-			close( socketfd )
+			if socketfd != 0 {
+				close( socketfd )
+				socketfd = 0
+			}
 		}
 	}
 	
@@ -107,8 +113,30 @@ public class Sender {
 		if connectResult < 0 {
 			let stat = String( describing: strerror( errno ) )
 			print("\nERROR connecting, errno: \(errno), \(stat)")
+			return connectResult
 		}
 		
+		// Start read thread
+		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
+			while self?.socketfd != 0 {
+				var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
+				
+				let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
+				if (rcvLen < 0) {
+					if let stat = strerror( errno ) {
+						print( "\n\nError reading from socket: \(String( describing: stat ))" )
+						break
+					}
+				} else {
+					DispatchQueue.main.async {
+						if self?.commandResponder != nil {
+							self?.commandResponder?.handleReply( msg: String( cString: readBuffer ) )
+						}
+					}
+				}
+			}
+		}
+
 		return connectResult
 	}
 	
@@ -126,23 +154,6 @@ public class Sender {
 			return "ERROR writing to socket, returned: \(sndLen)"
 		}
 		
-		var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
-
-		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
-
-			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
-			if (rcvLen < 0) {
-				if let stat = strerror( errno ) {
-					print( "\n\nRead \(rcvLen) bytes from socket:  \(String( describing: stat ))" )
-				}
-			} else {
-				DispatchQueue.main.async {
-					if self?.commandResponder != nil {
-						self!.commandResponder!.handleReply( msg: String( cString: readBuffer ) )
-					}
-				}
-			}
-		}
 		return ""
 	}
 
