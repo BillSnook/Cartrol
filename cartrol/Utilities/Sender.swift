@@ -122,7 +122,7 @@ public class Sender {
 				var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
 				
 				let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
-				if (rcvLen < 0) {
+				if (rcvLen <= 0) {
 					if let stat = strerror( errno ) {
 						print( "\n\nError reading from socket: \(String( describing: stat ))" )
 						break

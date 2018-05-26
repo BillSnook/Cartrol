@@ -360,6 +360,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <action selector="leftOffsetValueChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="qOJ-3E-VpS"/>
+                                                    <action selector="leftOffsetValueSet:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="GQw-e2-hpo"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L    R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4V-Zy-Lz1">
@@ -378,6 +379,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <action selector="rightOffsetValueChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="12G-C2-CFl"/>
+                                                    <action selector="rightOffsetValueSet:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="qOr-Xu-qbe"/>
                                                 </connections>
                                             </slider>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IIH-8d-3AA">

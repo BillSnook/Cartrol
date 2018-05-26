@@ -149,8 +149,8 @@ class ConnectViewController: UIViewController, CommandResponder {
 	@IBAction func doCommandButtonTouch(_ sender: CTButton) {
 		print( "In doCommandButtonTouch" )
 		guard let command = commandTextField.text,
-			!command.isEmpty,
-			let priorText = responseDisplayTextView.text
+			!command.isEmpty
+//			let priorText = responseDisplayTextView.text
 			else { return }
 		targetPort.sendPi( command )
 	}
