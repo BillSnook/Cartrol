@@ -129,27 +129,27 @@ extension String {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 		
-		print( "In viewWillAppear in CalibrateViewController" )
+//		print( "In viewWillAppear in CalibrateViewController" )
 		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear( animated )
-		
-		print( "In viewDidAppear in CalibrateViewController" )
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		print( "In viewWillDisappear in CalibrateViewController" )
-		
-		super.viewWillDisappear( animated )
-	}
-	
-	override func viewDidDisappear(_ animated: Bool) {
-		print( "In viewDidDisappear in CalibrateViewController" )
-		
-		super.viewDidDisappear( animated )
-	}
+//	override func viewDidAppear(_ animated: Bool) {
+//		super.viewDidAppear( animated )
+//
+//		print( "In viewDidAppear in CalibrateViewController" )
+//	}
+//
+//	override func viewWillDisappear(_ animated: Bool) {
+//		print( "In viewWillDisappear in CalibrateViewController" )
+//
+//		super.viewWillDisappear( animated )
+//	}
+//
+//	override func viewDidDisappear(_ animated: Bool) {
+//		print( "In viewDidDisappear in CalibrateViewController" )
+//
+//		super.viewDidDisappear( animated )
+//	}
 	
 	override var shouldAutorotate: Bool {
 		return true
@@ -173,22 +173,17 @@ extension String {
 	}
 
 	// MARK: - Motor-specific code next
-	
 	func handleReply(msg: String) {
 		let paramArray = msg.components(separatedBy: " ")
 		switch msg[0] {
 		case "@":
-			guard paramArray.count >= 4 else { return }
+			guard paramArray.count >= 3 else { return }
 			if let testSpeedMax = Int( paramArray[1] ) {
 				speedMax = testSpeedMax
 			}
 			if let testAdjustStartValue = Int( paramArray[2] ) {
 				adjustRange = testAdjustStartValue
 			}
-//			if let testAdjustMaxValue = Int( paramArray[3] ) {
-//				adjustMaxValueLeft = testAdjustMaxValue
-//				adjustMaxValueRight = testAdjustMaxValue
-//			}
 			print( "In handleReply for getting params with speedMax: \(speedMax), adjustRange: \(adjustRange)" )
 			setupInitialControls()
 		case "i":
@@ -257,28 +252,14 @@ extension String {
 	// L/R slider value changed
 	@IBAction func leftOffsetValueChanged(_ sender: UISlider) {
 		leftAdjust = Int(sender.value)
-//		if ( leftAdjust <= -adjustMaxValueLeft ) {
-//			leftAdjust = -adjustMaxValueLeft + 1
-//		}
-//		if ( leftAdjust >= adjustMaxValueRight ) {
-//			leftAdjust = adjustMaxValueRight - 1
-//		}
 		leftStepper.value = Double( leftAdjust )
 		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
-//		targetPort.sendPi( "l \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetValueChanged(_ sender: UISlider) {
 		rightAdjust = Int(sender.value)
-//		if ( rightAdjust <= -adjustMaxValueLeft ) {
-//			rightAdjust = -adjustMaxValueLeft + 1
-//		}
-//		if ( rightAdjust >= adjustMaxValueRight ) {
-//			rightAdjust = adjustMaxValueRight - 1
-//		}
 		rightStepper.value = Double( rightAdjust )
 		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
-//		targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
 	
 	// L/R slider touch up inside
@@ -294,12 +275,6 @@ extension String {
 	
 	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
 		leftAdjust = Int(sender.value)
-//		if ( leftAdjust <= -adjustMaxValueLeft ) {
-//			leftAdjust = -adjustMaxValueLeft + 1
-//		}
-//		if ( leftAdjust >= adjustMaxValueRight ) {
-//			leftAdjust = adjustMaxValueRight - 1
-//		}
 		leftMotorSpeed.value = Float( leftAdjust )
 		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
 		targetPort.sendPi( "l \(leftAdjust)\n" )
@@ -307,12 +282,6 @@ extension String {
 	
 	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
 		rightAdjust = Int(sender.value)
-//		if ( rightAdjust <= -adjustMaxValueLeft ) {
-//			rightAdjust = -adjustMaxValueLeft + 1
-//		}
-//		if ( rightAdjust >= adjustMaxValueRight ) {
-//			rightAdjust = adjustMaxValueRight - 1
-//		}
 		rightMotorSpeed.value = Float( rightAdjust )
 		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
 		targetPort.sendPi( "k \(rightAdjust)\n" )

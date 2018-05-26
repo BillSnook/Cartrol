@@ -160,17 +160,4 @@ class ConnectViewController: UIViewController, CommandResponder {
 		responseDisplayTextView.text = ""
 	}
 
-//	@IBAction func doCalibrateButton(_ sender: CTButton) {
-//		print( "In doCalibrateButton" )
-//		guard let nav = self.navigationController else { return }
-//		nav.popViewController( animated: true )
-//	}
-
-	@IBAction func doControlButtonTouch(_ sender: CTButton) {
-		print( "In doControlButtonTouch" )
-		// Go to control spritekit view
-//		guard let nav = self.navigationController else { return }
-//		nav.popViewController( animated: true )
-	}
-	
 }

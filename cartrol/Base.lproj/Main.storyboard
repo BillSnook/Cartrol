@@ -81,7 +81,6 @@
                                         </constraints>
                                         <state key="normal" title="Control"/>
                                         <connections>
-                                            <action selector="doControlButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMM-hC-nQB"/>
                                             <segue destination="De8-Pz-ViW" kind="show" identifier="toRemotePage" id="R5J-tA-RQd"/>
                                         </connections>
                                     </button>
