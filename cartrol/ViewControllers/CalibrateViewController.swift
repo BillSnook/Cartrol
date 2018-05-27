@@ -34,6 +34,10 @@ extension String {
 	@IBOutlet var leftOffsetTextField: UITextField!
 	@IBOutlet var rightOffsetTextField: UITextField!
 	
+	@IBOutlet var slowestButton: CTButton!
+	@IBOutlet var buildButton: CTButton!
+	@IBOutlet var fastestButton: CTButton!
+	
 	@IBOutlet var forwardButton: CTButton!
 	@IBOutlet var stopButton: CTButton!
 	@IBOutlet var reverseButton: CTButton!
@@ -291,6 +295,16 @@ extension String {
 		targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
 
+	@IBAction func doSlowestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
+	}
+	
+	
+	@IBAction func doBuildButtonTouch(_ sender: CTButton) {	// Not used yet
+	}
+	
+	@IBAction func doFastestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
+	}
+	
 	
 	@IBAction func doForwardButtonTouch(_ sender: CTButton) {
 		targetPort.sendPi( "g \(workingSpeedIndex)\n" )

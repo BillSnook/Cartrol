@@ -225,64 +225,6 @@
                                             <action selector="doIncrementSpeedIndex:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="gly-Yu-qVC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-2m-tUu" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="234" width="88" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="uJ9-qn-QmL"/>
-                                        </constraints>
-                                        <state key="normal" title="Forward"/>
-                                        <connections>
-                                            <action selector="doForwardButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="E9u-PM-SHd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-mY-rTy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="116" y="234" width="88" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="CrC-bS-okb"/>
-                                        </constraints>
-                                        <state key="normal" title="Stop"/>
-                                        <connections>
-                                            <action selector="doStopButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="PkH-0G-h2z"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-Me-Y6o" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="234" width="88" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="cYg-mz-HCJ"/>
-                                        </constraints>
-                                        <state key="normal" title="Reverse"/>
-                                        <connections>
-                                            <action selector="doReverseButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="mAE-jH-HAj"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-UG-qtZ">
-                                        <rect key="frame" x="20" y="280" width="280" height="198"/>
-                                        <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="486" width="136" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Tos-Q1-FhO"/>
-                                        </constraints>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="doCancelButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="DrK-P4-Mhs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="164" y="486" width="136" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="s0S-tV-mTE"/>
-                                        </constraints>
-                                        <state key="normal" title="Confirm"/>
-                                        <connections>
-                                            <action selector="doConfirmButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="XiP-m3-xR5"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueu-Qp-e1v">
                                         <rect key="frame" x="20" y="68" width="280" height="50"/>
                                         <subviews>
@@ -454,44 +396,165 @@
                                             <constraint firstItem="4n8-2Q-HHl" firstAttribute="centerY" secondItem="RNg-7Q-k5I" secondAttribute="centerY" id="zVB-5c-foE"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSp-SS-6Xa">
+                                        <rect key="frame" x="20" y="214" width="280" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-2m-tUu" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="10" width="110.5" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="uJ9-qn-QmL"/>
+                                                </constraints>
+                                                <state key="normal" title="Set Forward"/>
+                                                <connections>
+                                                    <action selector="doSlowestButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="E1U-Su-x9J"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-mY-rTy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="118.5" y="10" width="43" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="CrC-bS-okb"/>
+                                                </constraints>
+                                                <state key="normal" title=" Build "/>
+                                                <connections>
+                                                    <action selector="doBuildButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="ND1-Nz-QEL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-Me-Y6o" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="169.5" y="10" width="110.5" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="cYg-mz-HCJ"/>
+                                                </constraints>
+                                                <state key="normal" title="Set Reverse"/>
+                                                <connections>
+                                                    <action selector="doFastestButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="HJj-Lv-omW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="uAo-mY-rTy" firstAttribute="top" secondItem="KSp-SS-6Xa" secondAttribute="top" constant="10" id="0xc-6q-uwe"/>
+                                            <constraint firstItem="MOQ-Me-Y6o" firstAttribute="leading" secondItem="uAo-mY-rTy" secondAttribute="trailing" constant="8" id="9aH-1O-6h1"/>
+                                            <constraint firstItem="uAo-mY-rTy" firstAttribute="centerY" secondItem="rmf-2m-tUu" secondAttribute="centerY" id="9eU-9J-4df"/>
+                                            <constraint firstAttribute="height" constant="50" id="9mi-Z1-3LO"/>
+                                            <constraint firstAttribute="trailing" secondItem="MOQ-Me-Y6o" secondAttribute="trailing" id="G15-KN-Cyg"/>
+                                            <constraint firstItem="uAo-mY-rTy" firstAttribute="centerX" secondItem="KSp-SS-6Xa" secondAttribute="centerX" id="LZ8-Zo-XOK"/>
+                                            <constraint firstItem="rmf-2m-tUu" firstAttribute="leading" secondItem="KSp-SS-6Xa" secondAttribute="leading" id="kmp-Bc-fZb"/>
+                                            <constraint firstItem="MOQ-Me-Y6o" firstAttribute="centerY" secondItem="rmf-2m-tUu" secondAttribute="centerY" id="pfe-Ud-Gi4"/>
+                                            <constraint firstItem="MOQ-Me-Y6o" firstAttribute="width" secondItem="rmf-2m-tUu" secondAttribute="width" id="qMH-87-7CW"/>
+                                            <constraint firstItem="uAo-mY-rTy" firstAttribute="leading" secondItem="rmf-2m-tUu" secondAttribute="trailing" constant="8" id="rIQ-SQ-nPL"/>
+                                        </constraints>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-UG-qtZ">
+                                        <rect key="frame" x="20" y="309" width="280" height="169"/>
+                                        <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="486" width="136" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Tos-Q1-FhO"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="doCancelButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="DrK-P4-Mhs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="164" y="486" width="136" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="s0S-tV-mTE"/>
+                                        </constraints>
+                                        <state key="normal" title="Confirm"/>
+                                        <connections>
+                                            <action selector="doConfirmButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="XiP-m3-xR5"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-I4-Fqr">
+                                        <rect key="frame" x="20" y="259" width="280" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF6-ZY-2wy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="10" width="88" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="zp3-UF-sYq"/>
+                                                </constraints>
+                                                <state key="normal" title="Forward"/>
+                                                <connections>
+                                                    <action selector="doForwardButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="Ma7-JJ-Bl6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x0-UG-ztS" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="96" y="10" width="88" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="g8G-S0-HHC"/>
+                                                </constraints>
+                                                <state key="normal" title="Stop"/>
+                                                <connections>
+                                                    <action selector="doStopButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="tPB-Gn-iRf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6M-nh-yaU" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="10" width="88" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="7Ru-e2-apL"/>
+                                                </constraints>
+                                                <state key="normal" title="Reverse"/>
+                                                <connections>
+                                                    <action selector="doReverseButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="EdJ-A4-S8w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="1x0-UG-ztS" firstAttribute="centerY" secondItem="ZF6-ZY-2wy" secondAttribute="centerY" id="2NM-d9-hrC"/>
+                                            <constraint firstItem="1x0-UG-ztS" firstAttribute="top" secondItem="jqv-I4-Fqr" secondAttribute="top" constant="10" id="3Hx-c0-v5L"/>
+                                            <constraint firstAttribute="height" constant="50" id="9bt-v7-wVP"/>
+                                            <constraint firstItem="1x0-UG-ztS" firstAttribute="width" secondItem="ZF6-ZY-2wy" secondAttribute="width" id="FlW-MM-3Ib"/>
+                                            <constraint firstItem="1x0-UG-ztS" firstAttribute="leading" secondItem="ZF6-ZY-2wy" secondAttribute="trailing" constant="8" id="JdL-1w-uar"/>
+                                            <constraint firstItem="1x0-UG-ztS" firstAttribute="centerX" secondItem="jqv-I4-Fqr" secondAttribute="centerX" id="QZB-0m-c73"/>
+                                            <constraint firstAttribute="trailing" secondItem="n6M-nh-yaU" secondAttribute="trailing" id="R2F-MK-NI8"/>
+                                            <constraint firstItem="n6M-nh-yaU" firstAttribute="centerY" secondItem="ZF6-ZY-2wy" secondAttribute="centerY" id="WFF-LI-ZcY"/>
+                                            <constraint firstItem="n6M-nh-yaU" firstAttribute="leading" secondItem="1x0-UG-ztS" secondAttribute="trailing" constant="8" id="b5j-If-bsx"/>
+                                            <constraint firstItem="n6M-nh-yaU" firstAttribute="width" secondItem="ZF6-ZY-2wy" secondAttribute="width" id="rWt-Pg-1cZ"/>
+                                            <constraint firstItem="ZF6-ZY-2wy" firstAttribute="leading" secondItem="jqv-I4-Fqr" secondAttribute="leading" id="td3-kR-1lQ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="wbk-UG-qtZ" secondAttribute="bottom" constant="46" id="1Lk-l9-Od4"/>
                                     <constraint firstItem="QwW-m4-10d" firstAttribute="top" secondItem="pBV-Ck-5SN" secondAttribute="bottom" constant="9" id="1b9-tm-zeP"/>
-                                    <constraint firstItem="MOQ-Me-Y6o" firstAttribute="centerY" secondItem="rmf-2m-tUu" secondAttribute="centerY" id="3fQ-ii-A2T"/>
-                                    <constraint firstItem="uAo-mY-rTy" firstAttribute="width" secondItem="rmf-2m-tUu" secondAttribute="width" id="3fl-GN-NcW"/>
                                     <constraint firstItem="wbk-UG-qtZ" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="4wJ-4R-16r"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="30" id="5eR-hm-QQC"/>
                                     <constraint firstAttribute="trailing" secondItem="bPw-wh-MIL" secondAttribute="trailing" constant="20" id="7J5-Pb-ZSr"/>
                                     <constraint firstAttribute="trailing" secondItem="ueu-Qp-e1v" secondAttribute="trailing" constant="20" id="8p3-Ec-AtO"/>
                                     <constraint firstItem="a5q-EU-vqq" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="bottom" constant="8" id="9bT-Qo-AjF"/>
                                     <constraint firstAttribute="bottom" secondItem="E7Y-Yd-0YR" secondAttribute="bottom" constant="8" id="AzV-tu-t20"/>
-                                    <constraint firstItem="uAo-mY-rTy" firstAttribute="leading" secondItem="rmf-2m-tUu" secondAttribute="trailing" constant="8" id="Ez7-dQ-wMC"/>
+                                    <constraint firstAttribute="trailing" secondItem="jqv-I4-Fqr" secondAttribute="trailing" constant="20" id="EF7-OA-ZRj"/>
                                     <constraint firstItem="pBV-Ck-5SN" firstAttribute="centerX" secondItem="qKz-fe-j48" secondAttribute="centerX" id="Fxn-bd-Ezf"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="leading" secondItem="QwW-m4-10d" secondAttribute="trailing" constant="8" id="GmI-Vc-9P2"/>
                                     <constraint firstItem="bPw-wh-MIL" firstAttribute="width" secondItem="E7Y-Yd-0YR" secondAttribute="width" id="H2u-n9-GX0"/>
+                                    <constraint firstItem="wbk-UG-qtZ" firstAttribute="top" secondItem="jqv-I4-Fqr" secondAttribute="bottom" id="K4R-G7-b6n"/>
                                     <constraint firstItem="ueu-Qp-e1v" firstAttribute="top" secondItem="QwW-m4-10d" secondAttribute="bottom" constant="8" id="K4S-cV-wLX"/>
                                     <constraint firstAttribute="trailing" secondItem="wbk-UG-qtZ" secondAttribute="trailing" constant="20" id="M4y-ii-zo9"/>
                                     <constraint firstItem="E7Y-Yd-0YR" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="Nqs-G8-I63"/>
                                     <constraint firstItem="bPw-wh-MIL" firstAttribute="leading" secondItem="E7Y-Yd-0YR" secondAttribute="trailing" constant="8" id="PAJ-Cg-S9Z"/>
                                     <constraint firstItem="a5q-EU-vqq" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="PDN-ms-Bby"/>
                                     <constraint firstAttribute="trailing" secondItem="a5q-EU-vqq" secondAttribute="trailing" constant="20" id="Ptg-IM-riG"/>
+                                    <constraint firstAttribute="trailing" secondItem="KSp-SS-6Xa" secondAttribute="trailing" constant="20" id="QYs-4d-V4l"/>
                                     <constraint firstAttribute="trailing" secondItem="bov-sk-OuR" secondAttribute="trailing" constant="20" id="RbR-MT-ZO0"/>
-                                    <constraint firstItem="wbk-UG-qtZ" firstAttribute="top" secondItem="uAo-mY-rTy" secondAttribute="bottom" constant="16" id="SLb-c7-ewa"/>
-                                    <constraint firstItem="uAo-mY-rTy" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="bottom" constant="20" id="aEY-gK-R9w"/>
-                                    <constraint firstItem="rmf-2m-tUu" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="dw2-zM-0NR"/>
-                                    <constraint firstItem="uAo-mY-rTy" firstAttribute="centerY" secondItem="rmf-2m-tUu" secondAttribute="centerY" id="fXc-KK-RYH"/>
+                                    <constraint firstItem="jqv-I4-Fqr" firstAttribute="top" secondItem="KSp-SS-6Xa" secondAttribute="bottom" constant="-5" id="dj2-0Q-02L"/>
                                     <constraint firstItem="N64-F4-ZuT" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="gQD-bd-anQ"/>
                                     <constraint firstItem="ueu-Qp-e1v" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="gRD-Y7-RaV"/>
-                                    <constraint firstItem="uAo-mY-rTy" firstAttribute="centerX" secondItem="qKz-fe-j48" secondAttribute="centerX" id="i9d-1L-vti"/>
                                     <constraint firstAttribute="bottom" secondItem="bPw-wh-MIL" secondAttribute="bottom" constant="8" id="idy-XS-v71"/>
                                     <constraint firstItem="N64-F4-ZuT" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="30" id="otg-ck-ZaE"/>
+                                    <constraint firstItem="KSp-SS-6Xa" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="bottom" id="rpA-Ja-5xB"/>
                                     <constraint firstItem="pBV-Ck-5SN" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" id="s3x-RT-GIY"/>
-                                    <constraint firstAttribute="trailing" secondItem="MOQ-Me-Y6o" secondAttribute="trailing" constant="20" id="sLm-j5-3XI"/>
+                                    <constraint firstItem="KSp-SS-6Xa" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="uz7-Z4-LCs"/>
+                                    <constraint firstItem="jqv-I4-Fqr" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="wCq-4b-wEK"/>
                                     <constraint firstItem="QwW-m4-10d" firstAttribute="leading" secondItem="N64-F4-ZuT" secondAttribute="trailing" constant="8" id="yCC-IN-tH7"/>
-                                    <constraint firstItem="MOQ-Me-Y6o" firstAttribute="width" secondItem="rmf-2m-tUu" secondAttribute="width" id="zea-dZ-Gcq"/>
-                                    <constraint firstItem="MOQ-Me-Y6o" firstAttribute="leading" secondItem="uAo-mY-rTy" secondAttribute="trailing" constant="8" id="zqU-kG-vLv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -505,25 +568,28 @@
                         <viewLayoutGuide key="safeArea" id="C48-Xk-o41"/>
                     </view>
                     <connections>
+                        <outlet property="buildButton" destination="uAo-mY-rTy" id="1wO-Y1-hbf"/>
                         <outlet property="cancelButton" destination="E7Y-Yd-0YR" id="djx-bI-quu"/>
                         <outlet property="confirmButton" destination="bPw-wh-MIL" id="PBF-DX-JFy"/>
-                        <outlet property="forwardButton" destination="rmf-2m-tUu" id="n2P-qJ-PCK"/>
+                        <outlet property="fastestButton" destination="MOQ-Me-Y6o" id="05d-I5-G6q"/>
+                        <outlet property="forwardButton" destination="ZF6-ZY-2wy" id="MFj-ij-8CV"/>
                         <outlet property="leftMotorSpeed" destination="qOu-q6-poh" id="U92-kt-ptP"/>
                         <outlet property="leftOffsetTextField" destination="4n8-2Q-HHl" id="zwR-av-DNm"/>
                         <outlet property="leftStepper" destination="RNg-7Q-k5I" id="sMg-CI-bcf"/>
                         <outlet property="resetButton" destination="bod-0i-u96" id="JWI-74-Lq3"/>
                         <outlet property="responseTextView" destination="wbk-UG-qtZ" id="Try-ae-7x0"/>
-                        <outlet property="reverseButton" destination="MOQ-Me-Y6o" id="qbW-HQ-0jf"/>
+                        <outlet property="reverseButton" destination="n6M-nh-yaU" id="kkI-Ow-wC4"/>
                         <outlet property="rightMotorSpeed" destination="M4S-Gd-eYT" id="Qd6-tP-CG6"/>
                         <outlet property="rightOffsetTextField" destination="BcU-LZ-EEr" id="woO-xO-eg2"/>
                         <outlet property="rightStepper" destination="IIH-8d-3AA" id="3eP-67-1F0"/>
                         <outlet property="saveButton" destination="E8P-Dg-IL6" id="GrA-C3-9b0"/>
                         <outlet property="showButton" destination="kDf-0l-oyc" id="jdE-eR-2fB"/>
+                        <outlet property="slowestButton" destination="rmf-2m-tUu" id="pIy-Ka-Nud"/>
                         <outlet property="speedButton" destination="d3T-9O-ugq" id="0Vr-pd-5Lg"/>
                         <outlet property="speedIndexDecrementButton" destination="N64-F4-ZuT" id="UQ8-9p-zp1"/>
                         <outlet property="speedIndexIncrementButton" destination="bov-sk-OuR" id="5bt-Od-QFx"/>
                         <outlet property="speedSlider" destination="QwW-m4-10d" id="nB6-62-qAD"/>
-                        <outlet property="stopButton" destination="uAo-mY-rTy" id="s7j-Kj-kF7"/>
+                        <outlet property="stopButton" destination="1x0-UG-ztS" id="pJZ-gc-1zb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb7-ac-J8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
