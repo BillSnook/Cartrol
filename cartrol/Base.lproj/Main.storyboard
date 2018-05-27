@@ -381,15 +381,6 @@
                                                     <action selector="rightOffsetValueSet:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="qOr-Xu-qbe"/>
                                                 </connections>
                                             </slider>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IIH-8d-3AA">
-                                                <rect key="frame" x="186" y="54" width="94" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="wZf-eB-lbj"/>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="rightOffsetStepperChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="d4j-3s-ch5"/>
-                                                </connections>
-                                            </stepper>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="RNg-7Q-k5I">
                                                 <rect key="frame" x="0.0" y="54" width="94" height="29"/>
                                                 <constraints>
@@ -399,46 +390,68 @@
                                                     <action selector="leftOffsetStepperChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="7lf-mJ-uFv"/>
                                                 </connections>
                                             </stepper>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z93-1Y-h1b">
-                                                <rect key="frame" x="100" y="53" width="38" height="30"/>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IIH-8d-3AA">
+                                                <rect key="frame" x="186" y="54" width="94" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="wZf-eB-lbj"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="rightOffsetStepperChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="d4j-3s-ch5"/>
+                                                </connections>
+                                            </stepper>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9999" borderStyle="roundedRect" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-2Q-HHl">
+                                                <rect key="frame" x="100" y="53" width="36" height="30"/>
                                                 <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="OFv-BA-D4c"/>
+                                                    <constraint firstAttribute="height" constant="30" id="FSx-iF-TUu"/>
                                                 </constraints>
-                                                <state key="normal" title="0"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-kZ-Dou">
-                                                <rect key="frame" x="142" y="53" width="38" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="qXb-Qq-Vgb" id="ri5-My-5kr"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9999" borderStyle="roundedRect" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-LZ-EEr">
+                                                <rect key="frame" x="144" y="53" width="36" height="30"/>
                                                 <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Bsz-gM-oOU"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Zhi-56-MKs"/>
                                                 </constraints>
-                                                <state key="normal" title="0"/>
-                                            </button>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="qXb-Qq-Vgb" id="GyI-eW-The"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="qOu-q6-poh" firstAttribute="leading" secondItem="a5q-EU-vqq" secondAttribute="leading" id="1oA-pp-wqe"/>
+                                            <constraint firstItem="4n8-2Q-HHl" firstAttribute="leading" secondItem="RNg-7Q-k5I" secondAttribute="trailing" priority="750" constant="6" id="2tN-Cq-9jr"/>
+                                            <constraint firstItem="4n8-2Q-HHl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RNg-7Q-k5I" secondAttribute="trailing" constant="2" id="3Dn-Ht-dDb"/>
                                             <constraint firstItem="RNg-7Q-k5I" firstAttribute="leading" secondItem="a5q-EU-vqq" secondAttribute="leading" id="3KK-H3-a2R"/>
                                             <constraint firstAttribute="height" constant="88" id="4cO-Xi-oCH"/>
-                                            <constraint firstItem="yhp-kZ-Dou" firstAttribute="width" secondItem="z93-1Y-h1b" secondAttribute="width" id="5ep-ek-m04"/>
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="6" id="7ug-9M-eed"/>
+                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="centerY" secondItem="IIH-8d-3AA" secondAttribute="centerY" id="C7P-2j-1Qk"/>
                                             <constraint firstItem="RNg-7Q-k5I" firstAttribute="top" secondItem="qOu-q6-poh" secondAttribute="bottom" constant="18" id="LLk-Bf-BuB"/>
+                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="leading" secondItem="4n8-2Q-HHl" secondAttribute="trailing" priority="750" constant="8" id="RUb-Vr-BEf"/>
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="centerY" secondItem="qOu-q6-poh" secondAttribute="centerY" id="TJr-hC-50d"/>
                                             <constraint firstItem="V4V-Zy-Lz1" firstAttribute="centerX" secondItem="a5q-EU-vqq" secondAttribute="centerX" id="U39-mj-EdS"/>
+                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4n8-2Q-HHl" secondAttribute="trailing" constant="2" id="Wio-cm-Qxu"/>
                                             <constraint firstItem="qOu-q6-poh" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="6" id="aKj-65-Mlu"/>
                                             <constraint firstItem="V4V-Zy-Lz1" firstAttribute="leading" secondItem="qOu-q6-poh" secondAttribute="trailing" constant="8" id="b2f-6D-D6W"/>
-                                            <constraint firstItem="z93-1Y-h1b" firstAttribute="leading" secondItem="RNg-7Q-k5I" secondAttribute="trailing" constant="6" id="dVC-0B-Rjn"/>
-                                            <constraint firstItem="IIH-8d-3AA" firstAttribute="leading" secondItem="yhp-kZ-Dou" secondAttribute="trailing" constant="6" id="e7W-Ql-luE"/>
+                                            <constraint firstItem="IIH-8d-3AA" firstAttribute="leading" secondItem="BcU-LZ-EEr" secondAttribute="trailing" constant="6" id="cAR-ko-iGJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="IIH-8d-3AA" secondAttribute="trailing" id="dPb-U6-2Ye"/>
                                             <constraint firstItem="IIH-8d-3AA" firstAttribute="top" secondItem="M4S-Gd-eYT" secondAttribute="bottom" constant="18" id="erU-bj-hB8"/>
                                             <constraint firstItem="IIH-8d-3AA" firstAttribute="centerY" secondItem="RNg-7Q-k5I" secondAttribute="centerY" id="f2Y-HQ-q09"/>
-                                            <constraint firstItem="yhp-kZ-Dou" firstAttribute="leading" secondItem="z93-1Y-h1b" secondAttribute="trailing" constant="4" id="fRq-RZ-GMw"/>
-                                            <constraint firstItem="yhp-kZ-Dou" firstAttribute="centerY" secondItem="RNg-7Q-k5I" secondAttribute="centerY" id="mz5-B4-pIZ"/>
-                                            <constraint firstItem="z93-1Y-h1b" firstAttribute="centerY" secondItem="RNg-7Q-k5I" secondAttribute="centerY" id="sQ0-C8-5By"/>
+                                            <constraint firstItem="IIH-8d-3AA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BcU-LZ-EEr" secondAttribute="trailing" constant="2" id="mhI-ky-8UL"/>
                                             <constraint firstItem="V4V-Zy-Lz1" firstAttribute="centerY" secondItem="qOu-q6-poh" secondAttribute="centerY" id="suK-u0-Ceo"/>
+                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="width" secondItem="4n8-2Q-HHl" secondAttribute="width" id="tx9-Gb-Xgh"/>
                                             <constraint firstAttribute="trailing" secondItem="M4S-Gd-eYT" secondAttribute="trailing" id="wTn-Sm-96D"/>
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="leading" secondItem="V4V-Zy-Lz1" secondAttribute="trailing" constant="8" id="xHG-J2-Wus"/>
-                                            <constraint firstAttribute="trailing" secondItem="IIH-8d-3AA" secondAttribute="trailing" id="yJQ-B6-xSX"/>
+                                            <constraint firstItem="4n8-2Q-HHl" firstAttribute="centerY" secondItem="RNg-7Q-k5I" secondAttribute="centerY" id="zVB-5c-foE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -496,13 +509,13 @@
                         <outlet property="confirmButton" destination="bPw-wh-MIL" id="PBF-DX-JFy"/>
                         <outlet property="forwardButton" destination="rmf-2m-tUu" id="n2P-qJ-PCK"/>
                         <outlet property="leftMotorSpeed" destination="qOu-q6-poh" id="U92-kt-ptP"/>
-                        <outlet property="leftOffsetButton" destination="z93-1Y-h1b" id="rPl-P9-uRy"/>
+                        <outlet property="leftOffsetTextField" destination="4n8-2Q-HHl" id="zwR-av-DNm"/>
                         <outlet property="leftStepper" destination="RNg-7Q-k5I" id="sMg-CI-bcf"/>
                         <outlet property="resetButton" destination="bod-0i-u96" id="JWI-74-Lq3"/>
                         <outlet property="responseTextView" destination="wbk-UG-qtZ" id="Try-ae-7x0"/>
                         <outlet property="reverseButton" destination="MOQ-Me-Y6o" id="qbW-HQ-0jf"/>
                         <outlet property="rightMotorSpeed" destination="M4S-Gd-eYT" id="Qd6-tP-CG6"/>
-                        <outlet property="rightOffsetButton" destination="yhp-kZ-Dou" id="6PY-t0-zkm"/>
+                        <outlet property="rightOffsetTextField" destination="BcU-LZ-EEr" id="woO-xO-eg2"/>
                         <outlet property="rightStepper" destination="IIH-8d-3AA" id="3eP-67-1F0"/>
                         <outlet property="saveButton" destination="E8P-Dg-IL6" id="GrA-C3-9b0"/>
                         <outlet property="showButton" destination="kDf-0l-oyc" id="jdE-eR-2fB"/>

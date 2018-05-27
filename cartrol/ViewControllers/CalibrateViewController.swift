@@ -15,7 +15,7 @@ extension String {
 	}
 }
 
-@objc class CalibrateViewController: UIViewController, CommandResponder {
+@objc class CalibrateViewController: UIViewController, CommandResponder, UITextFieldDelegate {
 	
 	@IBOutlet var speedSlider: UISlider!
 	@IBOutlet var speedIndexIncrementButton: UIButton!
@@ -31,8 +31,8 @@ extension String {
 	@IBOutlet var leftStepper: UIStepper!
 	@IBOutlet var rightStepper: UIStepper!
 	
-	@IBOutlet var leftOffsetButton: UIButton!
-	@IBOutlet var rightOffsetButton: UIButton!
+	@IBOutlet var leftOffsetTextField: UITextField!
+	@IBOutlet var rightOffsetTextField: UITextField!
 	
 	@IBOutlet var forwardButton: CTButton!
 	@IBOutlet var stopButton: CTButton!
@@ -54,6 +54,8 @@ extension String {
 	var workingSpeedIndex = 1
 	var workingSpeedLeft = 0
 	var workingSpeedRight = 0
+	
+	var savedText: String?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -74,7 +76,8 @@ extension String {
 		speedButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		
 		leftAdjust = adjustRange
-		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		leftOffsetTextField.text = String( leftAdjust )
+		leftOffsetTextField.adjustsFontSizeToFitWidth = true
 		leftMotorSpeed.minimumValue = Float(0)
 		leftMotorSpeed.maximumValue = Float(leftAdjust * 2)
 		leftMotorSpeed.value = Float( leftAdjust )
@@ -86,7 +89,8 @@ extension String {
 		leftStepper.isContinuous = false	// Continuous updates not wanted
 
 		rightAdjust = adjustRange
-		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		rightOffsetTextField.text = String( rightAdjust )
+		rightOffsetTextField.adjustsFontSizeToFitWidth = true
 		rightMotorSpeed.minimumValue = Float(0)
 		rightMotorSpeed.maximumValue = Float(rightAdjust * 2)
 		rightMotorSpeed.value = Float( rightAdjust )
@@ -115,7 +119,7 @@ extension String {
 		leftStepper.minimumValue = Double(newLeftValue - adjustRange)
 		leftStepper.maximumValue = Double(newLeftValue + adjustRange)
 		leftStepper.value = Double( newLeftValue )
-		leftOffsetButton.setTitle( "\(newLeftValue)", for: .normal )
+		leftOffsetTextField.text = String( newLeftValue )
 
 		rightMotorSpeed.minimumValue = Float(newRightValue - adjustRange)
 		rightMotorSpeed.maximumValue = Float(newRightValue + adjustRange)
@@ -123,7 +127,7 @@ extension String {
 		rightStepper.minimumValue = Double(newRightValue - adjustRange)
 		rightStepper.maximumValue = Double(newRightValue + adjustRange)
 		rightStepper.value = Double( newRightValue )
-		rightOffsetButton.setTitle( "\(newRightValue)", for: .normal )
+		rightOffsetTextField.text = String( newRightValue )
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -253,13 +257,13 @@ extension String {
 	@IBAction func leftOffsetValueChanged(_ sender: UISlider) {
 		leftAdjust = Int(sender.value)
 		leftStepper.value = Double( leftAdjust )
-		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		leftOffsetTextField.text = String( leftAdjust )
 	}
 	
 	@IBAction func rightOffsetValueChanged(_ sender: UISlider) {
 		rightAdjust = Int(sender.value)
 		rightStepper.value = Double( rightAdjust )
-		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		rightOffsetTextField.text = String( rightAdjust )
 	}
 	
 	// L/R slider touch up inside
@@ -276,14 +280,14 @@ extension String {
 	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
 		leftAdjust = Int(sender.value)
 		leftMotorSpeed.value = Float( leftAdjust )
-		leftOffsetButton.setTitle( "\(leftAdjust)", for: .normal )
+		leftOffsetTextField.text = String( leftAdjust )
 		targetPort.sendPi( "l \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
 		rightAdjust = Int(sender.value)
 		rightMotorSpeed.value = Float( rightAdjust )
-		rightOffsetButton.setTitle( "\(rightAdjust)", for: .normal )
+		rightOffsetTextField.text = String( rightAdjust )
 		targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
 
@@ -312,6 +316,40 @@ extension String {
 		// Check to save new speed table now
 		guard let nav = self.navigationController else { return }
 		nav.popViewController( animated: true )
+	}
+	
+	// MARK: UITextFieldDelegate
+	public func textFieldDidBeginEditing( _ textField: UITextField ) {
+		savedText = textField.text
+	}
+	
+	public func textFieldDidEndEditing( _ textField: UITextField ) {
+		guard let newText = textField.text,
+			let newNumber = Int( newText ) else {
+				textField.text = savedText
+				return
+		}
+		if textField == leftOffsetTextField {
+			if Float( newNumber ) > leftMotorSpeed.minimumValue && Float( newNumber ) < leftMotorSpeed.maximumValue {
+				leftMotorSpeed.value = Float( newNumber )
+				leftStepper.value = Double( newNumber )
+				targetPort.sendPi( "l \(newNumber)\n" )
+			} else {
+				textField.text = savedText
+			}
+		} else {
+			if Float( newNumber ) > rightMotorSpeed.minimumValue && Float( newNumber ) < rightMotorSpeed.maximumValue {
+				rightMotorSpeed.value = Float( newNumber )
+				rightStepper.value = Double( newNumber )
+				targetPort.sendPi( "k \(newNumber)\n" )
+			} else {
+				textField.text = savedText
+			}
+		}
+	}
+	
+	public func textFieldShouldReturn( _ textField: UITextField ) -> Bool {
+		return true
 	}
 	
 }
