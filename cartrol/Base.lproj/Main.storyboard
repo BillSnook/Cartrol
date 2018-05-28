@@ -341,28 +341,28 @@
                                                     <action selector="rightOffsetStepperChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="d4j-3s-ch5"/>
                                                 </connections>
                                             </stepper>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9999" borderStyle="roundedRect" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-2Q-HHl">
-                                                <rect key="frame" x="100" y="53" width="36" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-2Q-HHl">
+                                                <rect key="frame" x="100" y="53" width="37" height="30"/>
                                                 <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="FSx-iF-TUu"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="qXb-Qq-Vgb" id="ri5-My-5kr"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9999" borderStyle="roundedRect" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-LZ-EEr">
-                                                <rect key="frame" x="144" y="53" width="36" height="30"/>
+                                                <rect key="frame" x="143" y="53" width="37" height="30"/>
                                                 <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Zhi-56-MKs"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="qXb-Qq-Vgb" id="GyI-eW-The"/>
                                                 </connections>
@@ -378,7 +378,7 @@
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="top" constant="6" id="7ug-9M-eed"/>
                                             <constraint firstItem="BcU-LZ-EEr" firstAttribute="centerY" secondItem="IIH-8d-3AA" secondAttribute="centerY" id="C7P-2j-1Qk"/>
                                             <constraint firstItem="RNg-7Q-k5I" firstAttribute="top" secondItem="qOu-q6-poh" secondAttribute="bottom" constant="18" id="LLk-Bf-BuB"/>
-                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="leading" secondItem="4n8-2Q-HHl" secondAttribute="trailing" priority="750" constant="8" id="RUb-Vr-BEf"/>
+                                            <constraint firstItem="BcU-LZ-EEr" firstAttribute="leading" secondItem="4n8-2Q-HHl" secondAttribute="trailing" priority="750" constant="6" id="RUb-Vr-BEf"/>
                                             <constraint firstItem="M4S-Gd-eYT" firstAttribute="centerY" secondItem="qOu-q6-poh" secondAttribute="centerY" id="TJr-hC-50d"/>
                                             <constraint firstItem="V4V-Zy-Lz1" firstAttribute="centerX" secondItem="a5q-EU-vqq" secondAttribute="centerX" id="U39-mj-EdS"/>
                                             <constraint firstItem="BcU-LZ-EEr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4n8-2Q-HHl" secondAttribute="trailing" constant="2" id="Wio-cm-Qxu"/>

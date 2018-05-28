@@ -197,11 +197,11 @@ extension String {
 		case "i":
 			changedIndexButton( paramArray )
 		default:
-			if let oldMsg = responseTextView.text {
-				responseTextView.text = oldMsg + "\n" + msg
-			} else {
+//			if let oldMsg = responseTextView.text {
+//				responseTextView.text = oldMsg + "\n" + msg
+//			} else {
 				responseTextView.text = msg
-			}
+//			}
 		}
 	}
 	
@@ -343,26 +343,23 @@ extension String {
 				textField.text = savedText
 				return
 		}
-		if textField == leftOffsetTextField {
-			if Float( newNumber ) > leftMotorSpeed.minimumValue && Float( newNumber ) < leftMotorSpeed.maximumValue {
+		if newNumber >= 0 && newNumber <= 2500 {
+			if textField == leftOffsetTextField {
 				leftMotorSpeed.value = Float( newNumber )
 				leftStepper.value = Double( newNumber )
 				targetPort.sendPi( "l \(newNumber)\n" )
 			} else {
-				textField.text = savedText
-			}
-		} else {
-			if Float( newNumber ) > rightMotorSpeed.minimumValue && Float( newNumber ) < rightMotorSpeed.maximumValue {
 				rightMotorSpeed.value = Float( newNumber )
 				rightStepper.value = Double( newNumber )
 				targetPort.sendPi( "k \(newNumber)\n" )
-			} else {
-				textField.text = savedText
 			}
+		} else {
+			textField.text = savedText
 		}
 	}
 	
 	public func textFieldShouldReturn( _ textField: UITextField ) -> Bool {
+		textField.endEditing( false )
 		return true
 	}
 	
