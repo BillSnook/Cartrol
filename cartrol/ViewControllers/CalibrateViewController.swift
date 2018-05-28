@@ -296,6 +296,7 @@ extension String {
 	}
 
 	@IBAction func doSlowestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
+		targetPort.sendPi( "u\n" )
 	}
 	
 	
@@ -303,7 +304,8 @@ extension String {
 	}
 	
 	@IBAction func doFastestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
-	}
+		targetPort.sendPi( "v\n" )
+}
 	
 	
 	@IBAction func doForwardButtonTouch(_ sender: CTButton) {
