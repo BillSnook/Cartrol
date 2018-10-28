@@ -50,7 +50,7 @@ extension String {
 	var leftAdjust = 0
 	var rightAdjust = 0
 	
-	var speedMax = 8				// Same as SPEED_ARRAY
+	var speedMax = 8				// Same as SPEED_ARRAY - 1
 //	var adjustMaxValueLeft = 256
 //	var adjustMaxValueRight = 256
 	var adjustRange = 128
