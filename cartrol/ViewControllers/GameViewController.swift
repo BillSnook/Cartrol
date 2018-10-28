@@ -66,7 +66,7 @@ class GameViewController: UIViewController {
 		print( "In handleSceneTap" )
 
 		guard let nav = self.navigationController else { return }
-		nav.popViewController( animated: true )
+		nav.popViewController( animated: true )	// Temp until then
 
 	}
 

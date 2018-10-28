@@ -28,33 +28,33 @@ class ConnectViewController: UIViewController, CommandResponder {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		targetAddressTextField.text = "Saturn"
+		targetAddressTextField.text = "Develop31"
 		targetPort.setCommandResponder( self )
 		
-		print( "In viewDidLoad in ConnectViewController" )
+//		print( "In viewDidLoad in ConnectViewController" )
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 		
 		setupButtons()
-		print( "In viewWillAppear in ConnectViewController" )
+//		print( "In viewWillAppear in ConnectViewController" )
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
 		
-		print( "In viewDidAppear in ConnectViewController" )
+//		print( "In viewDidAppear in ConnectViewController" )
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		print( "In viewWillDisappear in ConnectViewController" )
+//		print( "In viewWillDisappear in ConnectViewController" )
 		
 		super.viewWillDisappear( animated )
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
-		print( "In viewDidDisappear in ConnectViewController" )
+//		print( "In viewDidDisappear in ConnectViewController" )
 		
 		super.viewDidDisappear( animated )
 	}
@@ -111,7 +111,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 			commandTextField.isHidden = true
 			clearButton.isHidden = true
 			calibrateButton.isHidden = true
-			controlButton.isHidden = true
+			controlButton.isHidden = false
 			responseDisplayTextView.isHidden = true
 		}
 	}
