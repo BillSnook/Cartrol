@@ -55,7 +55,7 @@ public class Sender {
 			print( "\nLookup failed for \(to)" )
 			return false
 		}
-		//		print( "\nFound target address: \(targetAddr!)" )
+		print( "\nFound target address: \(targetAddr)" )
 		
 		let result = doConnect( targetAddr, port: at )
 		guard result >= 0 else {
