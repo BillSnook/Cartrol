@@ -648,6 +648,9 @@
                                     <constraint firstAttribute="height" constant="100" id="6ee-IA-0dd"/>
                                     <constraint firstAttribute="width" constant="64" id="B3o-8W-Pi7"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="tlAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="t2J-8s-poG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEd-lO-Gnt" userLabel="TButton">
                                 <rect key="frame" x="128" y="126" width="64" height="100"/>
@@ -656,6 +659,9 @@
                                     <constraint firstAttribute="width" constant="64" id="4Hl-t0-ukt"/>
                                     <constraint firstAttribute="height" constant="100" id="H2h-Of-w6e"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="topAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="Z9R-UF-R59"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-pE-l96" userLabel="TRButton">
                                 <rect key="frame" x="200" y="126" width="64" height="100"/>
@@ -664,6 +670,9 @@
                                     <constraint firstAttribute="height" constant="100" id="JCQ-Sp-euv"/>
                                     <constraint firstAttribute="width" constant="64" id="i58-2d-tNz"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="trAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="clG-kp-qcs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qn5-0y-cF1" userLabel="LButton">
                                 <rect key="frame" x="56" y="234" width="64" height="100"/>
@@ -672,6 +681,9 @@
                                     <constraint firstAttribute="width" constant="64" id="rRQ-a5-eSa"/>
                                     <constraint firstAttribute="height" constant="100" id="siS-dO-Q3y"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="leftAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="ePc-Jt-aH7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAl-HQ-HOa" userLabel="RButton">
                                 <rect key="frame" x="200" y="234" width="64" height="100"/>
@@ -680,6 +692,9 @@
                                     <constraint firstAttribute="width" constant="64" id="3FN-0E-Xt1"/>
                                     <constraint firstAttribute="height" constant="100" id="r9Q-NI-PHt"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="rightAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="rXG-s3-MdP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y73-3m-of5" userLabel="BLButton">
                                 <rect key="frame" x="56" y="342" width="64" height="100"/>
@@ -688,6 +703,9 @@
                                     <constraint firstAttribute="width" constant="64" id="Lge-45-HmO"/>
                                     <constraint firstAttribute="height" constant="100" id="cfe-Cm-xer"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="blAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="OA8-bj-bZ9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkA-IE-Xsf" userLabel="BButton">
                                 <rect key="frame" x="128" y="342" width="64" height="100"/>
@@ -696,6 +714,9 @@
                                     <constraint firstAttribute="width" constant="64" id="TI1-YD-hVV"/>
                                     <constraint firstAttribute="height" constant="100" id="Vmn-Bs-9gf"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="bottomAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="Ug8-0V-Wmt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAl-ve-2LR" userLabel="BRButton">
                                 <rect key="frame" x="200" y="342" width="64" height="100"/>
@@ -704,6 +725,9 @@
                                     <constraint firstAttribute="width" constant="64" id="7yC-Aj-Fcr"/>
                                     <constraint firstAttribute="height" constant="100" id="kgB-nu-yjf"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="brAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="f44-mc-kHz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEf-Ow-JTo" userLabel="CenterButton">
                                 <rect key="frame" x="128" y="234" width="64" height="100"/>
@@ -711,6 +735,9 @@
                                     <constraint firstAttribute="width" constant="64" id="dgf-0a-SSl"/>
                                     <constraint firstAttribute="height" constant="100" id="k9f-Eu-dUn"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="centerAction:" destination="jGu-SE-yap" eventType="touchUpInside" id="zI6-xM-INF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
