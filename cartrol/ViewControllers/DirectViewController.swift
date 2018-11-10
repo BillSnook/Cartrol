@@ -40,63 +40,55 @@ class DirectViewController: UIViewController {
 	@IBAction func tlAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 2" )	// Left
-		targetPort.sendPi( "1 1 4" )	// Right
+		targetPort.sendPi( "A 0 3 0 5" )
 	}
 	
 	@IBAction func topAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 4" )	// Left
-		targetPort.sendPi( "1 1 4" )	// Right
+		targetPort.sendPi( "A 0 5 0 5" )
 	}
 
 	@IBAction func trAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 4" )	// Left
-		targetPort.sendPi( "1 1 2" )	// Right
+		targetPort.sendPi( "A 0 5 0 3" )
 	}
 
 	@IBAction func leftAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 0 3" )	// Left
-		targetPort.sendPi( "1 1 3" )	// Right
+		targetPort.sendPi( "A 1 4 0 4" )
 	}
 
 	@IBAction func centerAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "s" )
+		targetPort.sendPi( "A 0 0 0 0" )
 	}
 
 	@IBAction func rightAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 3" )	// Left
-		targetPort.sendPi( "1 0 3" )	// Right
+		targetPort.sendPi( "A 0 4 1 4" )
 	}
 
 	@IBAction func blAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 2" )	// Right
-		targetPort.sendPi( "1 1 4" )	// Right
+		targetPort.sendPi( "A 1 3 1 5" )
 	}
 
 	@IBAction func bottomAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 4" )	// Right
-		targetPort.sendPi( "1 1 4" )	// Right
+		targetPort.sendPi( "A 1 5 1 5" )
 	}
 
 	@IBAction func brAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "0 1 4" )	// Left
-		targetPort.sendPi( "1 1 2" )	// Right
+		targetPort.sendPi( "A 1 5 1 3" )
 	}
 
 }
