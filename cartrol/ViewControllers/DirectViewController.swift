@@ -37,6 +37,7 @@ class DirectViewController: UIViewController {
 		super.viewWillDisappear( animated )
 	}
 
+	// Inner controls
 	@IBAction func tlAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
@@ -91,4 +92,50 @@ class DirectViewController: UIViewController {
 		targetPort.sendPi( "A 1 5 1 3" )
 	}
 
+	@IBAction func ttllAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func ttlAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func ttAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 8 0 8" )
+	}
+	
+	@IBAction func ttrAction(_ sender: UIButton) {
+		targetPort.sendPi( "A 0 7 0 7" )
+	}
+	
+	@IBAction func ttrrAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func tllAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func trrAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bllAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func brrAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bbllAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bblAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bbAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bbrAction(_ sender: UIButton) {
+	}
+	
+	@IBAction func bbrrAction(_ sender: UIButton) {
+	}
+	
 }
