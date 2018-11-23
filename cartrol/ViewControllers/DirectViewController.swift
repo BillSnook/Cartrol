@@ -62,6 +62,12 @@ class DirectViewController: UIViewController {
 		targetPort.sendPi( "M 4" )
 	}
 	
+	@IBAction func huntAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "M 0" )	// Stop for now until hunt is ready
+	}
+	
 	// Inner controls
 	@IBAction func tlAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
@@ -117,10 +123,17 @@ class DirectViewController: UIViewController {
 		targetPort.sendPi( "A 1 5 1 3" )
 	}
 
+	// Outer group
 	@IBAction func ttllAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 3 0 6" )
 	}
 	
 	@IBAction func ttlAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 5 0 7" )
 	}
 	
 	@IBAction func ttAction(_ sender: UIButton) {
@@ -130,37 +143,69 @@ class DirectViewController: UIViewController {
 	}
 	
 	@IBAction func ttrAction(_ sender: UIButton) {
-		targetPort.sendPi( "A 0 7 0 7" )
+		guard isConnected else { print( "Not connected!" ); return }
+
+		targetPort.sendPi( "A 0 7 0 5" )
 	}
 	
 	@IBAction func ttrrAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 6 0 3" )
 	}
 	
 	@IBAction func tllAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 2 0 4" )
 	}
 	
 	@IBAction func trrAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 0 4 0 2" )
 	}
 	
 	@IBAction func bllAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 2 1 4" )
 	}
 	
 	@IBAction func brrAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 4 1 2" )
 	}
 	
 	@IBAction func bbllAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 3 1 6" )
 	}
 	
 	@IBAction func bblAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 5 1 7" )
 	}
 	
 	@IBAction func bbAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 8 1 8" )
 	}
 	
 	@IBAction func bbrAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 7 1 5" )
 	}
 	
 	@IBAction func bbrrAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "A 1 6 1 3" )
 	}
 	
 }
