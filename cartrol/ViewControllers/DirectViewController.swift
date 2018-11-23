@@ -37,6 +37,31 @@ class DirectViewController: UIViewController {
 		super.viewWillDisappear( animated )
 	}
 
+	// Scan controls
+	@IBAction func stopSonarAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "M 0" )
+	}
+	
+	@IBAction func scanAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "M 3" )
+	}
+	
+	@IBAction func sonarAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "M 5" )
+	}
+	
+	@IBAction func pingAction(_ sender: UIButton) {
+		guard isConnected else { print( "Not connected!" ); return }
+		
+		targetPort.sendPi( "M 4" )
+	}
+	
 	// Inner controls
 	@IBAction func tlAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
