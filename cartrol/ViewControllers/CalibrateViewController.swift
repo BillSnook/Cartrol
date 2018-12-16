@@ -17,17 +17,17 @@ extension String {
 
 @objc class CalibrateViewController: UIViewController, CommandResponder, UITextFieldDelegate {
 	
-	@IBOutlet var speedSlider: UISlider!
+	@IBOutlet var speedIndexSlider: UISlider!
 	@IBOutlet var speedIndexIncrementButton: UIButton!
 	@IBOutlet var speedIndexDecrementButton: UIButton!
-	@IBOutlet var speedButton: UIButton!
+	@IBOutlet var speedIndexButton: UIButton!
 	@IBOutlet var saveButton: CTButton!
 	@IBOutlet var showButton: CTButton!
 	@IBOutlet var resetButton: CTButton!
 	
-	@IBOutlet var leftMotorSpeed: UISlider!
-	@IBOutlet var rightMotorSpeed: UISlider!
-
+	@IBOutlet var leftMotorSpeedSlider: UISlider!
+	@IBOutlet weak var rightMotorSpeedSlider: UISlider!
+	
 	@IBOutlet var leftStepper: UIStepper!
 	@IBOutlet var rightStepper: UIStepper!
 	
@@ -73,19 +73,19 @@ extension String {
 	
 	public func setupInitialControls() {
 		workingSpeedIndex = 1
-		speedSlider.value = Float( workingSpeedIndex )
-		speedSlider.minimumValue = Float(-speedMax + 1)
-		speedSlider.maximumValue = Float(speedMax - 1)
-		speedSlider.isContinuous = false	// Continuous updates not wanted
-		speedButton.setTitle( "\(workingSpeedIndex)", for: .normal )
+		speedIndexSlider.value = Float( workingSpeedIndex )
+		speedIndexSlider.minimumValue = Float(-speedMax + 1)
+		speedIndexSlider.maximumValue = Float(speedMax - 1)
+		speedIndexSlider.isContinuous = false	// Continuous updates not wanted
+		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		
 		leftAdjust = adjustRange
 		leftOffsetTextField.text = String( leftAdjust )
 		leftOffsetTextField.adjustsFontSizeToFitWidth = true
-		leftMotorSpeed.minimumValue = Float(0)
-		leftMotorSpeed.maximumValue = Float(leftAdjust * 2)
-		leftMotorSpeed.value = Float( leftAdjust )
-//		leftMotorSpeed.isContinuous = false	// Continuous updates not wanted
+		leftMotorSpeedSlider.minimumValue = Float(0)
+		leftMotorSpeedSlider.maximumValue = Float(leftAdjust * 2)
+		leftMotorSpeedSlider.value = Float( leftAdjust )
+//		leftMotorSpeedSlider.isContinuous = false	// Continuous updates not wanted
 		leftStepper.minimumValue = Double(0)
 		leftStepper.maximumValue = Double(leftAdjust * 2)
 		leftStepper.stepValue = Double( 8 )
@@ -95,10 +95,10 @@ extension String {
 		rightAdjust = adjustRange
 		rightOffsetTextField.text = String( rightAdjust )
 		rightOffsetTextField.adjustsFontSizeToFitWidth = true
-		rightMotorSpeed.minimumValue = Float(0)
-		rightMotorSpeed.maximumValue = Float(rightAdjust * 2)
-		rightMotorSpeed.value = Float( rightAdjust )
-//		rightMotorSpeed.isContinuous = false	// Continuous updates not wanted
+		rightMotorSpeedSlider.minimumValue = Float(0)
+		rightMotorSpeedSlider.maximumValue = Float(rightAdjust * 2)
+		rightMotorSpeedSlider.value = Float( rightAdjust )
+//		rightMotorSpeedSlider.isContinuous = false	// Continuous updates not wanted
 		rightStepper.minimumValue = Double(0)
 		rightStepper.maximumValue = Double(rightAdjust * 2)
 		rightStepper.stepValue = Double( 8 )
@@ -114,20 +114,20 @@ extension String {
 		workingSpeedIndex = newSpeedIndex
 		workingSpeedLeft = newLeftValue
 		workingSpeedRight = newRightValue
-		speedSlider.value = Float( newSpeedIndex )
-		speedButton.setTitle( "\(newSpeedIndex)", for: .normal )
+		speedIndexSlider.value = Float( newSpeedIndex )
+		speedIndexButton.setTitle( "\(newSpeedIndex)", for: .normal )
 		
-		leftMotorSpeed.minimumValue = Float(newLeftValue - adjustRange)
-		leftMotorSpeed.maximumValue = Float(newLeftValue + adjustRange)
-		leftMotorSpeed.value = Float( newLeftValue )
+		leftMotorSpeedSlider.minimumValue = Float(newLeftValue - adjustRange)
+		leftMotorSpeedSlider.maximumValue = Float(newLeftValue + adjustRange)
+		leftMotorSpeedSlider.value = Float( newLeftValue )
 		leftStepper.minimumValue = Double(newLeftValue - adjustRange)
 		leftStepper.maximumValue = Double(newLeftValue + adjustRange)
 		leftStepper.value = Double( newLeftValue )
 		leftOffsetTextField.text = String( newLeftValue )
 
-		rightMotorSpeed.minimumValue = Float(newRightValue - adjustRange)
-		rightMotorSpeed.maximumValue = Float(newRightValue + adjustRange)
-		rightMotorSpeed.value = Float( newRightValue )
+		rightMotorSpeedSlider.minimumValue = Float(newRightValue - adjustRange)
+		rightMotorSpeedSlider.maximumValue = Float(newRightValue + adjustRange)
+		rightMotorSpeedSlider.value = Float( newRightValue )
 		rightStepper.minimumValue = Double(newRightValue - adjustRange)
 		rightStepper.maximumValue = Double(newRightValue + adjustRange)
 		rightStepper.value = Double( newRightValue )
@@ -215,7 +215,7 @@ extension String {
 		if ( workingSpeedIndex >= speedMax ) {
 			workingSpeedIndex = speedMax - 1
 		}
-		speedButton.setTitle( "\(workingSpeedIndex)", for: .normal )
+		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
@@ -225,8 +225,8 @@ extension String {
 		if ( workingSpeedIndex <= -speedMax ) {
 			workingSpeedIndex = -speedMax + 1
 		}
-		speedSlider.value = Float(workingSpeedIndex)
-		speedButton.setTitle( "\(workingSpeedIndex)", for: .normal )
+		speedIndexSlider.value = Float(workingSpeedIndex)
+		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
@@ -235,8 +235,8 @@ extension String {
 		if ( workingSpeedIndex >= speedMax ) {
 			workingSpeedIndex = speedMax - 1
 		}
-		speedSlider.value = Float(workingSpeedIndex)
-		speedButton.setTitle( "\(workingSpeedIndex)", for: .normal )
+		speedIndexSlider.value = Float(workingSpeedIndex)
+		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
@@ -283,14 +283,14 @@ extension String {
 	
 	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
 		leftAdjust = Int(sender.value)
-		leftMotorSpeed.value = Float( leftAdjust )
+		leftMotorSpeedSlider.value = Float( leftAdjust )
 		leftOffsetTextField.text = String( leftAdjust )
 		targetPort.sendPi( "l \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
 		rightAdjust = Int(sender.value)
-		rightMotorSpeed.value = Float( rightAdjust )
+		rightMotorSpeedSlider.value = Float( rightAdjust )
 		rightOffsetTextField.text = String( rightAdjust )
 		targetPort.sendPi( "k \(rightAdjust)\n" )
 	}
@@ -341,22 +341,19 @@ extension String {
 	
 	public func textFieldDidEndEditing( _ textField: UITextField ) {
 		guard let newText = textField.text,
-			let newNumber = Int( newText ) else {
+			let newNumber = Int( newText ),
+			newNumber >= 0 && newNumber <= 4096 else {
 				textField.text = savedText
 				return
 		}
-		if newNumber >= 0 && newNumber <= 2500 {
-			if textField == leftOffsetTextField {
-				leftMotorSpeed.value = Float( newNumber )
-				leftStepper.value = Double( newNumber )
-				targetPort.sendPi( "l \(newNumber)\n" )
-			} else {
-				rightMotorSpeed.value = Float( newNumber )
-				rightStepper.value = Double( newNumber )
-				targetPort.sendPi( "k \(newNumber)\n" )
-			}
+		if textField == leftOffsetTextField {
+			leftMotorSpeedSlider.value = Float( newNumber )
+			leftStepper.value = Double( newNumber )
+			targetPort.sendPi( "l \(newNumber)\n" )
 		} else {
-			textField.text = savedText
+			rightMotorSpeedSlider.value = Float( newNumber )
+			rightStepper.value = Double( newNumber )
+			targetPort.sendPi( "k \(newNumber)\n" )
 		}
 	}
 	

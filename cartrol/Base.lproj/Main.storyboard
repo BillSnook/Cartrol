@@ -364,7 +364,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="qXb-Qq-Vgb" id="ri5-My-5kr"/>
                                                 </connections>
@@ -377,7 +377,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="qXb-Qq-Vgb" id="GyI-eW-The"/>
                                                 </connections>
@@ -588,22 +588,22 @@
                         <outlet property="confirmButton" destination="bPw-wh-MIL" id="PBF-DX-JFy"/>
                         <outlet property="fastestButton" destination="MOQ-Me-Y6o" id="05d-I5-G6q"/>
                         <outlet property="forwardButton" destination="ZF6-ZY-2wy" id="MFj-ij-8CV"/>
-                        <outlet property="leftMotorSpeed" destination="qOu-q6-poh" id="U92-kt-ptP"/>
+                        <outlet property="leftMotorSpeedSlider" destination="qOu-q6-poh" id="HGY-xa-N1r"/>
                         <outlet property="leftOffsetTextField" destination="4n8-2Q-HHl" id="zwR-av-DNm"/>
                         <outlet property="leftStepper" destination="RNg-7Q-k5I" id="sMg-CI-bcf"/>
                         <outlet property="resetButton" destination="bod-0i-u96" id="JWI-74-Lq3"/>
                         <outlet property="responseTextView" destination="wbk-UG-qtZ" id="Try-ae-7x0"/>
                         <outlet property="reverseButton" destination="n6M-nh-yaU" id="kkI-Ow-wC4"/>
-                        <outlet property="rightMotorSpeed" destination="M4S-Gd-eYT" id="Qd6-tP-CG6"/>
+                        <outlet property="rightMotorSpeedSlider" destination="M4S-Gd-eYT" id="dgi-Qp-6lC"/>
                         <outlet property="rightOffsetTextField" destination="BcU-LZ-EEr" id="woO-xO-eg2"/>
                         <outlet property="rightStepper" destination="IIH-8d-3AA" id="3eP-67-1F0"/>
                         <outlet property="saveButton" destination="E8P-Dg-IL6" id="GrA-C3-9b0"/>
                         <outlet property="showButton" destination="kDf-0l-oyc" id="jdE-eR-2fB"/>
                         <outlet property="slowestButton" destination="rmf-2m-tUu" id="pIy-Ka-Nud"/>
-                        <outlet property="speedButton" destination="d3T-9O-ugq" id="0Vr-pd-5Lg"/>
+                        <outlet property="speedIndexButton" destination="d3T-9O-ugq" id="V4W-Ev-ws5"/>
                         <outlet property="speedIndexDecrementButton" destination="N64-F4-ZuT" id="UQ8-9p-zp1"/>
                         <outlet property="speedIndexIncrementButton" destination="bov-sk-OuR" id="5bt-Od-QFx"/>
-                        <outlet property="speedSlider" destination="QwW-m4-10d" id="nB6-62-qAD"/>
+                        <outlet property="speedIndexSlider" destination="QwW-m4-10d" id="A3J-Kb-Mxn"/>
                         <outlet property="stopButton" destination="1x0-UG-ztS" id="pJZ-gc-1zb"/>
                     </connections>
                 </viewController>
