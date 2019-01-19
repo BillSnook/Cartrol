@@ -28,7 +28,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		targetAddressTextField.text = "Develop31"
+		targetAddressTextField.text = "Develop32"
 		targetPort.setCommandResponder( self )
 		
 //		print( "In viewDidLoad in ConnectViewController" )
