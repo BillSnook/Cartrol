@@ -179,7 +179,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 	@IBAction func doTestRange(_ sender: Any) {
 
 		targetPort.sendPi( "C" )
-		usleep( 1000 )
+		usleep( 10000 )
 		targetPort.sendPi( "D" )
 	}
 }
