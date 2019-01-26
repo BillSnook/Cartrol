@@ -55,6 +55,7 @@
                                         <rect key="frame" x="212" y="132" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="Kse-ly-wPd"/>
                                             <constraint firstAttribute="height" constant="30" id="VPq-mq-Lmp"/>
                                         </constraints>
                                         <state key="normal" title="Clear"/>
@@ -66,6 +67,7 @@
                                         <rect key="frame" x="12" y="186" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="8Sz-yG-OQd"/>
                                             <constraint firstAttribute="height" constant="30" id="VFs-tF-OkV"/>
                                         </constraints>
                                         <state key="normal" title="Calibrate"/>
@@ -74,10 +76,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="120" y="186" width="80" height="30"/>
+                                        <rect key="frame" x="112" y="186" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="s2X-rr-bqZ"/>
+                                            <constraint firstAttribute="width" constant="96" id="s2X-rr-bqZ"/>
                                             <constraint firstAttribute="height" constant="30" id="z14-sp-hFN"/>
                                         </constraints>
                                         <state key="normal" title="Control"/>
@@ -103,25 +105,48 @@
                                             <action selector="doConnectButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aN-nt-KPt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="212" y="186" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="13s-jQ-rOB"/>
                                             <constraint firstAttribute="height" constant="30" id="GhM-kx-5Xj"/>
                                         </constraints>
                                         <state key="normal" title="Direct"/>
                                         <connections>
-                                            <action selector="doClearButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SlH-Sp-a4f"/>
                                             <segue destination="jGu-SE-yap" kind="show" id="lqh-yu-d8U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="132" width="96" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7hi-HL-UX4"/>
+                                            <constraint firstAttribute="width" constant="96" id="wuO-hH-jsc"/>
+                                        </constraints>
+                                        <state key="normal" title="Test Status"/>
+                                        <connections>
+                                            <action selector="doTestStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mS9-ni-gtE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="132" width="96" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="IpV-XC-5fE"/>
+                                            <constraint firstAttribute="width" constant="96" id="fen-XJ-mhO"/>
+                                        </constraints>
+                                        <state key="normal" title="Test Range"/>
+                                        <connections>
+                                            <action selector="doTestRange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0x-de-AmI"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="28" id="2XM-9T-99C"/>
                                     <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="5JO-n5-lE8"/>
+                                    <constraint firstItem="Sng-vM-CLD" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="7Cm-UI-fcK"/>
                                     <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="12" id="8Gg-6J-a3G"/>
-                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="leading" secondItem="XUS-gi-82e" secondAttribute="trailing" constant="12" id="A0I-Cc-sx7"/>
-                                    <constraint firstItem="UYy-ZI-HVE" firstAttribute="leading" secondItem="IWn-Ng-IzR" secondAttribute="trailing" constant="12" id="Apv-FI-Br8"/>
                                     <constraint firstItem="8zg-7c-49T" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="C6f-Xa-7EY"/>
                                     <constraint firstItem="S30-IB-vCa" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="trailing" constant="16" id="CVH-zn-Jhl"/>
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="Cfi-pJ-NhU"/>
@@ -134,14 +159,17 @@
                                     <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="20" id="T2u-0k-kNp"/>
                                     <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="bottom" constant="50" id="V26-LZ-Vf1"/>
                                     <constraint firstAttribute="trailing" secondItem="UYy-ZI-HVE" secondAttribute="trailing" constant="12" id="VkM-G3-poc"/>
+                                    <constraint firstItem="Sng-vM-CLD" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="Zlr-Nk-2dP"/>
                                     <constraint firstItem="XUS-gi-82e" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="leading" id="d7a-BU-d9s"/>
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="fLg-3F-AsL"/>
+                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="Sng-vM-CLD" secondAttribute="bottom" constant="24" id="gVH-ET-eNv"/>
                                     <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="4Uw-Fk-HP8" secondAttribute="bottom" constant="24" id="hDx-y5-6OF"/>
+                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="hNA-JM-QPG"/>
                                     <constraint firstItem="GcY-6W-zKF" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="iAz-TA-tnA"/>
                                     <constraint firstAttribute="trailing" secondItem="BTs-CK-9n0" secondAttribute="trailing" constant="12" id="ndO-3p-Pym"/>
                                     <constraint firstItem="GcY-6W-zKF" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="8" id="opV-hA-mXu"/>
                                     <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="12" id="t4P-Yj-Es8"/>
-                                    <constraint firstItem="UYy-ZI-HVE" firstAttribute="width" secondItem="4Uw-Fk-HP8" secondAttribute="width" id="y3G-Ce-xXH"/>
+                                    <constraint firstItem="m9r-LQ-FMN" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="tpz-Oy-iwc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -163,8 +191,11 @@
                         <outlet property="commandView" destination="T2Y-vC-J1d" id="EN0-zZ-efR"/>
                         <outlet property="connectButton" destination="jvn-1v-SUt" id="iep-ld-uKF"/>
                         <outlet property="controlButton" destination="IWn-Ng-IzR" id="AzO-mn-pOn"/>
+                        <outlet property="directButton" destination="UYy-ZI-HVE" id="BMK-EF-qB7"/>
                         <outlet property="responseDisplayTextView" destination="BTs-CK-9n0" id="fMm-Jj-Gp4"/>
                         <outlet property="targetAddressTextField" destination="GcY-6W-zKF" id="RG6-9B-aQK"/>
+                        <outlet property="testRangeButton" destination="Sng-vM-CLD" id="h4Z-Sc-CdI"/>
+                        <outlet property="testStatusButton" destination="m9r-LQ-FMN" id="fDj-n3-BCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

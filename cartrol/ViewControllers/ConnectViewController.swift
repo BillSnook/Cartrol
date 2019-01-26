@@ -21,6 +21,9 @@ class ConnectViewController: UIViewController, CommandResponder {
 	@IBOutlet var clearButton: CTButton!
 	@IBOutlet var calibrateButton: CTButton!
 	@IBOutlet var controlButton: CTButton!
+	@IBOutlet var directButton: CTButton!
+	@IBOutlet var testStatusButton: CTButton!
+	@IBOutlet var testRangeButton: CTButton!
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
 	var isConnected = false
@@ -102,6 +105,9 @@ class ConnectViewController: UIViewController, CommandResponder {
 			clearButton.isHidden = false
 			calibrateButton.isHidden = false
 			controlButton.isHidden = false
+			directButton.isHidden = false
+			testStatusButton.isHidden = false
+			testRangeButton.isHidden = false
 			responseDisplayTextView.isHidden = false
 			responseDisplayTextView.text = ""
 		} else {
@@ -111,7 +117,10 @@ class ConnectViewController: UIViewController, CommandResponder {
 			commandTextField.isHidden = true
 			clearButton.isHidden = true
 			calibrateButton.isHidden = true
-			controlButton.isHidden = false
+			controlButton.isHidden = true
+			directButton.isHidden = true
+			testStatusButton.isHidden = true
+			testRangeButton.isHidden = true
 			responseDisplayTextView.isHidden = true
 		}
 	}
@@ -160,4 +169,17 @@ class ConnectViewController: UIViewController, CommandResponder {
 		responseDisplayTextView.text = ""
 	}
 
+	@IBAction func doTestStatus(_ sender: CTButton) {
+
+		targetPort.sendPi( "A" )
+		usleep( 1000 )
+		targetPort.sendPi( "B" )
+	}
+	
+	@IBAction func doTestRange(_ sender: Any) {
+
+		targetPort.sendPi( "C" )
+		usleep( 1000 )
+		targetPort.sendPi( "D" )
+	}
 }
