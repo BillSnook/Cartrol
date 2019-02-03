@@ -41,7 +41,8 @@ class DirectViewController: UIViewController {
 	@IBAction func stopSonarAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "M 0" )
+		targetPort.sendPi( "S" )
+//		targetPort.sendPi( "M 0" )
 	}
 	
 	@IBAction func scanAction(_ sender: UIButton) {
