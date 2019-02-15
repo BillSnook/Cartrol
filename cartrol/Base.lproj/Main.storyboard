@@ -52,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="154" width="96" height="30"/>
+                                        <rect key="frame" x="212" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="Kse-ly-wPd"/>
@@ -64,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="224" width="96" height="30"/>
+                                        <rect key="frame" x="12" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="8Sz-yG-OQd"/>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="224" width="96" height="30"/>
+                                        <rect key="frame" x="112" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="s2X-rr-bqZ"/>
@@ -88,7 +88,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-CK-9n0">
-                                        <rect key="frame" x="12" y="274" width="296" height="266"/>
+                                        <rect key="frame" x="12" y="316" width="296" height="224"/>
                                         <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -106,7 +106,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="224" width="96" height="30"/>
+                                        <rect key="frame" x="212" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="13s-jQ-rOB"/>
@@ -117,8 +117,8 @@
                                             <segue destination="jGu-SE-yap" kind="show" id="lqh-yu-d8U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="154" width="96" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Test Status Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7hi-HL-UX4"/>
@@ -129,8 +129,8 @@
                                             <action selector="doTestStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mS9-ni-gtE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="154" width="96" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Test Range Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IpV-XC-5fE"/>
@@ -141,9 +141,44 @@
                                             <action selector="doTestRange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0x-de-AmI"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-p0-6tT" userLabel="T3 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="212" y="270" width="96" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="WBY-ua-giY"/>
+                                            <constraint firstAttribute="width" constant="96" id="a2c-Hd-s6T"/>
+                                        </constraints>
+                                        <state key="normal" title="Test 3"/>
+                                        <connections>
+                                            <action selector="doTest3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIC-px-xap"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-co-Tmv" userLabel="T1 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="270" width="96" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="KWN-bE-KWY"/>
+                                            <constraint firstAttribute="height" constant="30" id="x6N-ml-4tm"/>
+                                        </constraints>
+                                        <state key="normal" title="Test 1"/>
+                                        <connections>
+                                            <action selector="doTest1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIV-gr-Spj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-Jb-q9A" userLabel="T2 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="270" width="96" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="SKH-K5-OXo"/>
+                                            <constraint firstAttribute="height" constant="30" id="bGQ-RC-v87"/>
+                                        </constraints>
+                                        <state key="normal" title="Test 2"/>
+                                        <connections>
+                                            <action selector="doTest2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUh-1c-Qpl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="40" id="2XM-9T-99C"/>
                                     <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="5JO-n5-lE8"/>
                                     <constraint firstItem="Sng-vM-CLD" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="7Cm-UI-fcK"/>
                                     <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="12" id="8Gg-6J-a3G"/>
@@ -152,23 +187,30 @@
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="Cfi-pJ-NhU"/>
                                     <constraint firstItem="jvn-1v-SUt" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="HSF-OU-JUy"/>
                                     <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="30" id="I9P-tZ-jBK"/>
+                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="4Uw-Fk-HP8" secondAttribute="bottom" constant="32" id="IcA-Db-Ogn"/>
                                     <constraint firstItem="jvn-1v-SUt" firstAttribute="leading" secondItem="GcY-6W-zKF" secondAttribute="trailing" constant="16" id="MFr-vh-DwT"/>
                                     <constraint firstAttribute="trailing" secondItem="4Uw-Fk-HP8" secondAttribute="trailing" constant="12" id="MQF-bl-wZz"/>
                                     <constraint firstAttribute="bottom" secondItem="BTs-CK-9n0" secondAttribute="bottom" constant="8" id="MX5-7M-B7o"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Y6-p0-6tT" secondAttribute="trailing" constant="12" id="RGZ-ee-HJu"/>
+                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="NSd-co-Tmv" secondAttribute="top" id="ShD-f1-mhf"/>
                                     <constraint firstItem="BTs-CK-9n0" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="SxN-ka-ndl"/>
                                     <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="30" id="T2u-0k-kNp"/>
-                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="bottom" constant="20" id="V26-LZ-Vf1"/>
                                     <constraint firstAttribute="trailing" secondItem="UYy-ZI-HVE" secondAttribute="trailing" constant="12" id="VkM-G3-poc"/>
+                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="9Y7-Jb-q9A" secondAttribute="top" id="XHg-XG-lIl"/>
                                     <constraint firstItem="Sng-vM-CLD" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="Zlr-Nk-2dP"/>
                                     <constraint firstItem="XUS-gi-82e" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="leading" id="d7a-BU-d9s"/>
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="fLg-3F-AsL"/>
-                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="Sng-vM-CLD" secondAttribute="bottom" constant="40" id="gVH-ET-eNv"/>
+                                    <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="32" id="gab-Vr-kHm"/>
                                     <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="hNA-JM-QPG"/>
                                     <constraint firstItem="GcY-6W-zKF" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="iAz-TA-tnA"/>
+                                    <constraint firstItem="NSd-co-Tmv" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="nI6-eA-bJE"/>
                                     <constraint firstAttribute="trailing" secondItem="BTs-CK-9n0" secondAttribute="trailing" constant="12" id="ndO-3p-Pym"/>
                                     <constraint firstItem="GcY-6W-zKF" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="8" id="opV-hA-mXu"/>
+                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="UYy-ZI-HVE" secondAttribute="bottom" constant="32" id="ppy-MD-9mV"/>
                                     <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="12" id="t4P-Yj-Es8"/>
                                     <constraint firstItem="m9r-LQ-FMN" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="tpz-Oy-iwc"/>
+                                    <constraint firstItem="9Y7-Jb-q9A" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="wvx-HE-o5G"/>
+                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="4Y6-p0-6tT" secondAttribute="bottom" constant="16" id="y0H-gC-UXf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -187,12 +229,14 @@
                         <outlet property="clearButton" destination="4Uw-Fk-HP8" id="a6D-4b-TfB"/>
                         <outlet property="commandButton" destination="8zg-7c-49T" id="7zf-bh-nYz"/>
                         <outlet property="commandTextField" destination="S30-IB-vCa" id="7D7-vt-Ocm"/>
-                        <outlet property="commandView" destination="T2Y-vC-J1d" id="EN0-zZ-efR"/>
                         <outlet property="connectButton" destination="jvn-1v-SUt" id="iep-ld-uKF"/>
                         <outlet property="controlButton" destination="IWn-Ng-IzR" id="AzO-mn-pOn"/>
                         <outlet property="directButton" destination="UYy-ZI-HVE" id="BMK-EF-qB7"/>
                         <outlet property="responseDisplayTextView" destination="BTs-CK-9n0" id="fMm-Jj-Gp4"/>
                         <outlet property="targetAddressTextField" destination="GcY-6W-zKF" id="RG6-9B-aQK"/>
+                        <outlet property="test1Button" destination="NSd-co-Tmv" id="NKQ-WK-fum"/>
+                        <outlet property="test2Button" destination="9Y7-Jb-q9A" id="ZgH-Vx-4ld"/>
+                        <outlet property="test3Button" destination="4Y6-p0-6tT" id="nCC-fK-PwC"/>
                         <outlet property="testRangeButton" destination="Sng-vM-CLD" id="h4Z-Sc-CdI"/>
                         <outlet property="testStatusButton" destination="m9r-LQ-FMN" id="fDj-n3-BCa"/>
                     </connections>

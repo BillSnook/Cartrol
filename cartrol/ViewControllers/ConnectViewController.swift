@@ -24,6 +24,11 @@ class ConnectViewController: UIViewController, CommandResponder {
 	@IBOutlet var directButton: CTButton!
 	@IBOutlet var testStatusButton: CTButton!
 	@IBOutlet var testRangeButton: CTButton!
+	
+	@IBOutlet var test1Button: CTButton!
+	@IBOutlet var test2Button: CTButton!
+	@IBOutlet var test3Button: CTButton!
+	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
 	var isConnected = false
@@ -108,6 +113,9 @@ class ConnectViewController: UIViewController, CommandResponder {
 			directButton.isHidden = false
 			testStatusButton.isHidden = false
 			testRangeButton.isHidden = false
+			test1Button.isHidden = false
+			test2Button.isHidden = false
+			test3Button.isHidden = false
 			responseDisplayTextView.isHidden = false
 			responseDisplayTextView.text = ""
 		} else {
@@ -121,6 +129,9 @@ class ConnectViewController: UIViewController, CommandResponder {
 			directButton.isHidden = true
 			testStatusButton.isHidden = true
 			testRangeButton.isHidden = true
+			test1Button.isHidden = true
+			test2Button.isHidden = true
+			test3Button.isHidden = true
 			responseDisplayTextView.isHidden = true
 		}
 	}
@@ -171,15 +182,30 @@ class ConnectViewController: UIViewController, CommandResponder {
 
 	@IBAction func doTestStatus(_ sender: CTButton) {
 
-		targetPort.sendPi( "A" )
+		targetPort.sendPi( "A" )	// Send set status mode command
 		usleep( 1000 )
-		targetPort.sendPi( "B" )
+		targetPort.sendPi( "B" )	// Send get status command
 	}
 	
 	@IBAction func doTestRange(_ sender: Any) {
 
-		targetPort.sendPi( "C" )
+		targetPort.sendPi( "C" )	// Send get range mode command
 		usleep( 10000 )
-		targetPort.sendPi( "D" )
+		targetPort.sendPi( "D" )	// Send get range command
+	}
+	
+	@IBAction func doTest1(_ sender: CTButton) {
+		print( "In doTest1" )
+		targetPort.sendPi( "F 0" )	// Motor relay off
+	}
+	
+	@IBAction func doTest2(_ sender: CTButton) {
+		print( "In doTest2" )
+		targetPort.sendPi( "F 1" )	// Motor relay on
+	}
+	
+	@IBAction func doTest3(_ sender: CTButton) {
+		print( "In doTest3" )
+//		targetPort.sendPi( "D" )
 	}
 }
