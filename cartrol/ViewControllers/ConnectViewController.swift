@@ -31,7 +31,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
-	var isConnected = false
+	var isConnected = true // debug - false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -147,12 +147,13 @@ class ConnectViewController: UIViewController, CommandResponder {
 			setupButtons()
 		} else {					// Else we must be connecting
 			if targetAddressTextField.text!.count > 0 {
-				connectButton.setTitle( " Connecting... ", for: .normal )
+				connectButton.setTitle( " Cancel", for: .normal )
 				print( "\nConnecting to host \(targetAddressTextField.text!)" )
 				targetAddressTextField.isEnabled = false
-				connectButton.isEnabled = false
+				connectButton.isEnabled = true // false
 //				activityIndicator.startAnimating()
 				let hostName = self.targetAddressTextField.text!
+				isConnected = true		// So we can cancel
 				DispatchQueue.global( qos: .userInitiated ).async {
 					self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
 					DispatchQueue.main.async {

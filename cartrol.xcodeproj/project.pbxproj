@@ -20,6 +20,8 @@
 		A925A8D920A77AC000B00291 /* ctButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8D820A77AC000B00291 /* ctButton.swift */; };
 		A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */; };
 		A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DE20A77C7F00B00291 /* Sender.swift */; };
+		A965E47A224FD8FF0004C514 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E479224FD8FF0004C514 /* MapViewController.swift */; };
+		A965E47C224FE3E00004C514 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E47B224FE3E00004C514 /* SetupViewController.swift */; };
 		A9BE480C2193CAD300978371 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE480B2193CAD300978371 /* DirectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		A925A8D820A77AC000B00291 /* ctButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ctButton.swift; sourceTree = "<group>"; };
 		A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrateViewController.swift; sourceTree = "<group>"; };
 		A925A8DE20A77C7F00B00291 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		A965E479224FD8FF0004C514 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A965E47B224FE3E00004C514 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A9BE480B2193CAD300978371 /* DirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,8 @@
 				A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */,
 				A9BE480B2193CAD300978371 /* DirectViewController.swift */,
 				A914804B20A81159000444B2 /* GameViewController.swift */,
+				A965E479224FD8FF0004C514 /* MapViewController.swift */,
+				A965E47B224FE3E00004C514 /* SetupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,9 +210,11 @@
 				TargetAttributes = {
 					A925A8B220A775C400B00291 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1020;
 					};
 					A925A8C620A775C600B00291 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = A925A8B220A775C400B00291;
 					};
 				};
@@ -261,6 +269,8 @@
 				A925A8D920A77AC000B00291 /* ctButton.swift in Sources */,
 				A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */,
 				A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */,
+				A965E47C224FE3E00004C514 /* SetupViewController.swift in Sources */,
+				A965E47A224FD8FF0004C514 /* MapViewController.swift in Sources */,
 				A914804C20A8115A000444B2 /* GameViewController.swift in Sources */,
 				A914805420A81DC2000444B2 /* GameScene.swift in Sources */,
 				A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */,
@@ -433,7 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -451,7 +461,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -471,7 +481,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrolTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cartrol.app/cartrol";
 			};
@@ -492,7 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrolTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cartrol.app/cartrol";
 			};

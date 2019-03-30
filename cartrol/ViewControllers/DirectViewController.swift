@@ -20,7 +20,7 @@ class DirectViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 		
-		self.navigationController?.setNavigationBarHidden( false, animated: true )	// Just hide it on this page
+		self.navigationController?.setNavigationBarHidden( false, animated: true )	// Show it on this page
 		
 		if targetPort.socketConnected {
 //			targetPort.sendPi( "" )	// ? Sign in ?
