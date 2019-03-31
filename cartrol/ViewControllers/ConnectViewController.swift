@@ -37,7 +37,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 		super.viewDidLoad()
 //		print( "In viewDidLoad in ConnectViewController" )
 
-		targetAddressTextField.text = "Develop32"
+		targetAddressTextField.text = "Develop31"
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

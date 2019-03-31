@@ -100,9 +100,13 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	// CommandResponder delegate method
 	func handleReply(msg: String) {
 		print( "In MapViewController in handleReply: \(msg)" )
-		if let txt = parametersLabel.text {
-			parametersLabel.text = txt + msg
+		if let _ = parametersLabel.text {
+			parametersLabel.text = msg
 		}
+		let entryArray = msg.split( separator: "\n" )
+		print( "entryArray.count: \(entryArray.count)" )
+		print( "entryArray[0]]: \(entryArray[0])" )
+		print( "entryArray[1]]: \(entryArray[1])" )
 	}
 	
 	// Default sweep is 0 - 180º
@@ -116,6 +120,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	@IBAction func b2Action(_ sender: Any) {
 		print( "In b2Action" )
 		// Sweep using current sweep parameters
+		// Test - stop
+		targetPort.sendPi( "S" )	// Send test response command
 	}
 	
 	@IBAction func b3Action(_ sender: Any) {
