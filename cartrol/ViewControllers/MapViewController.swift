@@ -107,6 +107,10 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		print( "entryArray.count: \(entryArray.count)" )
 		print( "entryArray[0]]: \(entryArray[0])" )
 		print( "entryArray[1]]: \(entryArray[1])" )
+		if entryArray[0] == "@Map" {			// Verify we have received a ping map from the Pi
+			
+			
+		}
 	}
 	
 	// Default sweep is 0 - 180º
