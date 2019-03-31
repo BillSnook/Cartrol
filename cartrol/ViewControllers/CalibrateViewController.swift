@@ -63,14 +63,42 @@ extension String {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		targetPort.setCommandResponder( self )
-
 		print( "In viewDidLoad in CalibrateViewController" )
 		
-		targetPort.sendPi( "z\n" )
+//		targetPort.setCommandResponder( self )
+//		targetPort.sendPi( "z\n" )
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear( animated )
+//		print( "In viewWillAppear in CalibrateViewController" )
+
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear( animated )
+//		print( "In viewDidAppear in CalibrateViewController" )
+
+		targetPort.setCommandResponder( self )
+		targetPort.sendPi( "z\n" )	// Get speed array
+		targetPort.sendPi( "j \(workingSpeedIndex)\n" )	// setSpeedTestIndex
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+
+		targetPort.setCommandResponder( nil )
+		
+//		print( "In viewWillDisappear in CalibrateViewController" )
+		super.viewWillDisappear( animated )
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		
+//		print( "In viewDidDisappear in CalibrateViewController" )
+		super.viewDidDisappear( animated )
+	}
+	
+
 	public func setupInitialControls() {
 		workingSpeedIndex = 1
 		speedIndexSlider.value = Float( workingSpeedIndex )
@@ -110,7 +138,7 @@ extension String {
 		guard let newSpeedIndex = Int( parameters[1] ),
 			  let newLeftValue = Int( parameters[2] ),
 			  let newRightValue = Int( parameters[3] ) else { return }
-		print( "In handleReply:changedIndexButton for getting params with newSpeedIndex: \(newSpeedIndex), newLeftValue: \(newLeftValue), newRightValue: \(newRightValue)" )
+		print( "In changedIndexButton from handleReply for getting params with newSpeedIndex: \(newSpeedIndex), newLeftValue: \(newLeftValue), newRightValue: \(newRightValue)" )
 		workingSpeedIndex = newSpeedIndex
 		workingSpeedLeft = newLeftValue
 		workingSpeedRight = newRightValue
@@ -132,13 +160,6 @@ extension String {
 		rightStepper.maximumValue = Double(newRightValue + adjustRange)
 		rightStepper.value = Double( newRightValue )
 		rightOffsetTextField.text = String( newRightValue )
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear( animated )
-		
-//		print( "In viewWillAppear in CalibrateViewController" )
-		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
 //	override func viewDidAppear(_ animated: Bool) {

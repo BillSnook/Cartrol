@@ -10,6 +10,12 @@ import UIKit
 
 class SetupViewController: UIViewController {
 	
+	@IBOutlet var startAngleTextField: UITextField?
+	@IBOutlet var endAngleTextField: UITextField!
+	@IBOutlet var incrementTextField: UITextField!
+	
+	var delegate: SweepParamDelegate?
+	
 	var isConnected = false
 	
 	override func viewDidLoad() {
@@ -21,13 +27,6 @@ class SetupViewController: UIViewController {
 		super.viewWillAppear( animated )
 		
 		self.navigationController?.setNavigationBarHidden( false, animated: true )	// Show it on this page
-		
-		if targetPort.socketConnected {
-//			targetPort.sendPi( "" )	// ? Sign in ?
-			isConnected = true
-		} else {
-			// Alert
-		}
 		
 	}
 	
@@ -42,9 +41,13 @@ class SetupViewController: UIViewController {
 		print( "In Save" )
 		
 		// So save
-		
+		if let sweepDelegate = delegate {
+			let startAngle = Int( startAngleTextField?.text ?? "0" ) ?? 0
+			let endAngle = Int( endAngleTextField.text ?? "0" ) ?? 0
+			let increment = Int( incrementTextField.text ?? "0" ) ?? 0
+			sweepDelegate.newSweepSettings( startAngle, endAngle, increment )
+		}
 		// Return here - otherwise we would have to check on back button
-		
 		self.navigationController?.popViewController( animated: true )
 		
 	}

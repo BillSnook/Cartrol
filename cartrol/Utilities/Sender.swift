@@ -23,7 +23,7 @@ public class Sender {
 	
 	public init() {}
 	
-	public func setCommandResponder( _ responder: CommandResponder ) {
+	public func setCommandResponder( _ responder: CommandResponder? ) {
 		commandResponder = responder
 	}
 	

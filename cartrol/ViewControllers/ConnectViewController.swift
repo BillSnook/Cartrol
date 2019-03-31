@@ -35,35 +35,37 @@ class ConnectViewController: UIViewController, CommandResponder {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		targetAddressTextField.text = "Develop32"
-		targetPort.setCommandResponder( self )
-		
 //		print( "In viewDidLoad in ConnectViewController" )
+
+		targetAddressTextField.text = "Develop32"
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
-		
-		setupButtons()
 //		print( "In viewWillAppear in ConnectViewController" )
+
+		setupButtons()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
-		
 //		print( "In viewDidAppear in ConnectViewController" )
+
+		targetPort.setCommandResponder( self )
+
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
+
+		targetPort.setCommandResponder( nil )
+
 //		print( "In viewWillDisappear in ConnectViewController" )
-		
 		super.viewWillDisappear( animated )
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
-//		print( "In viewDidDisappear in ConnectViewController" )
 		
+//		print( "In viewDidDisappear in ConnectViewController" )
 		super.viewDidDisappear( animated )
 	}
 	
