@@ -15,6 +15,17 @@ protocol SweepParamDelegate {
 
 }
 
+
+class SonarEntry {
+	var distance = 0
+	var timeStamp = Date.init( timeIntervalSinceNow: 0 )
+	
+	init( distance: Int, timeStamp: Date ) {
+		self.distance = distance
+		self.timeStamp = timeStamp
+	}
+}
+
 class MapViewController: UIViewController, SweepParamDelegate, CommandResponder {
 
 	@IBOutlet var parametersLabel: UILabel!
@@ -32,6 +43,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	var isConnected = false
 
+	var sonarMap = [Int: SonarEntry]()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		print( "In viewDidLoad in MapViewController" )
@@ -103,14 +116,27 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		if let _ = parametersLabel.text {
 			parametersLabel.text = msg
 		}
-		let entryArray = msg.split( separator: "\n" )
-		print( "entryArray.count: \(entryArray.count)" )
-		print( "entryArray[0]]: \(entryArray[0])" )
-		print( "entryArray[1]]: \(entryArray[1])" )
-		if entryArray[0] == "@Map" {			// Verify we have received a ping map from the Pi
-			
-			
+		let listArray = msg.split( separator: "\n" )
+		let count = listArray.count
+		guard count > 1 else { return }
+		print( "listArray.count: \(count)" )
+		print( "listArray[0]]: \(listArray[0])" )
+		print( "Before sonarMap.count: \(sonarMap.count)" )
+		if listArray[0] == "@Map" {			// Verify we have received a ping map from the Pi
+			var i = 1
+			while i < count {
+				let entryArray = listArray[i].split( separator: " " )
+				i += 1
+				if let angle = Int( entryArray[0] ), let distance = Int( entryArray[1] ) {
+					let sonar = SonarEntry( distance: distance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
+					sonarMap[angle] = sonar
+				}
+			}
 		}
+		print( "After  sonarMap.count: \(sonarMap.count)" )
+		
+		// Update map display with latest sonarMap
+		
 	}
 	
 	// Default sweep is 0 - 180º
@@ -118,14 +144,14 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	@IBAction func b1Action(_ sender: Any) {
 		print( "In b1Action" )
 		// Ping one
-		targetPort.sendPi( "N" )	// Send test response command
+		targetPort.sendPi( "N" )	// Send test response command - expect array of angle/distance entries
 	}
 	
 	@IBAction func b2Action(_ sender: Any) {
 		print( "In b2Action" )
 		// Sweep using current sweep parameters
 		// Test - stop
-		targetPort.sendPi( "S" )	// Send test response command
+		targetPort.sendPi( "S" )	// Send test stop all command
 	}
 	
 	@IBAction func b3Action(_ sender: Any) {

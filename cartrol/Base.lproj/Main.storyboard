@@ -754,7 +754,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-qe-StN">
-                                <rect key="frame" x="0.0" y="88" width="320" height="352"/>
+                                <rect key="frame" x="2" y="88" width="316" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -771,9 +771,9 @@
                             <constraint firstItem="zEO-jR-r0Y" firstAttribute="leading" secondItem="Oh7-Ca-F41" secondAttribute="leading" constant="16" id="aUQ-O6-Zmy"/>
                             <constraint firstItem="Oh7-Ca-F41" firstAttribute="trailing" secondItem="nhR-Cg-0e5" secondAttribute="trailing" constant="20" id="cYJ-qm-k73"/>
                             <constraint firstItem="Y9t-Fg-ftM" firstAttribute="top" secondItem="UvJ-oU-rge" secondAttribute="bottom" constant="40" id="fa4-m4-CJU"/>
-                            <constraint firstItem="Ewp-qe-StN" firstAttribute="trailing" secondItem="Oh7-Ca-F41" secondAttribute="trailing" id="jdi-Gb-1Ot"/>
+                            <constraint firstItem="Ewp-qe-StN" firstAttribute="trailing" secondItem="Oh7-Ca-F41" secondAttribute="trailing" constant="-2" id="jdi-Gb-1Ot"/>
                             <constraint firstItem="A4r-YL-14p" firstAttribute="top" secondItem="nhR-Cg-0e5" secondAttribute="bottom" constant="40" id="pBH-dT-l8K"/>
-                            <constraint firstItem="Ewp-qe-StN" firstAttribute="leading" secondItem="Oh7-Ca-F41" secondAttribute="leading" id="pod-QW-bwr"/>
+                            <constraint firstItem="Ewp-qe-StN" firstAttribute="leading" secondItem="Oh7-Ca-F41" secondAttribute="leading" constant="2" id="pod-QW-bwr"/>
                             <constraint firstItem="Ewp-qe-StN" firstAttribute="top" secondItem="zEO-jR-r0Y" secondAttribute="bottom" id="vxg-WZ-qKz"/>
                             <constraint firstItem="Oh7-Ca-F41" firstAttribute="bottom" secondItem="ggf-9x-XQA" secondAttribute="bottom" constant="20" id="wEx-4M-wv6"/>
                             <constraint firstItem="Oh7-Ca-F41" firstAttribute="bottom" secondItem="A4r-YL-14p" secondAttribute="bottom" constant="20" id="wz0-U0-MNo"/>
