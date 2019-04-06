@@ -22,6 +22,7 @@
 		A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DE20A77C7F00B00291 /* Sender.swift */; };
 		A965E47A224FD8FF0004C514 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E479224FD8FF0004C514 /* MapViewController.swift */; };
 		A965E47C224FE3E00004C514 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E47B224FE3E00004C514 /* SetupViewController.swift */; };
+		A965E47E22553BEF0004C514 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E47D22553BEF0004C514 /* MapView.swift */; };
 		A9BE480C2193CAD300978371 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE480B2193CAD300978371 /* DirectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		A925A8DE20A77C7F00B00291 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		A965E479224FD8FF0004C514 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A965E47B224FE3E00004C514 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		A965E47D22553BEF0004C514 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A9BE480B2193CAD300978371 /* DirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		A925A8B520A775C400B00291 /* cartrol */ = {
 			isa = PBXGroup;
 			children = (
+				A965E48022553C430004C514 /* Views */,
 				A914804D20A81310000444B2 /* Scenes */,
 				A925A8DD20A77C5C00B00291 /* Utilities */,
 				A925A8D720A77AA500B00291 /* Controls */,
@@ -158,6 +161,14 @@
 				A925A8DE20A77C7F00B00291 /* Sender.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A965E48022553C430004C514 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A965E47D22553BEF0004C514 /* MapView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				A925A8B920A775C400B00291 /* ConnectViewController.swift in Sources */,
 				A925A8D920A77AC000B00291 /* ctButton.swift in Sources */,
 				A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */,
+				A965E47E22553BEF0004C514 /* MapView.swift in Sources */,
 				A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */,
 				A965E47C224FE3E00004C514 /* SetupViewController.swift in Sources */,
 				A965E47A224FD8FF0004C514 /* MapViewController.swift in Sources */,

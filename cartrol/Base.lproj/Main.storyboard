@@ -692,6 +692,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parameters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEO-jR-r0Y">
+                                <rect key="frame" x="16" y="64" width="288" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="fSF-L0-jmY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-qe-StN" customClass="MapView" customModule="cartrol" customModuleProvider="target">
+                                <rect key="frame" x="2" y="88" width="316" height="352"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCh-fB-hWU">
+                                        <rect key="frame" x="8" y="0.0" width="300" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Mu9-d7-fAM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DCh-fB-hWU" firstAttribute="top" secondItem="Ewp-qe-StN" secondAttribute="top" id="9Cq-QK-raq"/>
+                                    <constraint firstItem="DCh-fB-hWU" firstAttribute="leading" secondItem="Ewp-qe-StN" secondAttribute="leading" constant="8" id="m4u-Tk-55D"/>
+                                    <constraint firstAttribute="trailing" secondItem="DCh-fB-hWU" secondAttribute="trailing" constant="8" id="mF8-EB-amX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="legend" destination="DCh-fB-hWU" id="iL3-DF-Qey"/>
+                                </connections>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-9x-XQA">
                                 <rect key="frame" x="128" y="448" width="64" height="100"/>
                                 <constraints>
@@ -744,19 +776,6 @@
                                     <action selector="b4Action:" destination="GPo-AT-AK9" eventType="touchUpInside" id="l9S-gQ-cUk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parameters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEO-jR-r0Y">
-                                <rect key="frame" x="16" y="64" width="288" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="fSF-L0-jmY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-qe-StN">
-                                <rect key="frame" x="2" y="88" width="316" height="352"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -789,7 +808,7 @@
                         <outlet property="b2" destination="nhR-Cg-0e5" id="8ve-3f-9Qk"/>
                         <outlet property="b3" destination="Y9t-Fg-ftM" id="LgP-wV-ffE"/>
                         <outlet property="b4" destination="A4r-YL-14p" id="Fqy-2w-all"/>
-                        <outlet property="mapView" destination="Ewp-qe-StN" id="ENd-tN-BCB"/>
+                        <outlet property="mapView" destination="Ewp-qe-StN" id="Kvl-9i-cGL"/>
                         <outlet property="parametersLabel" destination="zEO-jR-r0Y" id="sbk-s1-5bt"/>
                     </connections>
                 </viewController>

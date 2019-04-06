@@ -9,6 +9,47 @@
 import UIKit
 
 
+// For testing only - don't try this at home
+
+let sampleString = """
+@Map
+45   1538
+50   1650
+55   1573
+60   1499
+65   1449
+70   1449
+75   2505
+80   2478
+85   2479
+90   1537
+95   1538
+100   1564
+105   2638
+110   2518
+115   1539
+120   1538
+125   1537
+130   1535
+135   1536
+
+"""
+
+extension Int {
+	
+	var cm: Int {
+		return self / 29 / 2
+	}
+	
+	var mm: Int {
+		return ( self * 10 ) / 29 / 2
+	}
+	
+	var inch: Int {
+		return self / 74 / 2
+	}
+}
+
 protocol SweepParamDelegate {
 	
 	func newSweepSettings( _ start: Int, _ end: Int, _ inc: Int )
@@ -26,11 +67,14 @@ class SonarEntry {
 	}
 }
 
+typealias SonarMap = Dictionary<Int, SonarEntry>
+
+
 class MapViewController: UIViewController, SweepParamDelegate, CommandResponder {
 
 	@IBOutlet var parametersLabel: UILabel!
 	
-	@IBOutlet var mapView: UIView!
+	@IBOutlet var mapView: MapView!
 	
 	@IBOutlet var b1: UIButton!
 	@IBOutlet var b2: UIButton!
@@ -43,7 +87,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	var isConnected = false
 
-	var sonarMap = [Int: SonarEntry]()
+	var sonarMap = SonarMap()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -65,6 +109,9 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
 		print( "In viewDidAppear in MapViewController" )
+		
+//		DispatchTime
+		handleReply( msg: sampleString )		// Test
 
 		targetPort.setCommandResponder( self )
 	}
@@ -93,6 +140,12 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		}
 	}
 	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		mapView.updateLayout()
+	}
+	
 	// SweepParamDelegate method
 	func newSweepSettings(_ start: Int, _ end: Int, _ inc: Int) {
 		self.start = start
@@ -112,16 +165,16 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	// CommandResponder delegate method
 	func handleReply(msg: String) {
-		print( "In MapViewController in handleReply: \(msg)" )
-		if let _ = parametersLabel.text {
-			parametersLabel.text = msg
-		}
+		print( "In handleReply in MapViewController" )
+//		print( "  handleReply message: \(msg)" )
+//		guard msg.prefix( 5 ) == "@Map\n" else { return }
+		
+//		if let _ = parametersLabel.text {
+//			parametersLabel.text = msg
+//		}
 		let listArray = msg.split( separator: "\n" )
 		let count = listArray.count
 		guard count > 1 else { return }
-		print( "listArray.count: \(count)" )
-		print( "listArray[0]]: \(listArray[0])" )
-		print( "Before sonarMap.count: \(sonarMap.count)" )
 		if listArray[0] == "@Map" {			// Verify we have received a ping map from the Pi
 			var i = 1
 			while i < count {
@@ -132,13 +185,37 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 					sonarMap[angle] = sonar
 				}
 			}
+			mapView.mapList = sonarMap
+			mapView.showMap()
 		}
-		print( "After  sonarMap.count: \(sonarMap.count)" )
-		
-		// Update map display with latest sonarMap
-		
 	}
 	
+	// Sample sweep - for testing purposes
+/*
+"""
+	@Map
+	45   1538
+	50   1650
+	55   1573
+	60   1499
+	65   1449
+	70   1449
+	75   2505
+	80   2478
+	85   2479
+	90   1537
+	95   1538
+	100   1564
+	105   2638
+	110   2518
+	115   1539
+	120   1538
+	125   1537
+	130   1535
+	135   1536
+	
+"""
+*/
 	// Default sweep is 0 - 180º
 	
 	@IBAction func b1Action(_ sender: Any) {
