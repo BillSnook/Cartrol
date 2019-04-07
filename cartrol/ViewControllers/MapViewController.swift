@@ -82,13 +82,12 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	@IBOutlet var b4: UIButton!
 	
 	
-	var start = 0
-	var end = 180
-	var increment = 1
+	var start = 45
+	var end = 135
+	var increment = 5
 	
 	var isConnected = false
 
-	var sonarMap = SonarMap()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -111,7 +110,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		super.viewDidAppear( animated )
 		print( "In viewDidAppear in MapViewController" )
 		
-		handleReply( msg: sampleString )		// Test
+//		handleReply( msg: sampleString )		// Test
 
 		targetPort.setCommandResponder( self )
 	}
@@ -167,16 +166,12 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	func handleReply(msg: String) {
 		print( "In handleReply in MapViewController" )
 //		print( "  handleReply message: \(msg)" )
-//		guard msg.prefix( 5 ) == "@Map\n" else { return }
-		
-//		if let _ = parametersLabel.text {
-//			parametersLabel.text = msg
-//		}
 		let listArray = msg.split( separator: "\n" )
 		let count = listArray.count
 		guard count > 1 else { return }
 		if listArray[0] == "@Map" {			// Verify we have received a ping map from the Pi
 			var i = 1
+			var sonarMap = SonarMap()
 			while i < count {
 				let entryArray = listArray[i].split( separator: " " )
 				i += 1
@@ -213,6 +208,29 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	125   1537
 	130   1535
 	135   1536
+	
+	@Map
+	10  11415
+	20  11411
+	30  11414
+	40  11597
+	50  13630
+	60  13073
+	70  13095
+	80   1483
+	90   1482
+	100   2370
+	
+	@Map
+	70   2059
+	75   1321
+	80   2060
+	85   1737
+	90   1321
+	95   1298
+	100   1292
+	105   1317
+	110   2123
 	
 """
 */
