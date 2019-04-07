@@ -81,6 +81,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	@IBOutlet var b3: UIButton!
 	@IBOutlet var b4: UIButton!
 	
+	
 	var start = 0
 	var end = 180
 	var increment = 1
@@ -110,7 +111,6 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		super.viewDidAppear( animated )
 		print( "In viewDidAppear in MapViewController" )
 		
-//		DispatchTime
 		handleReply( msg: sampleString )		// Test
 
 		targetPort.setCommandResponder( self )
@@ -163,7 +163,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		return paramString
 	}
 	
-	// CommandResponder delegate method
+	// CommandResponder delegate method - data coming from Pi
 	func handleReply(msg: String) {
 		print( "In handleReply in MapViewController" )
 //		print( "  handleReply message: \(msg)" )
@@ -221,7 +221,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	@IBAction func b1Action(_ sender: Any) {
 		print( "In b1Action" )
 		// Ping one
-		targetPort.sendPi( "N" )	// Send test response command - expect array of angle/distance entries
+		
+		targetPort.sendPi( "N \(start) \(end) \(increment)" )	// Send test response command - expect array of angle/distance entries
 	}
 	
 	@IBAction func b2Action(_ sender: Any) {

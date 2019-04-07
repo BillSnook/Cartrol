@@ -10,9 +10,12 @@ import UIKit
 
 //unsigned int cm = range/29/2;	// 	inches = range/74/2; mm = (range*10)/29/2
 
-class MapView: UIView {
+class MapView: UIView, UIGestureRecognizerDelegate {
 	
 	@IBOutlet var legend: UILabel!
+	
+	@IBOutlet var tap1: UITapGestureRecognizer!
+	@IBOutlet var tap2: UITapGestureRecognizer!
 	
 	var mapList: SonarMap?
 	var sortedMapKeys: [Int]?
@@ -76,13 +79,13 @@ class MapView: UIView {
 				maxDistance = 0
 				for key in keys {
 					if let sonarEntry = mapList[key] {
-						print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
+//						print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
 						if sonarEntry.distance > maxDistance {
 							maxDistance = sonarEntry.distance
 						}
 					}
 				}
-				maxDistance = Int( CGFloat( maxDistance ) * 0.8 )
+				maxDistance = 6000 // Int( CGFloat( maxDistance ) * 0.8 )
 				print( "  maxDistance: \(maxDistance) uSec, \(maxDistance.cm) cm" )
 
 				// Height gives us the maximum y values we can use
@@ -143,7 +146,9 @@ class MapView: UIView {
 		for key in keys {
 			if let mapListSafe = mapList,
 				let entry = mapListSafe[key] {
-				let radians = CGFloat((Double(key+180) * 3.1416) / 180.0)
+				let reverse = maxAngle - key + minAngle
+				let angle = reverse + 180
+				let radians = CGFloat((Double(angle) * 3.1416) / 180.0)
 				let radius = CGFloat( entry.distance ) / CGFloat( maxDistance ) * availableHeight
 				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians * 0.995, endAngle: radians * 1.005, clockwise: false )
 			}
@@ -160,4 +165,15 @@ class MapView: UIView {
 		
 		return CGPoint.zero
 	}
+	
+	// MARK: Touch actions
+	@IBAction func tap1Action(_ sender: UITapGestureRecognizer) {
+		print( "In tap1Action" )
+	}
+	
+	@IBAction func tap2Action(_ sender: UITapGestureRecognizer) {
+		print( "In tap2Action" )
+	}
+	
+
 }
