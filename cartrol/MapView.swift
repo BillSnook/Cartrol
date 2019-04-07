@@ -140,11 +140,11 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 				let entry = mapListSafe[key] {
 				let radians = CGFloat((Double(-key) * 3.1416) / 180.0)
 				let radius = CGFloat( entry.distance ) / CGFloat( maxDistance ) * availableHeight
-				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians * 0.99, endAngle: radians * 1.01, clockwise: true )
-//				context.strokePath()
+				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + 0.05, endAngle: radians - 0.05, clockwise: true )
+				context.strokePath()
 			}
 		}
-		context.strokePath()
+//		context.strokePath()
 
 //		context.fillPath()
 	}
