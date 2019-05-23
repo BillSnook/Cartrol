@@ -32,18 +32,9 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	var topOffset: CGFloat = 0
 	var availableHeight: CGFloat = 0
 	var availableWidth: CGFloat = 0
-
-//	var maxToTop: CGFloat = 0			// Layout params
-//	var widthPerDegree: CGFloat = 0
 	
 	var sweepOrigin = CGPoint( x: 0, y: 0 )
 	
-//	required init?(coder aDecoder: NSCoder) {
-//		super.init( coder: aDecoder )
-//		
-////		backgroundColor = UIColor.blue
-//	}
-//	
 	public func updateLayout() {
 		
 		if ( mapWidth != frame.size.width || mapHeight != frame.size.height ) {		// If changed
@@ -79,7 +70,12 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 				} else {
 					minAngle = keys[0]
 				}
-				maxAngle = keys[keys.count - 1]
+				if mapList[keys.count - 1]?.distance == 0 {
+					maxAngle = keys[keys.count - 2]
+				} else {
+					maxAngle = keys[keys.count - 1]
+				}
+				print( "Min: \(minAngle), max: \(maxAngle)" )
 				incrementAngle = keys[2] - keys[1]
 				maxDistance = 0
 				for key in keys {

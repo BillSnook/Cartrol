@@ -183,7 +183,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 			while i < count {
 				let entryArray = listArray[i].split( separator: " " )
 				i += 1
-				if let angle = Int( entryArray[0] ), let uSecDistance = Int( entryArray[1] ) {
+				if var angle = Int( entryArray[0] ), let uSecDistance = Int( entryArray[1] ) {
+					angle = 180 - angle		// Adjust for upside-down scanner
 					let sonar = SonarEntry( distance: uSecDistance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
 					sonarMap[angle] = sonar
 				}
