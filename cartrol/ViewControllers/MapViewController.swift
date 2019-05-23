@@ -38,7 +38,12 @@ let sampleString = """
 extension Int {
 	
 	var cm: Int {
-		return self / 29 / 2
+		get {
+			return self / 29 / 2
+		}
+		set( newDistance ) {
+			self = ( ( newDistance * 2 ) * 29 )
+		}
 	}
 	
 	var mm: Int {
@@ -86,6 +91,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	var end = 135
 	var increment = 5
 	
+	var mapRange: Int = 0
+
 	var isConnected = false
 
 	
@@ -164,7 +171,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	// CommandResponder delegate method - data coming from Pi
 	func handleReply(msg: String) {
-		print( "In handleReply in MapViewController" )
+//		print( "In handleReply in MapViewController" )
 //		print( "  handleReply message: \(msg)" )
 		let listArray = msg.split( separator: "\n" )
 		let count = listArray.count
@@ -175,13 +182,13 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 			while i < count {
 				let entryArray = listArray[i].split( separator: " " )
 				i += 1
-				if let angle = Int( entryArray[0] ), let distance = Int( entryArray[1] ) {
-					let sonar = SonarEntry( distance: distance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
+				if let angle = Int( entryArray[0] ), let uSecDistance = Int( entryArray[1] ) {
+					let sonar = SonarEntry( distance: uSecDistance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
 					sonarMap[angle] = sonar
 				}
 			}
 			mapView.mapList = sonarMap
-			mapView.showMap()
+			mapView.showMap( mapRange )
 		}
 	}
 	
@@ -260,4 +267,22 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		parametersLabel.text = ""		// Clear
 	}
 	
+	// Map scale methods
+	@IBAction func shortRangeScaleAction(_ sender: Any) {
+		
+		mapRange.cm = 50
+		mapView.showMap( mapRange )
+	}
+	
+	@IBAction func optimumRangeScaleAction(_ sender: Any) {
+
+		mapRange.cm = 0
+		mapView.showMap( mapRange )
+	}
+	
+	@IBAction func longRangeScaleAction(_ sender: Any) {
+
+		mapRange.cm = 200
+		mapView.showMap( mapRange )
+	}
 }

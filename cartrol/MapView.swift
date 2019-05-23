@@ -23,9 +23,11 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	var mapHeight: CGFloat = 0
 	var mapWidth: CGFloat = 0
 	
+	var mapRange: Int = 0
 	var maxDistance:Int = 0
 	var minAngle:Int = 0
 	var maxAngle:Int = 0
+	var incrementAngle: Int = 0
 	
 	var topOffset: CGFloat = 0
 	var availableHeight: CGFloat = 0
@@ -36,27 +38,26 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	
 	var sweepOrigin = CGPoint( x: 0, y: 0 )
 	
-	required init?(coder aDecoder: NSCoder) {
-		super.init( coder: aDecoder )
-		
-//		backgroundColor = UIColor.blue
-	}
-	
+//	required init?(coder aDecoder: NSCoder) {
+//		super.init( coder: aDecoder )
+//		
+////		backgroundColor = UIColor.blue
+//	}
+//	
 	public func updateLayout() {
 		
-		print( "In updateLayout in MapView" )
 		if ( mapWidth != frame.size.width || mapHeight != frame.size.height ) {		// If changed
 			updateMapLayout()
-			updateMapList()
 		}
+		updateMapList()
 
 	}
 	
 	public func updateMapLayout() {
-		print( "In updateMapLayout in MapView" )
+
 		mapWidth = frame.size.width
 		mapHeight = frame.size.height	// Includes legend label, nominally 25 pixels high, at top
-		print( "  Map layout changed: mapWidth = \(mapWidth), mapHeight = \(mapHeight)" )
+		print( "In updateMapLayout in MapView, map layout changed: mapWidth = \(mapWidth), mapHeight = \(mapHeight)" )
 		topOffset = legend.frame.size.height
 		availableHeight = mapHeight - topOffset		// Number of pixels for full range in vertical direction
 		availableWidth = mapWidth
@@ -69,7 +70,7 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	}
 	
 	public func updateMapList() {
-		print( "In updateMapList in MapView" )
+//		print( "In updateMapList in MapView" )
 		if let mapList = mapList {
 			sortedMapKeys = mapList.keys.sorted()
 			if let keys = sortedMapKeys {
@@ -79,6 +80,7 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 					minAngle = keys[0]
 				}
 				maxAngle = keys[keys.count - 1]
+				incrementAngle = keys[2] - keys[1]
 				maxDistance = 0
 				for key in keys {
 					if let sonarEntry = mapList[key] {
@@ -88,21 +90,18 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 						}
 					}
 				}
-//				maxDistance = Int( CGFloat( maxDistance ) * 2.0 )	// Test
-				print( "  maxDistance: \(maxDistance) uSec, \(maxDistance.cm) cm" )
+//				print( "  maxDistance: \(maxDistance) uSec, \(maxDistance.cm) cm" )
 			}
 		}
 	}
 	
-	public func showMap() {
+	public func showMap( _ mapScale: Int ) {
 		
 //		print( "In showMap in MapView" )
+		mapRange = mapScale
 		updateMapList()
-		let distance = "Maximum distance = \(maxDistance.cm) cm"
-//		print( "In showMap in MapView: \(distance)" )
-		
 		DispatchQueue.main.async {
-			self.legend.text = distance
+			self.legend.text = "Map maximum scale = \(self.mapRange == 0 ? self.maxDistance.cm : self.mapRange.cm) cm, \(self.mapRange == 0 ? self.maxDistance.inch : self.mapRange.inch) inches"
 			self.setNeedsDisplay()
 		}
 	}
@@ -116,7 +115,11 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 //		print( "Draw with rect \(rect)" )
 		let startRadians = (CGFloat(-minAngle) * 3.1416) / 180.0
 		let endRadians = (CGFloat(-maxAngle) * 3.1416) / 180.0
-		print( "Draw with minAngle \(minAngle) and maxAngle \(maxAngle)" )
+		var mapDistance = maxDistance
+		if mapRange != 0 {	// Adjust for different map displays - 50 cm and 2 meters
+			mapDistance = mapRange
+		}
+//		print( "Draw with minAngle \(minAngle) and maxAngle \(maxAngle)" )
 //		print( "Draw with startRadians \(startRadians) and endRadians \(endRadians)" )
 		let lineWidth: CGFloat = 0.5
 		// Draw background
@@ -132,15 +135,16 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 		context.strokePath()
 		
 		// Draw pings
-		context.setLineWidth( 1.0 )
+		context.setLineWidth( 2.0 )
 		context.setStrokeColor(UIColor.blue.cgColor)
 //		context.move(to: sweepOrigin)
 		for key in keys {
 			if let mapListSafe = mapList,
 				let entry = mapListSafe[key] {
 				let radians = CGFloat((Double(-key) * 3.1416) / 180.0)
-				let radius = CGFloat( entry.distance ) / CGFloat( maxDistance ) * availableHeight
-				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + 0.05, endAngle: radians - 0.05, clockwise: true )
+				let radius = CGFloat( entry.distance ) / CGFloat( mapDistance ) * availableHeight
+				let spread = 0.01 * CGFloat( incrementAngle )
+				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + spread, endAngle: radians - spread, clockwise: true )
 				context.strokePath()
 			}
 		}
