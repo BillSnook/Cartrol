@@ -127,6 +127,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		self.navigationController?.setNavigationBarHidden( true, animated: true )
 		
 		targetPort.setCommandResponder( nil )
+		targetPort.sendPi( "S" )	// Send test stop all command
 
 		print( "In viewWillDisappear in MapViewController" )
 		super.viewWillDisappear( animated )
