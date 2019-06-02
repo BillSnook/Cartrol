@@ -17,7 +17,12 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	@IBOutlet var tap1: UITapGestureRecognizer!
 	@IBOutlet var tap2: UITapGestureRecognizer!
 	
-	var mapList: SonarMap?
+	var mapList: SonarMap? {
+		willSet {
+			lastList = mapList
+		}
+	}
+	var lastList: SonarMap?
 	var sortedMapKeys: [Int]?
 	
 	var mapHeight: CGFloat = 0
@@ -115,6 +120,8 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 		if mapRange != 0 {	// Adjust for different map displays - 50 cm and 2 meters
 			mapDistance = mapRange
 		}
+		let nowColor = UIColor( red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0 ).cgColor
+		let lastColor = UIColor( red: 0.5, green: 0.0, blue: 1.0, alpha: 0.7 ).cgColor
 //		print( "Draw with minAngle \(minAngle) and maxAngle \(maxAngle)" )
 //		print( "Draw with startRadians \(startRadians) and endRadians \(endRadians)" )
 		let lineWidth: CGFloat = 0.5
@@ -131,17 +138,31 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 		context.strokePath()
 		
 		// Draw pings
-		context.setLineWidth( 2.0 )
-		context.setStrokeColor(UIColor.blue.cgColor)
 //		context.move(to: sweepOrigin)
-		for key in keys {
-			if let mapListSafe = mapList,
-				let entry = mapListSafe[key] {
-				let radians = CGFloat((Double(-key) * 3.1416) / 180.0)
-				let radius = CGFloat( entry.distance ) / CGFloat( mapDistance ) * availableHeight
-				let spread = 0.01 * CGFloat( incrementAngle )
-				context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + spread, endAngle: radians - spread, clockwise: true )
-				context.strokePath()
+		let spread = 0.01 * CGFloat( incrementAngle )
+		if let mapListSafe = mapList {
+			context.setLineWidth( 2.0 )
+			context.setStrokeColor( nowColor )
+			for key in keys {
+				if let entry = mapListSafe[key] {
+					let radians = CGFloat((Double(-key) * 3.1416) / 180.0)
+					let radius = CGFloat( entry.distance ) / CGFloat( mapDistance ) * availableHeight
+					context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + spread, endAngle: radians - spread, clockwise: true )
+					context.strokePath()
+				}
+			}
+		}
+		
+		if let lastListSafe = lastList {
+			context.setLineWidth( 2.0 )
+			context.setStrokeColor( lastColor )
+			for key in keys {
+				if let entry = lastListSafe[key] {
+					let radians = CGFloat((Double(-key) * 3.1416) / 180.0)
+					let radius = CGFloat( entry.distance ) / CGFloat( mapDistance ) * availableHeight
+					context.addArc(center: sweepOrigin, radius: radius, startAngle: radians + spread, endAngle: radians - spread, clockwise: true )
+					context.strokePath()
+				}
 			}
 		}
 //		context.strokePath()
