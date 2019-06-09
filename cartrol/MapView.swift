@@ -81,13 +81,15 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 					maxAngle = keys[keys.count - 1]
 				}
 				print( "Min: \(minAngle), max: \(maxAngle)" )
-				incrementAngle = keys[2] - keys[1]
-				maxDistance = 0
-				for key in keys {
-					if let sonarEntry = mapList[key] {
-//						print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
-						if sonarEntry.distance > maxDistance {
-							maxDistance = sonarEntry.distance
+				if keys.count > 2 {
+					incrementAngle = keys[2] - keys[1]
+					maxDistance = 0
+					for key in keys {
+						if let sonarEntry = mapList[key] {
+							//						print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
+							if sonarEntry.distance > maxDistance {
+								maxDistance = sonarEntry.distance
+							}
 						}
 					}
 				}
