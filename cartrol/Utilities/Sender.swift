@@ -49,7 +49,7 @@ public class Sender {
 	
 	public func doMakeConnection( to: String, at: UInt16 ) -> Bool {
 		
-		socketfd = socket( AF_INET, SOCK_STREAM, 0 )		// ipv4, tcp
+		socketfd = socket( AF_INET, SOCK_STREAM, 0 )		// ipv4, tcp    // SOCK_DGRAM for UDP
 		
 		guard let targetAddr = doLookup( name: to ) else {
 			print( "\nLookup failed for \(to)" )
@@ -72,7 +72,7 @@ public class Sender {
 		var hints = addrinfo(
 			ai_flags: AI_PASSIVE,       // Assign the address of my local host to the socket structures
 			ai_family: AF_INET,      	// IPv4
-			ai_socktype: SOCK_STREAM,   // TCP
+			ai_socktype: SOCK_STREAM,   // TCP -- SOCK_DGRAM for UDP
 			ai_protocol: 0, ai_addrlen: 0, ai_canonname: nil, ai_addr: nil, ai_next: nil )
 		var servinfo: UnsafeMutablePointer<addrinfo>? = nil		// For the result from the getaddrinfo
 		let status = getaddrinfo( name + ".local", "5555", &hints, &servinfo)
