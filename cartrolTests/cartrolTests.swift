@@ -11,9 +11,12 @@ import XCTest
 
 class cartrolTests: XCTestCase {
     
+    var vc: UIViewController?
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        vc = UIApplication.shared.keyWindow?.rootViewController
     }
     
     override func tearDown() {
@@ -21,16 +24,29 @@ class cartrolTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testCase1() {
+        if let controllerVC = vc as? ConnectViewController {
+            XCTAssertFalse( controllerVC.isConnected, "connected state is true which is wrong")
+        } else {
+            XCTAssert( true, "wrong viewcontroller found")
         }
     }
+        
+    func testCase2() {
+        if let controllerVC = vc as? ConnectViewController {
+            if let title = controllerVC.connectButton.titleLabel?.text {
+                XCTAssertTrue( title == "Connected", "connected button is \(title) which is wrong")
+            }
+        } else {
+           XCTAssert( true, "wrong viewcontroller found")
+        }
+    }
+    
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
     
 }
