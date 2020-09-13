@@ -36,6 +36,20 @@ class cartrolTests: XCTestCase {
         if let controllerVC = vc as? ConnectViewController {
             if let title = controllerVC.connectButton.titleLabel?.text {
                 XCTAssertTrue( title == "Connected", "connected button is \(title) which is wrong")
+            } else {
+                XCTAssert( false, "connected button is not found")
+            }
+        } else {
+           XCTAssert( true, "wrong viewcontroller found")
+        }
+    }
+            
+    func testCase3() {
+        if let controllerVC = vc as? ConnectViewController {
+            if let title = controllerVC.commandButton.titleLabel?.text {
+                XCTAssertTrue( title == "Send", "command button is \(title) which is wrong")
+            } else {
+                XCTAssert( false, "command button is not found")
             }
         } else {
            XCTAssert( true, "wrong viewcontroller found")
