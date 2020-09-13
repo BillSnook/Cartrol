@@ -149,7 +149,7 @@ class ConnectViewController: UIViewController, CommandResponder {
 			setupButtons()
 		} else {					// Else we must be connecting
 			if targetAddressTextField.text!.count > 0 {
-				connectButton.setTitle( " Cancel", for: .normal )
+				connectButton.setTitle( " Cancel ", for: .normal )
 				print( "\nConnecting to host \(targetAddressTextField.text!)" )
 				targetAddressTextField.isEnabled = false
 				connectButton.isEnabled = true // false

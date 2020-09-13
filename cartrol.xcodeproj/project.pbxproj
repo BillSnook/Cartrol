@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BEFE399250EBA9B00372A40 /* cartrolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEFE398250EBA9B00372A40 /* cartrolUITests.swift */; };
 		A914804C20A8115A000444B2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914804B20A81159000444B2 /* GameViewController.swift */; };
 		A914805020A81327000444B2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A914804E20A81327000444B2 /* GameScene.sks */; };
 		A914805120A81327000444B2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A914804F20A81327000444B2 /* Actions.sks */; };
@@ -28,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6BEFE39B250EBA9B00372A40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A925A8AB20A775C400B00291 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A925A8B220A775C400B00291;
+			remoteInfo = cartrol;
+		};
 		A925A8C820A775C600B00291 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A925A8AB20A775C400B00291 /* Project object */;
@@ -38,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6BEFE396250EBA9A00372A40 /* cartrolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cartrolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BEFE398250EBA9B00372A40 /* cartrolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartrolUITests.swift; sourceTree = "<group>"; };
+		6BEFE39A250EBA9B00372A40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A914804B20A81159000444B2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A914804E20A81327000444B2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A914804F20A81327000444B2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -64,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6BEFE393250EBA9A00372A40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A925A8B020A775C400B00291 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BEFE397250EBA9A00372A40 /* cartrolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6BEFE398250EBA9B00372A40 /* cartrolUITests.swift */,
+				6BEFE39A250EBA9B00372A40 /* Info.plist */,
+			);
+			path = cartrolUITests;
+			sourceTree = "<group>";
+		};
 		A914804D20A81310000444B2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +123,7 @@
 			children = (
 				A925A8B520A775C400B00291 /* cartrol */,
 				A925A8CA20A775C600B00291 /* cartrolTests */,
+				6BEFE397250EBA9A00372A40 /* cartrolUITests */,
 				A925A8B420A775C400B00291 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +133,7 @@
 			children = (
 				A925A8B320A775C400B00291 /* cartrol.app */,
 				A925A8C720A775C600B00291 /* cartrolTests.xctest */,
+				6BEFE396250EBA9A00372A40 /* cartrolUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +206,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6BEFE395250EBA9A00372A40 /* cartrolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BEFE39F250EBA9B00372A40 /* Build configuration list for PBXNativeTarget "cartrolUITests" */;
+			buildPhases = (
+				6BEFE392250EBA9A00372A40 /* Sources */,
+				6BEFE393250EBA9A00372A40 /* Frameworks */,
+				6BEFE394250EBA9A00372A40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BEFE39C250EBA9B00372A40 /* PBXTargetDependency */,
+			);
+			name = cartrolUITests;
+			productName = cartrolUITests;
+			productReference = 6BEFE396250EBA9A00372A40 /* cartrolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A925A8B220A775C400B00291 /* cartrol */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A925A8D020A775C600B00291 /* Build configuration list for PBXNativeTarget "cartrol" */;
@@ -218,10 +265,14 @@
 		A925A8AB20A775C400B00291 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = billsnook;
 				TargetAttributes = {
+					6BEFE395250EBA9A00372A40 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = A925A8B220A775C400B00291;
+					};
 					A925A8B220A775C400B00291 = {
 						CreatedOnToolsVersion = 9.3.1;
 						LastSwiftMigration = 1020;
@@ -248,11 +299,19 @@
 			targets = (
 				A925A8B220A775C400B00291 /* cartrol */,
 				A925A8C620A775C600B00291 /* cartrolTests */,
+				6BEFE395250EBA9A00372A40 /* cartrolUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6BEFE394250EBA9A00372A40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A925A8B120A775C400B00291 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +334,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6BEFE392250EBA9A00372A40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BEFE399250EBA9B00372A40 /* cartrolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A925A8AF20A775C400B00291 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,6 +372,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6BEFE39C250EBA9B00372A40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A925A8B220A775C400B00291 /* cartrol */;
+			targetProxy = 6BEFE39B250EBA9B00372A40 /* PBXContainerItemProxy */;
+		};
 		A925A8C920A775C600B00291 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A925A8B220A775C400B00291 /* cartrol */;
@@ -332,6 +404,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6BEFE39D250EBA9B00372A40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D84KDEPN2N;
+				INFOPLIST_FILE = cartrolUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cartrol;
+			};
+			name = Debug;
+		};
+		6BEFE39E250EBA9B00372A40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D84KDEPN2N;
+				INFOPLIST_FILE = cartrolUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.billsnook.test.cartrolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cartrol;
+			};
+			name = Release;
+		};
 		A925A8CE20A775C600B00291 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -527,6 +642,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6BEFE39F250EBA9B00372A40 /* Build configuration list for PBXNativeTarget "cartrolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BEFE39D250EBA9B00372A40 /* Debug */,
+				6BEFE39E250EBA9B00372A40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A925A8AE20A775C400B00291 /* Build configuration list for PBXProject "cartrol" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

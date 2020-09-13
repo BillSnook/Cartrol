@@ -35,7 +35,7 @@ class cartrolTests: XCTestCase {
     func testCase2() {
         if let controllerVC = vc as? ConnectViewController {
             if let title = controllerVC.connectButton.titleLabel?.text {
-                XCTAssertTrue( title == "Connected", "connected button is \(title) which is wrong")
+                XCTAssertEqual( title, "Connected", "connected button is \(title) which is wrong")
             } else {
                 XCTAssert( false, "connected button is not found")
             }
@@ -47,7 +47,7 @@ class cartrolTests: XCTestCase {
     func testCase3() {
         if let controllerVC = vc as? ConnectViewController {
             if let title = controllerVC.commandButton.titleLabel?.text {
-                XCTAssertTrue( title == "Send", "command button is \(title) which is wrong")
+                XCTAssertEqual( title, "Send", "command button is \(title) which is wrong")
             } else {
                 XCTAssert( false, "command button is not found")
             }
@@ -55,12 +55,5 @@ class cartrolTests: XCTestCase {
            XCTAssert( true, "wrong viewcontroller found")
         }
     }
-    
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
     
 }
