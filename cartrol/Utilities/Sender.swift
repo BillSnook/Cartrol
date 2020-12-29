@@ -49,7 +49,14 @@ public class Sender {
 	
 	public func doMakeConnection( to: String, at: UInt16 ) -> Bool {
 		
-		socketfd = socket( AF_INET, SOCK_STREAM, 0 )		// ipv4, tcp    // SOCK_DGRAM for UDP
+        if socketConnected {
+            socketConnected = false
+            if socketfd != 0 {
+                close( socketfd )
+                socketfd = 0
+            }
+        }
+        socketfd = socket( AF_INET, SOCK_STREAM, 0 )		// ipv4, tcp    // SOCK_DGRAM for UDP
 		
 		guard let targetAddr = doLookup( name: to ) else {
 			print( "\nLookup failed for \(to)" )
@@ -59,8 +66,8 @@ public class Sender {
 		
 		let result = doConnect( targetAddr, port: at )
 		guard result >= 0 else {
-//			let strerr = strerror( errno )
-//			print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
+			let strerr = strerror( errno )
+			print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
 			return false
 		}
 		socketConnected = true
@@ -112,7 +119,7 @@ public class Sender {
 		}
 		if connectResult < 0 {
 			let stat = String( describing: strerror( errno ) )
-			print("\nERROR connecting, errno: \(errno), \(stat)")
+            print("\nERROR connecting, errno: \(errno), \(stat )")
 			return connectResult
 		}
 		

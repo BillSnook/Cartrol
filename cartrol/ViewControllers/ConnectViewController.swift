@@ -11,10 +11,10 @@ import UIKit
 
 let targetPort = Sender()
 
-class ConnectViewController: UIViewController, CommandResponder {
+class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDelegate, UIPickerViewDataSource {
 	
 	@IBOutlet var commandView: UIView!
-	@IBOutlet var targetAddressTextField: UITextField!
+    @IBOutlet var devicePickerView: UIPickerView!
 	@IBOutlet var connectButton: CTButton!
 	@IBOutlet var commandButton: CTButton!
 	@IBOutlet var commandTextField: UITextField!
@@ -31,13 +31,14 @@ class ConnectViewController: UIViewController, CommandResponder {
 	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
-	var isConnected = true // debug - false
+	var isConnected = false
+    var isConnecting = false    // Enables cancelling
+    
+    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Devx", "mofopi", "utopia", "workpi"]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 //		print( "In viewDidLoad in ConnectViewController" )
-
-		targetAddressTextField.text = "Develop32"
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +53,8 @@ class ConnectViewController: UIViewController, CommandResponder {
 //		print( "In viewDidAppear in ConnectViewController" )
 
 		targetPort.setCommandResponder( self )
-
+        let savedRow = UserDefaults.standard.integer(forKey: "SelectedDeviceRow")
+        devicePickerView.selectRow(savedRow, inComponent: 0, animated: true)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -103,69 +105,64 @@ class ConnectViewController: UIViewController, CommandResponder {
 	
 	
 	func setupButtons() {
+        connectButton.isEnabled = true
+        devicePickerView.isUserInteractionEnabled = !isConnected
+        commandButton.isHidden = !isConnected
+        commandTextField.isHidden = !isConnected
+        clearButton.isHidden = !isConnected
+        calibrateButton.isHidden = !isConnected
+        controlButton.isHidden = !isConnected
+        directButton.isHidden = !isConnected
+        testStatusButton.isHidden = !isConnected
+        testRangeButton.isHidden = !isConnected
+        test1Button.isHidden = !isConnected
+        test2Button.isHidden = !isConnected
+        test3Button.isHidden = !isConnected
+        responseDisplayTextView.isHidden = !isConnected
 		if ( isConnected ) {
-			targetAddressTextField.isEnabled = false
-			connectButton.setTitle( " Disconnect ", for: .normal )
-			connectButton.isEnabled = true
-			commandButton.isHidden = false
-			commandTextField.isHidden = false
-			clearButton.isHidden = false
-			calibrateButton.isHidden = false
-			controlButton.isHidden = false
-			directButton.isHidden = false
-			testStatusButton.isHidden = false
-			testRangeButton.isHidden = false
-			test1Button.isHidden = false
-			test2Button.isHidden = false
-			test3Button.isHidden = false
-			responseDisplayTextView.isHidden = false
+			connectButton.setTitle( "Disconnect", for: .normal )
 			responseDisplayTextView.text = ""
 		} else {
-			targetAddressTextField.isEnabled = true
-			connectButton.setTitle( " Connect ", for: .normal )
-			commandButton.isHidden = true
-			commandTextField.isHidden = true
-			clearButton.isHidden = true
-			calibrateButton.isHidden = true
-			controlButton.isHidden = true
-			directButton.isHidden = true
-			testStatusButton.isHidden = true
-			testRangeButton.isHidden = true
-			test1Button.isHidden = true
-			test2Button.isHidden = true
-			test3Button.isHidden = true
-			responseDisplayTextView.isHidden = true
+			connectButton.setTitle( "Connect", for: .normal )
 		}
 	}
 
 	@IBAction func doConnectButtonTouch(_ sender: CTButton) {
 		print( "In doConnectButtonTouch" )
-		responseDisplayTextView.text = "Touch in connectButton for \(String(describing: targetAddressTextField.text))"
+        let hostName = deviceArray[devicePickerView.selectedRow(inComponent: 0)]
+        responseDisplayTextView.text = "Touch in connectButton for \(hostName)"
 
-		if isConnected {			// If isConnected, we must be disconnecting
-			print( "\nDisconnecting from host \(targetAddressTextField.text!)" )
+		if isConnected {			// If is connected, we must be disconnecting
+			print( "\nDisconnecting from host \(hostName)" )
 			targetPort.doBreakConnection()
 			isConnected = false
 			setupButtons()
-		} else {					// Else we must be connecting
-			if targetAddressTextField.text!.count > 0 {
-				connectButton.setTitle( " Cancel ", for: .normal )
-				print( "\nConnecting to host \(targetAddressTextField.text!)" )
-				targetAddressTextField.isEnabled = false
-				connectButton.isEnabled = true // false
-//				activityIndicator.startAnimating()
-				let hostName = self.targetAddressTextField.text!
-				isConnected = true		// So we can cancel
-				DispatchQueue.global( qos: .userInitiated ).async {
-					self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
-					DispatchQueue.main.async {
-						self.setupButtons()
-//						self.activityIndicator.stopAnimating()
-					}
-				}
-			} else { 	// Need a target name
-				
-			}
+		} else {
+            if !isConnecting {      // Or if not connecting, we must be connecting
+                connectButton.setTitle( "Cancel", for: .normal )
+                isConnecting = true
+                print( "\nConnecting to host \(hostName)" )
+                devicePickerView.isUserInteractionEnabled = false
+//              activityIndicator.startAnimating()
+                DispatchQueue.global( qos: .userInitiated ).async {
+                    self.isConnected = targetPort.doMakeConnection( to: hostName, at: 5555 )
+                    if !self.isConnecting {
+                        self.isConnected = false
+                    }
+                    self.isConnecting = false
+                    DispatchQueue.main.async {
+                        self.setupButtons()
+//                      self.activityIndicator.stopAnimating()
+                    }
+                }
+            } else {                // else if connecting, we must be cancelling
+                if isConnecting {   // If still waiting
+                    isConnecting = false
+                    print( "\nCancelled connection to host \(hostName)" )
+                    connectButton.setTitle( "Connect", for: .normal )
+
+                }
+            }
 		}
 	}
 
@@ -211,4 +208,24 @@ class ConnectViewController: UIViewController, CommandResponder {
 		print( "In doTest3" )
 //		targetPort.sendPi( "D" )
 	}
+    
+    // MARK: - Delegates and DataSources
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        deviceArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return deviceArray[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        UserDefaults.standard.setValue(row, forKey: "SelectedDeviceRow")
+    }
+
 }

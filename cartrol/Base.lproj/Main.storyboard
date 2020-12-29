@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IZX-vd-e4h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IZX-vd-e4h">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,14 +19,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-vC-J1d">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saturn" borderStyle="roundedRect" placeholder="Enter Address of Target" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GcY-6W-zKF">
-                                        <rect key="frame" x="8" y="24" width="206" height="30"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9e-tn-iMd">
+                                        <rect key="frame" x="0.0" y="4" width="200" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Zjc-c9-K5W"/>
+                                            <constraint firstAttribute="height" constant="70" id="e2U-K3-s3w"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Sh7-zI-aAp"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="RHq-Hm-snL"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-1v-SUt" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                        <rect key="frame" x="214" y="24" width="94" height="30"/>
+                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Toggles connectivity" identifier="Connect" label="ConnectButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mmY-BF-Q6Z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title=" Connect "/>
+                                        <connections>
+                                            <action selector="doConnectButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aN-nt-KPt"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Command" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S30-IB-vCa">
                                         <rect key="frame" x="79" y="84" width="229" height="30"/>
                                         <constraints>
@@ -35,7 +51,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-7c-49T" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-7c-49T" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="12" y="84" width="51" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -47,7 +63,7 @@
                                             <action selector="doCommandButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CkX-Fz-viC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="212" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -59,7 +75,7 @@
                                             <action selector="doClearButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zaZ-u1-btG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="12" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -71,7 +87,7 @@
                                             <segue destination="qXb-Qq-Vgb" kind="show" identifier="toCalibratePage" id="Gig-5h-427"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="112" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -89,20 +105,7 @@
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-1v-SUt" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="230" y="24" width="78" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" hint="Toggles connectivity" identifier="Connect" label="ConnectButton"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="mmY-BF-Q6Z"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title=" Connect "/>
-                                        <connections>
-                                            <action selector="doConnectButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aN-nt-KPt"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="212" y="146" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -114,7 +117,7 @@
                                             <segue destination="jGu-SE-yap" kind="show" identifier="toDirectPage" id="lqh-yu-d8U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Test Status Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Test Status Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="12" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -126,7 +129,7 @@
                                             <action selector="doTestStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mS9-ni-gtE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Test Range Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Test Range Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="112" y="208" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -138,7 +141,7 @@
                                             <action selector="doTestRange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0x-de-AmI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-p0-6tT" userLabel="T3 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-p0-6tT" userLabel="T3 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="212" y="270" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -150,7 +153,7 @@
                                             <action selector="doTest3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIC-px-xap"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-co-Tmv" userLabel="T1 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-co-Tmv" userLabel="T1 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="12" y="270" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -162,7 +165,7 @@
                                             <action selector="doTest1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIV-gr-Spj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-Jb-q9A" userLabel="T2 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-Jb-q9A" userLabel="T2 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="112" y="270" width="96" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -179,19 +182,19 @@
                                     <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="5JO-n5-lE8"/>
                                     <constraint firstItem="Sng-vM-CLD" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="7Cm-UI-fcK"/>
                                     <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="12" id="8Gg-6J-a3G"/>
+                                    <constraint firstItem="d9e-tn-iMd" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" id="BWE-58-gi7"/>
                                     <constraint firstItem="8zg-7c-49T" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="C6f-Xa-7EY"/>
                                     <constraint firstItem="S30-IB-vCa" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="trailing" constant="16" id="CVH-zn-Jhl"/>
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="Cfi-pJ-NhU"/>
                                     <constraint firstItem="jvn-1v-SUt" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="HSF-OU-JUy"/>
-                                    <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="30" id="I9P-tZ-jBK"/>
+                                    <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="jvn-1v-SUt" secondAttribute="bottom" constant="30" id="I9P-tZ-jBK"/>
                                     <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="4Uw-Fk-HP8" secondAttribute="bottom" constant="32" id="IcA-Db-Ogn"/>
-                                    <constraint firstItem="jvn-1v-SUt" firstAttribute="leading" secondItem="GcY-6W-zKF" secondAttribute="trailing" constant="16" id="MFr-vh-DwT"/>
                                     <constraint firstAttribute="trailing" secondItem="4Uw-Fk-HP8" secondAttribute="trailing" constant="12" id="MQF-bl-wZz"/>
                                     <constraint firstAttribute="bottom" secondItem="BTs-CK-9n0" secondAttribute="bottom" constant="8" id="MX5-7M-B7o"/>
                                     <constraint firstAttribute="trailing" secondItem="4Y6-p0-6tT" secondAttribute="trailing" constant="12" id="RGZ-ee-HJu"/>
                                     <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="NSd-co-Tmv" secondAttribute="top" id="ShD-f1-mhf"/>
                                     <constraint firstItem="BTs-CK-9n0" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="SxN-ka-ndl"/>
-                                    <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="GcY-6W-zKF" secondAttribute="bottom" constant="30" id="T2u-0k-kNp"/>
+                                    <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="jvn-1v-SUt" secondAttribute="bottom" constant="30" id="T2u-0k-kNp"/>
                                     <constraint firstAttribute="trailing" secondItem="UYy-ZI-HVE" secondAttribute="trailing" constant="12" id="VkM-G3-poc"/>
                                     <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="9Y7-Jb-q9A" secondAttribute="top" id="XHg-XG-lIl"/>
                                     <constraint firstItem="Sng-vM-CLD" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="Zlr-Nk-2dP"/>
@@ -199,18 +202,19 @@
                                     <constraint firstItem="IWn-Ng-IzR" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="fLg-3F-AsL"/>
                                     <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="32" id="gab-Vr-kHm"/>
                                     <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="hNA-JM-QPG"/>
-                                    <constraint firstItem="GcY-6W-zKF" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="iAz-TA-tnA"/>
                                     <constraint firstItem="NSd-co-Tmv" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="nI6-eA-bJE"/>
                                     <constraint firstAttribute="trailing" secondItem="BTs-CK-9n0" secondAttribute="trailing" constant="12" id="ndO-3p-Pym"/>
-                                    <constraint firstItem="GcY-6W-zKF" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="8" id="opV-hA-mXu"/>
                                     <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="UYy-ZI-HVE" secondAttribute="bottom" constant="32" id="ppy-MD-9mV"/>
                                     <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="12" id="t4P-Yj-Es8"/>
                                     <constraint firstItem="m9r-LQ-FMN" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="tpz-Oy-iwc"/>
                                     <constraint firstItem="9Y7-Jb-q9A" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="wvx-HE-o5G"/>
+                                    <constraint firstAttribute="trailing" secondItem="d9e-tn-iMd" secondAttribute="trailing" constant="120" id="wyV-yw-Vkz"/>
                                     <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="4Y6-p0-6tT" secondAttribute="bottom" constant="16" id="y0H-gC-UXf"/>
+                                    <constraint firstItem="d9e-tn-iMd" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="4" id="yJ5-Br-mRQ"/>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="T2Y-vC-J1d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8T8-nE-jGS"/>
@@ -218,7 +222,6 @@
                             <constraint firstItem="T2Y-vC-J1d" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iFO-ea-EO1"/>
                             <constraint firstItem="T2Y-vC-J1d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="twh-De-zvc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gva-6z-1uQ"/>
                     <connections>
@@ -228,9 +231,9 @@
                         <outlet property="commandTextField" destination="S30-IB-vCa" id="7D7-vt-Ocm"/>
                         <outlet property="connectButton" destination="jvn-1v-SUt" id="iep-ld-uKF"/>
                         <outlet property="controlButton" destination="IWn-Ng-IzR" id="AzO-mn-pOn"/>
+                        <outlet property="devicePickerView" destination="d9e-tn-iMd" id="BTx-vf-r88"/>
                         <outlet property="directButton" destination="UYy-ZI-HVE" id="BMK-EF-qB7"/>
                         <outlet property="responseDisplayTextView" destination="BTs-CK-9n0" id="fMm-Jj-Gp4"/>
-                        <outlet property="targetAddressTextField" destination="GcY-6W-zKF" id="RG6-9B-aQK"/>
                         <outlet property="test1Button" destination="NSd-co-Tmv" id="NKQ-WK-fum"/>
                         <outlet property="test2Button" destination="9Y7-Jb-q9A" id="ZgH-Vx-4ld"/>
                         <outlet property="test3Button" destination="4Y6-p0-6tT" id="nCC-fK-PwC"/>
@@ -279,7 +282,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N64-F4-ZuT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N64-F4-ZuT">
                                         <rect key="frame" x="20" y="30" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="ATf-7h-apm"/>
@@ -299,7 +302,7 @@
                                             <action selector="indexValueChanged:" destination="qXb-Qq-Vgb" eventType="valueChanged" id="b1L-tZ-3Va"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bov-sk-OuR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bov-sk-OuR">
                                         <rect key="frame" x="270" y="30" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="JAZ-PZ-5Dm"/>
@@ -313,7 +316,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueu-Qp-e1v">
                                         <rect key="frame" x="20" y="68" width="280" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-Dg-IL6" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-Dg-IL6" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="10" width="62.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="eVb-Az-LX0"/>
@@ -323,7 +326,7 @@
                                                     <action selector="doSaveButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="SUA-QQ-MnM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bod-0i-u96" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bod-0i-u96" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="179.5" y="10" width="62.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="TcC-Bf-0rr"/>
@@ -333,7 +336,7 @@
                                                     <action selector="doResetButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="hiQ-8l-3kb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-9O-ugq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-9O-ugq">
                                                 <rect key="frame" x="0.0" y="10" width="30" height="30"/>
                                                 <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -345,7 +348,7 @@
                                                     <action selector="doSpeedIndexIncrement:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="415-PC-pND"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-0l-oyc" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-0l-oyc" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="108.5" y="10" width="63" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="oE9-FR-yNd"/>
@@ -482,7 +485,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSp-SS-6Xa">
                                         <rect key="frame" x="20" y="214" width="280" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-2m-tUu" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-2m-tUu" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="110.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="uJ9-qn-QmL"/>
@@ -492,7 +495,7 @@
                                                     <action selector="doSlowestButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="E1U-Su-x9J"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-mY-rTy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-mY-rTy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="118.5" y="10" width="43" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="CrC-bS-okb"/>
@@ -502,7 +505,7 @@
                                                     <action selector="doBuildButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="ND1-Nz-QEL"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-Me-Y6o" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-Me-Y6o" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="169.5" y="10" width="110.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="cYg-mz-HCJ"/>
@@ -533,7 +536,7 @@
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="20" y="506" width="136" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -544,7 +547,7 @@
                                             <action selector="doCancelButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="DrK-P4-Mhs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                         <rect key="frame" x="164" y="506" width="136" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -558,7 +561,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-I4-Fqr">
                                         <rect key="frame" x="20" y="259" width="280" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF6-ZY-2wy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF6-ZY-2wy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="88" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="zp3-UF-sYq"/>
@@ -568,7 +571,7 @@
                                                     <action selector="doForwardButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="Ma7-JJ-Bl6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x0-UG-ztS" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x0-UG-ztS" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="10" width="88" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="g8G-S0-HHC"/>
@@ -578,7 +581,7 @@
                                                     <action selector="doStopButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="tPB-Gn-iRf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6M-nh-yaU" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6M-nh-yaU" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="10" width="88" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="7Ru-e2-apL"/>
@@ -641,6 +644,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="C48-Xk-o41"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qKz-fe-j48" firstAttribute="top" secondItem="C48-Xk-o41" secondAttribute="top" constant="24" id="1wC-DJ-bzM"/>
@@ -648,7 +652,6 @@
                             <constraint firstItem="qKz-fe-j48" firstAttribute="leading" secondItem="C48-Xk-o41" secondAttribute="leading" id="XL4-pp-UEp"/>
                             <constraint firstItem="qKz-fe-j48" firstAttribute="trailing" secondItem="C48-Xk-o41" secondAttribute="trailing" id="usT-dc-2Ai"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="C48-Xk-o41"/>
                     </view>
                     <connections>
                         <outlet property="buildButton" destination="uAo-mY-rTy" id="1wO-Y1-hbf"/>
@@ -738,7 +741,7 @@
                                             <constraint firstAttribute="width" constant="64" id="Shr-2k-hVJ"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvJ-oU-rge">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvJ-oU-rge">
                                         <rect key="frame" x="20" y="0.0" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Cr7-y1-XAj"/>
@@ -750,7 +753,7 @@
                                             <action selector="b1Action:" destination="GPo-AT-AK9" eventType="touchUpInside" id="LsW-Tu-DN1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Cg-0e5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Cg-0e5">
                                         <rect key="frame" x="200" y="0.0" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="HCO-e4-gKc"/>
@@ -763,7 +766,7 @@
                                             <action selector="b2Action:" destination="GPo-AT-AK9" eventType="touchUpInside" id="Ovw-9r-GLH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9t-Fg-ftM">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9t-Fg-ftM">
                                         <rect key="frame" x="20" y="60" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Vts-9O-smb"/>
@@ -775,7 +778,7 @@
                                             <segue destination="fQh-FV-mUr" kind="show" identifier="ToSetupMap" id="zgO-kS-As0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4r-YL-14p">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4r-YL-14p">
                                         <rect key="frame" x="200" y="60" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="jWN-Ih-TbD"/>
@@ -789,14 +792,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiZ-y6-y9c">
                                         <rect key="frame" x="0.0" y="100" width="320" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5Y-mZ-iUy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5Y-mZ-iUy">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                                 <state key="normal" title="50 cm"/>
                                                 <connections>
                                                     <action selector="shortRangeScaleAction:" destination="GPo-AT-AK9" eventType="touchUpInside" id="NLc-qN-ScC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-tf-a7W">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-tf-a7W">
                                                 <rect key="frame" x="220" y="0.0" width="100" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="2 m"/>
@@ -804,7 +807,7 @@
                                                     <action selector="longRangeScaleAction:" destination="GPo-AT-AK9" eventType="touchUpInside" id="x5D-tQ-MkR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-dx-w0R">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-dx-w0R">
                                                 <rect key="frame" x="110" y="0.0" width="100" height="40"/>
                                                 <state key="normal" title="Range"/>
                                                 <connections>
@@ -850,6 +853,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Oh7-Ca-F41"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rJg-OI-aUv" firstAttribute="top" secondItem="Ewp-qe-StN" secondAttribute="bottom" constant="8" id="DUy-Qi-7kh"/>
@@ -867,7 +871,6 @@
                             <constraint firstItem="rJg-OI-aUv" firstAttribute="leading" secondItem="Oh7-Ca-F41" secondAttribute="leading" id="tpS-Ei-Wvf"/>
                             <constraint firstItem="Ewp-qe-StN" firstAttribute="top" secondItem="zEO-jR-r0Y" secondAttribute="bottom" id="vxg-WZ-qKz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Oh7-Ca-F41"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="vU2-hn-Xbz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Zrf-Kg-prg"/>
@@ -939,7 +942,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6G-oo-wTP">
-                                <rect key="frame" x="16" y="164" width="78" height="30"/>
+                                <rect key="frame" x="16" y="164" width="77" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DmI-e2-b6t"/>
                                 </constraints>
@@ -948,7 +951,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JxB-cQ-sqs">
-                                <rect key="frame" x="102" y="164" width="202" height="30"/>
+                                <rect key="frame" x="101" y="164" width="203" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3Ke-ra-AJi"/>
                                 </constraints>
@@ -956,6 +959,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ecD-Uu-epW"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gca-gk-AFy" firstAttribute="leading" secondItem="sfM-ZL-wSW" secondAttribute="trailing" constant="8" id="0AS-t8-xgI"/>
@@ -974,7 +978,6 @@
                             <constraint firstItem="uRi-8V-vx2" firstAttribute="top" secondItem="ecD-Uu-epW" secondAttribute="top" constant="44" id="snP-9b-XB1"/>
                             <constraint firstItem="JxB-cQ-sqs" firstAttribute="centerY" secondItem="P6G-oo-wTP" secondAttribute="centerY" id="xe2-xo-ALr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ecD-Uu-epW"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Setup Map" leftItemsSupplementBackButton="YES" id="gII-sQ-rVs">
@@ -1002,8 +1005,8 @@
                     <view key="view" contentMode="scaleToFill" id="H6t-i4-uMf" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2yb-ZL-rkj"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09u-dq-DiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1348,6 +1351,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="XL8-bI-2Qh"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TAl-HQ-HOa" firstAttribute="top" secondItem="1lH-nk-7Qs" secondAttribute="bottom" constant="8" id="3lT-Xa-l5X"/>
@@ -1411,7 +1415,6 @@
                             <constraint firstItem="bwC-Za-S7r" firstAttribute="centerX" secondItem="SEd-lO-Gnt" secondAttribute="centerX" id="yGG-39-mvo"/>
                             <constraint firstItem="oEf-Ow-JTo" firstAttribute="height" secondItem="bwC-Za-S7r" secondAttribute="height" id="ymR-7n-y6l"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XL8-bI-2Qh"/>
                     </view>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
