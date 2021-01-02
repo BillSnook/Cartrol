@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9e-tn-iMd">
-                                        <rect key="frame" x="0.0" y="4" width="200" height="70"/>
+                                        <rect key="frame" x="0.0" y="4" width="205" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="e2U-K3-s3w"/>
                                         </constraints>
@@ -30,186 +31,215 @@
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-1v-SUt" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="214" y="24" width="94" height="30"/>
+                                        <rect key="frame" x="214" y="24" width="98" height="30"/>
                                         <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" hint="Toggles connectivity" identifier="Connect" label="ConnectButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="mmY-BF-Q6Z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title=" Connect "/>
                                         <connections>
                                             <action selector="doConnectButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aN-nt-KPt"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Command" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S30-IB-vCa">
-                                        <rect key="frame" x="79" y="84" width="229" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMh-TS-vKh">
+                                        <rect key="frame" x="0.0" y="74" width="320" height="228"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-7c-49T" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="10" width="71" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SFp-wY-ulK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title=" Send "/>
+                                                <connections>
+                                                    <action selector="doCommandButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CkX-Fz-viC"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Command" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S30-IB-vCa">
+                                                <rect key="frame" x="95" y="10" width="217" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="o38-4N-yB3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="64" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ym1-W7-OXA"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Calibrate"/>
+                                                <connections>
+                                                    <segue destination="qXb-Qq-Vgb" kind="show" identifier="toCalibratePage" id="Gig-5h-427"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="119" y="64" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2OS-tN-ARw"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Control"/>
+                                                <connections>
+                                                    <segue destination="GPo-AT-AK9" kind="show" identifier="toControlPage" id="kiA-QF-Nzn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="230" y="64" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="4x2-0R-XqD"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Direct"/>
+                                                <connections>
+                                                    <segue destination="jGu-SE-yap" kind="show" identifier="toDirectPage" id="lqh-yu-d8U"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Test Status Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="126" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="NUe-e9-vu9"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Status"/>
+                                                <connections>
+                                                    <action selector="doTestStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mS9-ni-gtE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Test Range Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="119" y="126" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="n2j-OI-HRG"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Range"/>
+                                                <connections>
+                                                    <action selector="doTestRange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0x-de-AmI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="230" y="126" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="5kR-2F-uiP"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Clear"/>
+                                                <connections>
+                                                    <action selector="doClearButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zaZ-u1-btG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-co-Tmv" userLabel="T1 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="188" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="pSj-RA-RYS"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Test 1"/>
+                                                <connections>
+                                                    <action selector="doTest1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIV-gr-Spj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-Jb-q9A" userLabel="T2 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="119" y="188" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="fUW-BR-TlK"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Test 2"/>
+                                                <connections>
+                                                    <action selector="doTest2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUh-1c-Qpl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-p0-6tT" userLabel="T3 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
+                                                <rect key="frame" x="230" y="188" width="82" height="30"/>
+                                                <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="cBp-Mh-CPi"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Test 3"/>
+                                                <connections>
+                                                    <action selector="doTest3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIC-px-xap"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="o38-4N-yB3"/>
+                                            <constraint firstItem="Sng-vM-CLD" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="1DZ-dZ-hXa"/>
+                                            <constraint firstItem="S30-IB-vCa" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="trailing" constant="16" id="1EJ-Na-pcJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Y6-p0-6tT" secondAttribute="trailing" constant="8" id="2Hs-T1-YnX"/>
+                                            <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="UYy-ZI-HVE" secondAttribute="bottom" constant="32" id="2Rb-1i-Jao"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Y7-Jb-q9A" secondAttribute="bottom" constant="10" id="459-We-uu4"/>
+                                            <constraint firstItem="8zg-7c-49T" firstAttribute="leading" secondItem="qMh-TS-vKh" secondAttribute="leading" constant="8" id="8dq-A3-nYL"/>
+                                            <constraint firstItem="XUS-gi-82e" firstAttribute="top" secondItem="8zg-7c-49T" secondAttribute="bottom" constant="24" id="8ow-9P-0Kj"/>
+                                            <constraint firstItem="IWn-Ng-IzR" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="9JN-AU-ktj"/>
+                                            <constraint firstItem="NSd-co-Tmv" firstAttribute="leading" secondItem="qMh-TS-vKh" secondAttribute="leading" constant="8" id="9lE-0f-FtV"/>
+                                            <constraint firstItem="Sng-vM-CLD" firstAttribute="centerX" secondItem="qMh-TS-vKh" secondAttribute="centerX" id="9s9-e8-fwh"/>
+                                            <constraint firstItem="4Y6-p0-6tT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Y7-Jb-q9A" secondAttribute="trailing" constant="8" id="C63-xH-2q7"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Uw-Fk-HP8" secondAttribute="trailing" constant="8" id="Cgb-Ta-trp"/>
+                                            <constraint firstItem="4Uw-Fk-HP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sng-vM-CLD" secondAttribute="trailing" constant="8" id="E1C-dW-sVs"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Y6-p0-6tT" secondAttribute="bottom" constant="10" id="Ian-U0-H0G"/>
+                                            <constraint firstItem="IWn-Ng-IzR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XUS-gi-82e" secondAttribute="trailing" constant="8" id="KZ1-KZ-jzv"/>
+                                            <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="qMh-TS-vKh" secondAttribute="top" constant="10" id="ODg-wB-njN"/>
+                                            <constraint firstItem="NSd-co-Tmv" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="RgI-NU-Phi"/>
+                                            <constraint firstItem="UYy-ZI-HVE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IWn-Ng-IzR" secondAttribute="trailing" constant="8" id="Snc-Vz-kZO"/>
+                                            <constraint firstItem="m9r-LQ-FMN" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="Tqc-EI-MCT"/>
+                                            <constraint firstItem="4Y6-p0-6tT" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="XJI-La-fTc"/>
+                                            <constraint firstItem="9Y7-Jb-q9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NSd-co-Tmv" secondAttribute="trailing" constant="8" id="XqO-UE-bUp"/>
+                                            <constraint firstAttribute="trailing" secondItem="UYy-ZI-HVE" secondAttribute="trailing" constant="8" id="ago-56-Icu"/>
+                                            <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="24" id="bi7-qg-LGf"/>
+                                            <constraint firstItem="IWn-Ng-IzR" firstAttribute="centerX" secondItem="qMh-TS-vKh" secondAttribute="centerX" id="d8R-nT-39k"/>
+                                            <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="4Uw-Fk-HP8" secondAttribute="bottom" constant="32" id="dcU-RE-WPC"/>
+                                            <constraint firstItem="UYy-ZI-HVE" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="dya-6l-9ON"/>
+                                            <constraint firstItem="9Y7-Jb-q9A" firstAttribute="centerX" secondItem="qMh-TS-vKh" secondAttribute="centerX" id="eXz-77-I2N"/>
+                                            <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="24" id="eqe-yq-Qpa"/>
+                                            <constraint firstItem="XUS-gi-82e" firstAttribute="leading" secondItem="qMh-TS-vKh" secondAttribute="leading" constant="8" id="haX-Lc-SoN"/>
+                                            <constraint firstItem="Sng-vM-CLD" firstAttribute="top" secondItem="IWn-Ng-IzR" secondAttribute="bottom" constant="32" id="i0y-rs-yLw"/>
+                                            <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="8" id="iW3-BU-arm"/>
+                                            <constraint firstAttribute="bottom" secondItem="NSd-co-Tmv" secondAttribute="bottom" constant="10" id="jDI-LQ-Syp"/>
+                                            <constraint firstItem="4Uw-Fk-HP8" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="mhw-EL-I7h"/>
+                                            <constraint firstItem="m9r-LQ-FMN" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="bottom" constant="32" id="qvU-Fa-Uh7"/>
+                                            <constraint firstItem="m9r-LQ-FMN" firstAttribute="leading" secondItem="qMh-TS-vKh" secondAttribute="leading" constant="8" id="rWp-dE-3Qu"/>
+                                            <constraint firstItem="NSd-co-Tmv" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="bottom" constant="32" id="tES-IU-kjz"/>
+                                            <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="qMh-TS-vKh" secondAttribute="top" constant="10" id="tUv-fU-0lr"/>
+                                            <constraint firstItem="Sng-vM-CLD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m9r-LQ-FMN" secondAttribute="trailing" constant="8" id="vZM-Em-F30"/>
+                                            <constraint firstItem="9Y7-Jb-q9A" firstAttribute="top" secondItem="Sng-vM-CLD" secondAttribute="bottom" constant="32" id="wSz-WG-0gG"/>
+                                            <constraint firstItem="9Y7-Jb-q9A" firstAttribute="width" secondItem="XUS-gi-82e" secondAttribute="width" id="xWK-Pl-7LN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-7c-49T" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="84" width="51" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="SFp-wY-ulK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title=" Send "/>
-                                        <connections>
-                                            <action selector="doCommandButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CkX-Fz-viC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uw-Fk-HP8" userLabel="Clear Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="208" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="Kse-ly-wPd"/>
-                                            <constraint firstAttribute="height" constant="30" id="VPq-mq-Lmp"/>
-                                        </constraints>
-                                        <state key="normal" title="Clear"/>
-                                        <connections>
-                                            <action selector="doClearButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zaZ-u1-btG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-gi-82e" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="146" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="8Sz-yG-OQd"/>
-                                            <constraint firstAttribute="height" constant="30" id="VFs-tF-OkV"/>
-                                        </constraints>
-                                        <state key="normal" title="Calibrate"/>
-                                        <connections>
-                                            <segue destination="qXb-Qq-Vgb" kind="show" identifier="toCalibratePage" id="Gig-5h-427"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-Ng-IzR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="146" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="s2X-rr-bqZ"/>
-                                            <constraint firstAttribute="height" constant="30" id="z14-sp-hFN"/>
-                                        </constraints>
-                                        <state key="normal" title="Control"/>
-                                        <connections>
-                                            <segue destination="GPo-AT-AK9" kind="show" identifier="toControlPage" id="kiA-QF-Nzn"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-CK-9n0">
-                                        <rect key="frame" x="12" y="316" width="296" height="244"/>
+                                        <rect key="frame" x="12" y="312" width="296" height="248"/>
                                         <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-ZI-HVE" userLabel="Direct Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="146" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="13s-jQ-rOB"/>
-                                            <constraint firstAttribute="height" constant="30" id="GhM-kx-5Xj"/>
-                                        </constraints>
-                                        <state key="normal" title="Direct"/>
-                                        <connections>
-                                            <segue destination="jGu-SE-yap" kind="show" identifier="toDirectPage" id="lqh-yu-d8U"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LQ-FMN" userLabel="Test Status Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="208" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="7hi-HL-UX4"/>
-                                            <constraint firstAttribute="width" constant="96" id="wuO-hH-jsc"/>
-                                        </constraints>
-                                        <state key="normal" title="Test Status"/>
-                                        <connections>
-                                            <action selector="doTestStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mS9-ni-gtE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-vM-CLD" userLabel="Test Range Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="208" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="IpV-XC-5fE"/>
-                                            <constraint firstAttribute="width" constant="96" id="fen-XJ-mhO"/>
-                                        </constraints>
-                                        <state key="normal" title="Test Range"/>
-                                        <connections>
-                                            <action selector="doTestRange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0x-de-AmI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-p0-6tT" userLabel="T3 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="270" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="WBY-ua-giY"/>
-                                            <constraint firstAttribute="width" constant="96" id="a2c-Hd-s6T"/>
-                                        </constraints>
-                                        <state key="normal" title="Test 3"/>
-                                        <connections>
-                                            <action selector="doTest3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIC-px-xap"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-co-Tmv" userLabel="T1 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="270" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="KWN-bE-KWY"/>
-                                            <constraint firstAttribute="height" constant="30" id="x6N-ml-4tm"/>
-                                        </constraints>
-                                        <state key="normal" title="Test 1"/>
-                                        <connections>
-                                            <action selector="doTest1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIV-gr-Spj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-Jb-q9A" userLabel="T2 Button" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="270" width="96" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="SKH-K5-OXo"/>
-                                            <constraint firstAttribute="height" constant="30" id="bGQ-RC-v87"/>
-                                        </constraints>
-                                        <state key="normal" title="Test 2"/>
-                                        <connections>
-                                            <action selector="doTest2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUh-1c-Qpl"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="5JO-n5-lE8"/>
-                                    <constraint firstItem="Sng-vM-CLD" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="7Cm-UI-fcK"/>
-                                    <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="12" id="8Gg-6J-a3G"/>
+                                    <constraint firstAttribute="trailing" secondItem="jvn-1v-SUt" secondAttribute="trailing" constant="8" id="8Gg-6J-a3G"/>
                                     <constraint firstItem="d9e-tn-iMd" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" id="BWE-58-gi7"/>
-                                    <constraint firstItem="8zg-7c-49T" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="C6f-Xa-7EY"/>
-                                    <constraint firstItem="S30-IB-vCa" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="trailing" constant="16" id="CVH-zn-Jhl"/>
-                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="top" secondItem="XUS-gi-82e" secondAttribute="top" id="Cfi-pJ-NhU"/>
                                     <constraint firstItem="jvn-1v-SUt" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="24" id="HSF-OU-JUy"/>
-                                    <constraint firstItem="8zg-7c-49T" firstAttribute="top" secondItem="jvn-1v-SUt" secondAttribute="bottom" constant="30" id="I9P-tZ-jBK"/>
-                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="4Uw-Fk-HP8" secondAttribute="bottom" constant="32" id="IcA-Db-Ogn"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Uw-Fk-HP8" secondAttribute="trailing" constant="12" id="MQF-bl-wZz"/>
+                                    <constraint firstAttribute="trailing" secondItem="qMh-TS-vKh" secondAttribute="trailing" id="K0d-5P-C5L"/>
+                                    <constraint firstItem="qMh-TS-vKh" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" id="KJx-4p-A29"/>
                                     <constraint firstAttribute="bottom" secondItem="BTs-CK-9n0" secondAttribute="bottom" constant="8" id="MX5-7M-B7o"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Y6-p0-6tT" secondAttribute="trailing" constant="12" id="RGZ-ee-HJu"/>
-                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="NSd-co-Tmv" secondAttribute="top" id="ShD-f1-mhf"/>
+                                    <constraint firstAttribute="trailing" secondItem="d9e-tn-iMd" secondAttribute="trailing" constant="115" id="Nlm-wo-GXA"/>
+                                    <constraint firstItem="qMh-TS-vKh" firstAttribute="top" secondItem="jvn-1v-SUt" secondAttribute="bottom" constant="20" id="QA3-H3-LT5"/>
                                     <constraint firstItem="BTs-CK-9n0" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="SxN-ka-ndl"/>
-                                    <constraint firstItem="S30-IB-vCa" firstAttribute="top" secondItem="jvn-1v-SUt" secondAttribute="bottom" constant="30" id="T2u-0k-kNp"/>
-                                    <constraint firstAttribute="trailing" secondItem="UYy-ZI-HVE" secondAttribute="trailing" constant="12" id="VkM-G3-poc"/>
-                                    <constraint firstItem="4Y6-p0-6tT" firstAttribute="top" secondItem="9Y7-Jb-q9A" secondAttribute="top" id="XHg-XG-lIl"/>
-                                    <constraint firstItem="Sng-vM-CLD" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="Zlr-Nk-2dP"/>
-                                    <constraint firstItem="XUS-gi-82e" firstAttribute="leading" secondItem="8zg-7c-49T" secondAttribute="leading" id="d7a-BU-d9s"/>
-                                    <constraint firstItem="IWn-Ng-IzR" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="fLg-3F-AsL"/>
-                                    <constraint firstItem="UYy-ZI-HVE" firstAttribute="top" secondItem="S30-IB-vCa" secondAttribute="bottom" constant="32" id="gab-Vr-kHm"/>
-                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="m9r-LQ-FMN" secondAttribute="top" id="hNA-JM-QPG"/>
-                                    <constraint firstItem="NSd-co-Tmv" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="nI6-eA-bJE"/>
+                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="qMh-TS-vKh" secondAttribute="bottom" constant="10" id="kpX-Bw-6lQ"/>
                                     <constraint firstAttribute="trailing" secondItem="BTs-CK-9n0" secondAttribute="trailing" constant="12" id="ndO-3p-Pym"/>
-                                    <constraint firstItem="4Uw-Fk-HP8" firstAttribute="top" secondItem="UYy-ZI-HVE" secondAttribute="bottom" constant="32" id="ppy-MD-9mV"/>
-                                    <constraint firstAttribute="trailing" secondItem="S30-IB-vCa" secondAttribute="trailing" constant="12" id="t4P-Yj-Es8"/>
-                                    <constraint firstItem="m9r-LQ-FMN" firstAttribute="leading" secondItem="T2Y-vC-J1d" secondAttribute="leading" constant="12" id="tpz-Oy-iwc"/>
-                                    <constraint firstItem="9Y7-Jb-q9A" firstAttribute="centerX" secondItem="T2Y-vC-J1d" secondAttribute="centerX" id="wvx-HE-o5G"/>
-                                    <constraint firstAttribute="trailing" secondItem="d9e-tn-iMd" secondAttribute="trailing" constant="120" id="wyV-yw-Vkz"/>
-                                    <constraint firstItem="BTs-CK-9n0" firstAttribute="top" secondItem="4Y6-p0-6tT" secondAttribute="bottom" constant="16" id="y0H-gC-UXf"/>
                                     <constraint firstItem="d9e-tn-iMd" firstAttribute="top" secondItem="T2Y-vC-J1d" secondAttribute="top" constant="4" id="yJ5-Br-mRQ"/>
                                 </constraints>
                             </view>
@@ -653,6 +683,7 @@
                             <constraint firstItem="qKz-fe-j48" firstAttribute="trailing" secondItem="C48-Xk-o41" secondAttribute="trailing" id="usT-dc-2Ai"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dAw-NR-Ctt"/>
                     <connections>
                         <outlet property="buildButton" destination="uAo-mY-rTy" id="1wO-Y1-hbf"/>
                         <outlet property="cancelButton" destination="E7Y-Yd-0YR" id="djx-bI-quu"/>
@@ -1417,6 +1448,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2hQ-0c-1EX"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUb-Pb-o4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1426,5 +1458,8 @@
     </scenes>
     <resources>
         <image name="car" width="64" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
