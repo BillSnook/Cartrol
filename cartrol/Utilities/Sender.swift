@@ -9,6 +9,7 @@
 import UIKit
 import Darwin.C
 
+let useDatagramProtocol = true
 
 public protocol CommandResponder {
 	func handleReply( msg: String )
@@ -56,22 +57,29 @@ public class Sender {
                 socketfd = 0
             }
         }
-        socketfd = socket( AF_INET, SOCK_STREAM, 0 )		// ipv4, tcp    // SOCK_DGRAM for UDP
-		
+        if useDatagramProtocol {
+            socketfd = socket( AF_INET, SOCK_DGRAM, 0 )         // ipv4, udp
+        } else {
+            socketfd = socket( AF_INET, SOCK_STREAM, 0 )        // ipv4, tcp
+        }
+
 		guard let targetAddr = doLookup( name: to ) else {
 			print( "\nLookup failed for \(to)" )
 			return false
 		}
-		print( "\nFound target address: \(targetAddr)" )
-		
-		let result = doConnect( targetAddr, port: at )
-		guard result >= 0 else {
-			let strerr = strerror( errno )
-			print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
-			return false
-		}
+
+        print( "\nFound target address: \(targetAddr), connecting..." )
+        let result = doConnect( targetAddr, port: at )
+        guard result >= 0 else {
+            let strerr = strerror( errno )
+            print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
+            return false
+        }
+        print( "Connected on port \(at) to host \(to) (\(targetAddr))\n" )
 		socketConnected = true
-		print( "\nConnected on port \(at) to host \(to) (\(targetAddr))\n" )
+        
+        readThread()    // Loop waiting for input
+        
 		return true
 	}
 	
@@ -79,7 +87,7 @@ public class Sender {
 		var hints = addrinfo(
 			ai_flags: AI_PASSIVE,       // Assign the address of my local host to the socket structures
 			ai_family: AF_INET,      	// IPv4
-			ai_socktype: SOCK_STREAM,   // TCP -- SOCK_DGRAM for UDP
+            ai_socktype: SOCK_DGRAM,   // UDP -- SOCK_STREAM for TCP - Either seem to work here
 			ai_protocol: 0, ai_addrlen: 0, ai_canonname: nil, ai_addr: nil, ai_next: nil )
 		var servinfo: UnsafeMutablePointer<addrinfo>? = nil		// For the result from the getaddrinfo
 		let status = getaddrinfo( name + ".local", "5555", &hints, &servinfo)
@@ -91,7 +99,7 @@ public class Sender {
 		
 		var target: String?
 		var info = servinfo
-		while info != nil {					// Check for addresses
+		while info != nil {					// Check for addresses - typically there is only one ipv4 address
 			var ipAddressString = [CChar]( repeating: 0, count: Int(INET_ADDRSTRLEN) )
 			let sockAddrIn = info!.pointee.ai_addr.withMemoryRebound( to: sockaddr_in.self, capacity: 1 ) { $0 }
 			var ipaddr_raw = sockAddrIn.pointee.sin_addr.s_addr
@@ -122,19 +130,24 @@ public class Sender {
             print("\nERROR connecting, errno: \(errno), \(stat )")
 			return connectResult
 		}
-		
-		// Start read thread
+        return connectResult
+    }
+    
+    func readThread() {         // Start read thread
 		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
 			while self?.socketfd != 0 {
 				var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
-				
-				let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
+				var rcvLen = 0
+                if useDatagramProtocol {
+                    rcvLen = recv(self!.socketfd, &readBuffer, 1024, 0)
+                } else {
+                    rcvLen = read(self!.socketfd, &readBuffer, 1024 )
+                }
 				if (rcvLen <= 0) {
-					if let stat = strerror( errno ) {
-						print( "\n\nError reading from socket: \(String( describing: stat ))" )
-						break
-					}
+                    print( "\n\nServer hung up while receiving" )
+                    break
 				} else {
+                    print( "\nRead from socket \(self!.socketfd)\n" )
 					DispatchQueue.main.async {
 						if self?.commandResponder != nil {
 							self?.commandResponder?.handleReply( msg: String( cString: readBuffer ) )
@@ -143,62 +156,65 @@ public class Sender {
 				}
 			}
 		}
-
-		return connectResult
 	}
 	
-	@discardableResult public func sendPi( _ message: String ) -> String {
+	public func sendPi( _ message: String ) {
 		
-		guard socketConnected else { return "Socket is not connected" }
+		guard socketConnected else { return }
 		let command = message + "\n"
 		var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
 		strcpy( &writeBuffer, command )
 		let len = strlen( &writeBuffer )
-		let sndLen = write( socketfd, &writeBuffer, Int(len) )
+        var sndLen = 0
+        if useDatagramProtocol {
+            sndLen = send( socketfd, &writeBuffer, Int(len), 0 )
+        } else {
+            sndLen = write( socketfd, &writeBuffer, Int(len) )
+        }
 		if ( sndLen < 0 ) {
-			let stat = strerror( errno )
-			print( "\n\nERROR writing to socket: \(String( describing: stat ))" )
-			return "ERROR writing to socket, returned: \(sndLen)"
+			print( "\n\nServer hung up while sending" )
+			return
 		}
-		
-		return ""
+        print( "\nWrote to socket \(socketfd)\n" )
+
+		return
 	}
 
-	public func sendCommand( _ message: String, with useResponder: CommandResponder? ) {
-		
-		guard socketConnected else { return }
-		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
-			
-			let command = message + "\n"
-			var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
-			strcpy( &writeBuffer, command )
-			let len = strlen( &writeBuffer )
-			
-			guard let skt = self?.socketfd else { return }
-			let sndLen = write( skt, &writeBuffer, Int(len) )
-			if ( sndLen < 0 ) {
-				let stat = strerror( errno )
-				print( "\n\nERROR writing to socket: \(String( describing: stat ))" )
-				return
-			}
-			var readBuffer = [CChar](repeating: 0, count: 1024)
-		
-			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
-			if (rcvLen < 0) {
-				if let stat = strerror( errno ) {
-					print( "\n\nRead \(rcvLen) bytes from socket:  \(String( describing: stat ))" )
-				}
-			} else {
-				DispatchQueue.main.async {
-					if useResponder != nil {
-						useResponder!.handleReply( msg: String( cString: readBuffer ) )
-					} else {
-						if self?.commandResponder != nil {
-							self!.commandResponder!.handleReply( msg: String( cString: readBuffer ) )
-						}
-					}
-				}
-			}
-		}
-	}
+//	public func sendCommand( _ message: String, with useResponder: CommandResponder? ) {
+//
+//		guard socketConnected else { return }
+//		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
+//
+//			let command = message + "\n"
+//			var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
+//			strcpy( &writeBuffer, command )
+//			let len = strlen( &writeBuffer )
+//
+//			guard let skt = self?.socketfd else { return }
+//			let sndLen = write( skt, &writeBuffer, Int(len) )
+//			if ( sndLen < 0 ) {
+//				let stat = strerror( errno )
+//				print( "\n\nERROR writing to socket: \(String( describing: stat ))" )
+//				return
+//			}
+//			var readBuffer = [CChar](repeating: 0, count: 1024)
+//
+//			let rcvLen = read( (self?.socketfd)!, &readBuffer, 1024 )
+//			if (rcvLen < 0) {
+//				if let stat = strerror( errno ) {
+//					print( "\n\nRead \(rcvLen) bytes from socket:  \(String( describing: stat ))" )
+//				}
+//			} else {
+//				DispatchQueue.main.async {
+//					if useResponder != nil {
+//						useResponder!.handleReply( msg: String( cString: readBuffer ) )
+//					} else {
+//						if self?.commandResponder != nil {
+//							self!.commandResponder!.handleReply( msg: String( cString: readBuffer ) )
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 }
