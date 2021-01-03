@@ -175,11 +175,6 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		targetPort.sendPi( command )
 	}
 
-	@IBAction func doClearButtonTouch(_ sender: CTButton) {
-		print( "In doClearButtonTouch" )
-		responseDisplayTextView.text = ""
-	}
-
 	@IBAction func doTestStatus(_ sender: CTButton) {
 
 		targetPort.sendPi( "A" )	// Send set status mode command
@@ -194,6 +189,12 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		targetPort.sendPi( "D" )	// Send get range command
 	}
 	
+    @IBAction func doClearButtonTouch(_ sender: CTButton) {
+        targetPort.sendPi( "S" )    // Send stop/clear command
+        print( "In doClearButtonTouch" )
+        responseDisplayTextView.text = ""
+    }
+
 	@IBAction func doTest1(_ sender: CTButton) {
 		print( "In doTest1" )
 		targetPort.sendPi( "F 0" )	// Motor relay off
@@ -206,7 +207,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	@IBAction func doTest3(_ sender: CTButton) {
 		print( "In doTest3" )
-//		targetPort.sendPi( "D" )
+		targetPort.sendPi( "Y" )
 	}
     
     // MARK: - Delegates and DataSources

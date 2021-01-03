@@ -75,7 +75,7 @@ public class Sender {
             print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
             return false
         }
-        print( "Connected on port \(at) to host \(to) (\(targetAddr))\n" )
+        print( "Connected on socket \(socketfd) on port \(at) to host \(to) (\(targetAddr))\n" )
 		socketConnected = true
         
         readThread()    // Loop waiting for input
@@ -144,10 +144,10 @@ public class Sender {
                     rcvLen = read(self!.socketfd, &readBuffer, 1024 )
                 }
 				if (rcvLen <= 0) {
-                    print( "\n\nServer hung up while receiving" )
+                    print( "\n\nConnection lost while receiving" )
                     break
 				} else {
-                    print( "\nRead from socket \(self!.socketfd)\n" )
+                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(readBuffer)\n" )
 					DispatchQueue.main.async {
 						if self?.commandResponder != nil {
 							self?.commandResponder?.handleReply( msg: String( cString: readBuffer ) )
@@ -172,10 +172,10 @@ public class Sender {
             sndLen = write( socketfd, &writeBuffer, Int(len) )
         }
 		if ( sndLen < 0 ) {
-			print( "\n\nServer hung up while sending" )
+			print( "\n\nConnection lost while sending" )
 			return
 		}
-        print( "\nWrote to socket \(socketfd)\n" )
+//        print( "\nWrote to socket \(socketfd)\n" )
 
 		return
 	}

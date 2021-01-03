@@ -171,7 +171,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="cBp-Mh-CPi"/>
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="Test 3"/>
+                                                <state key="normal" title="Scan"/>
                                                 <connections>
                                                     <action selector="doTest3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIC-px-xap"/>
                                                 </connections>
