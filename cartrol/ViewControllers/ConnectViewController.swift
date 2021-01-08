@@ -34,7 +34,13 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	var isConnected = false
     var isConnecting = false    // Enables cancelling
     
-    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Devx", "mofopi", "utopia", "workpi"]
+    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Devx", "mofopi", "utopia", "workpi"]
+    
+    //  Develop0x       16Gb PiZero
+    //  Develop3x       32Gb Pi3
+    //  Develop4x       16Gb Pi3
+    //  Camera0x        16Gb PiZero
+    //  DevX            16Gb Pi3
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -210,7 +216,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		targetPort.sendPi( "Y" )
 	}
     
-    // MARK: - Delegates and DataSources
+    // MARK: - Device Picker Delegates and DataSources
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }

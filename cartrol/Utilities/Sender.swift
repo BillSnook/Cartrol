@@ -48,7 +48,7 @@ public class Sender {
 		}
 	}
 	
-	public func doMakeConnection( to: String, at: UInt16 ) -> Bool {
+	public func doMakeConnection( to address: String, at port: UInt16 ) -> Bool {
 		
         if socketConnected {
             socketConnected = false
@@ -63,19 +63,19 @@ public class Sender {
             socketfd = socket( AF_INET, SOCK_STREAM, 0 )        // ipv4, tcp
         }
 
-		guard let targetAddr = doLookup( name: to ) else {
-			print( "\nLookup failed for \(to)" )
+		guard let targetAddr = doLookup( name: address ) else {
+			print( "\nLookup failed for \(address)" )
 			return false
 		}
 
         print( "\nFound target address: \(targetAddr), connecting..." )
-        let result = doConnect( targetAddr, port: at )
+        let result = doConnect( targetAddr, port: port )
         guard result >= 0 else {
             let strerr = strerror( errno )
             print( "\nConnect failed, error: \(result) - \(String(describing: strerr))" )
             return false
         }
-        print( "Connected on socket \(socketfd) on port \(at) to host \(to) (\(targetAddr))\n" )
+        print( "Connected on socket \(socketfd) on port \(port) address host \(address) (\(targetAddr))\n" )
 		socketConnected = true
         
         readThread()    // Loop waiting for input
@@ -147,7 +147,7 @@ public class Sender {
                     print( "\n\nConnection lost while receiving" )
                     break
 				} else {
-                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(readBuffer)\n" )
+//                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(readBuffer)\n" )
 					DispatchQueue.main.async {
 						if self?.commandResponder != nil {
 							self?.commandResponder?.handleReply( msg: String( cString: readBuffer ) )
