@@ -161,10 +161,10 @@ public class Sender {
 	public func sendPi( _ message: String ) {
 		
 		guard socketConnected else { return }
-		let command = message + "\n"
+        let command = message + "\0";
 		var writeBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
 		strcpy( &writeBuffer, command )
-		let len = strlen( &writeBuffer )
+		let len = strlen( command )
         var sndLen = 0
         if useDatagramProtocol {
             sndLen = send( socketfd, &writeBuffer, Int(len), 0 )

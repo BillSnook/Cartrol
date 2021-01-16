@@ -172,8 +172,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	// CommandResponder delegate method - data coming from Pi
 	func handleReply(msg: String) {
-//		print( "In handleReply in MapViewController" )
-//		print( "  handleReply message: \(msg)" )
+		print( "In handleReply in MapViewController, message: \(msg)" )
 		let listArray = msg.split( separator: "\n" )
 		let count = listArray.count
 		guard count > 1 else { return }
@@ -263,8 +262,9 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	@IBAction func b1Action(_ sender: Any) {
 		print( "In b1Action" )
-		// Ping one
+		// Ping one - test scan/ping
 		
+        // Commands with digit characters are an indication to the device that it should thread-prioritize these tasks
 		targetPort.sendPi( "0 \(start) \(end) \(increment)" )	// Send test response command - expect updating of angle/distance entries
 	}
 	

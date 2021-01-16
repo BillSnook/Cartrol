@@ -204,8 +204,8 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
     }
 
 	@IBAction func doTest1(_ sender: CTButton) {
-		print( "In doTest1" )
-		targetPort.sendPi( "F 0" )	// Motor relay off
+		print( "In doTest1, PingTest 90" )
+		targetPort.sendPi( "E" )	// PingTest 90 degrees
 	}
 	
 	@IBAction func doTest2(_ sender: CTButton) {
@@ -214,8 +214,8 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	}
 	
 	@IBAction func doTest3(_ sender: CTButton) {
-		print( "In doTest3" )
-		targetPort.sendPi( "Y" )
+		print( "In doTest3, ScanTest" )
+		targetPort.sendPi( "Y" )    // ScanTest
 	}
     
     // MARK: - Device Picker Delegates and DataSources
