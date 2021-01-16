@@ -191,7 +191,23 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 			}
 			mapView.mapList = sonarMap
 			mapView.showMap( mapRange )
-		}
+        } else {
+            if listArray[0] == "@Rng" {            // Verify we have received a ping entry from the Pi
+                var sonarMap = mapView.mapList
+                if sonarMap == nil {
+                    sonarMap = SonarMap()
+                    mapView.mapList = sonarMap
+                }
+                
+                let entryArray = listArray[1].split( separator: " " )
+                if var angle = Int( entryArray[0] ), let uSecDistance = Int( entryArray[1] ) {
+                    angle = 180 - angle        // Adjust for upside-down scanner
+                    let sonar = SonarEntry( distance: uSecDistance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
+                    sonarMap?[angle] = sonar
+                }
+                mapView.showMap( mapRange )
+            }
+        }
 	}
 	
 	// Sample sweep - for testing purposes
@@ -243,13 +259,13 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 """
 */
-	// Default sweep is 0 - 180º
+	// Default sweep is 45 - 135º
 	
 	@IBAction func b1Action(_ sender: Any) {
 		print( "In b1Action" )
 		// Ping one
 		
-		targetPort.sendPi( "N \(start) \(end) \(increment)" )	// Send test response command - expect array of angle/distance entries
+		targetPort.sendPi( "0 \(start) \(end) \(increment)" )	// Send test response command - expect updating of angle/distance entries
 	}
 	
 	@IBAction func b2Action(_ sender: Any) {

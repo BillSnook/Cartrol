@@ -34,11 +34,13 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	var isConnected = false
     var isConnecting = false    // Enables cancelling
     
-    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Devx", "mofopi", "utopia", "workpi"]
+    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "mofopi", "utopia", "workpi"]
     
     //  Develop0x       16Gb PiZero
     //  Develop3x       32Gb Pi3
     //  Develop4x       16Gb Pi3
+    //  Develop5x       32Gb Pi4 Desktop
+    //  Develop6x       16Gb Pi4 Lite
     //  Camera0x        16Gb PiZero
     //  DevX            16Gb Pi3
 	
@@ -183,7 +185,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 
 	@IBAction func doTestStatus(_ sender: CTButton) {
 
-		targetPort.sendPi( "A" )	// Send set status mode command
+		targetPort.sendPi( "A 1" )	// Send set status mode command
 		usleep( 1000 )
 		targetPort.sendPi( "B" )	// Send get status command
 	}
