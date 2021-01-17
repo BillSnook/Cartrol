@@ -111,6 +111,8 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		self.navigationController?.setNavigationBarHidden( false, animated: true )	// Show it on this page
 		
 		setParamLabel()
+
+        targetPort.setCommandResponder( self )
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -118,8 +120,6 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 		print( "In viewDidAppear in MapViewController" )
 		
 //		handleReply( msg: sampleString )		// Test
-
-		targetPort.setCommandResponder( self )
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -172,7 +172,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	// CommandResponder delegate method - data coming from Pi
 	func handleReply(msg: String) {
-		print( "In handleReply in MapViewController, message: \(msg)" )
+//		print( "In handleReply in MapViewController, message: \(msg)" )
 		let listArray = msg.split( separator: "\n" )
 		let count = listArray.count
 		guard count > 1 else { return }
@@ -195,7 +195,6 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
                 var sonarMap = mapView.mapList
                 if sonarMap == nil {
                     sonarMap = SonarMap()
-                    mapView.mapList = sonarMap
                 }
                 
                 let entryArray = listArray[1].split( separator: " " )
@@ -204,6 +203,7 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
                     let sonar = SonarEntry( distance: uSecDistance, timeStamp: Date.init( timeIntervalSinceNow: 0 ))
                     sonarMap?[angle] = sonar
                 }
+                mapView.mapList = sonarMap
                 mapView.showMap( mapRange )
             }
         }

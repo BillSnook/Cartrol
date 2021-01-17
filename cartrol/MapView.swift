@@ -80,7 +80,7 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 				} else {
 					maxAngle = keys[keys.count - 1]
 				}
-				print( "Min: \(minAngle), max: \(maxAngle)" )
+//				print( "Min: \(minAngle), max: \(maxAngle)" )
 				if keys.count > 2 {
 					incrementAngle = keys[2] - keys[1]
 					maxDistance = 0
