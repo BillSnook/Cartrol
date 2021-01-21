@@ -292,7 +292,7 @@
             </objects>
             <point key="canvasLocation" x="281" y="134"/>
         </scene>
-        <!--Calibrate View Controller-->
+        <!--Speed Calibration-->
         <scene sceneID="dhB-8j-uHd">
             <objects>
                 <viewController id="qXb-Qq-Vgb" customClass="CalibrateViewController" customModule="cartrol" customModuleProvider="target" sceneMemberID="viewController">
@@ -301,17 +301,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKz-fe-j48">
-                                <rect key="frame" x="0.0" y="24" width="320" height="544"/>
+                                <rect key="frame" x="0.0" y="52" width="320" height="516"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBV-Ck-5SN">
-                                        <rect key="frame" x="101.5" y="0.0" width="117" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="oja-B0-Wvb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N64-F4-ZuT">
                                         <rect key="frame" x="20" y="30" width="30" height="30"/>
                                         <constraints>
@@ -324,7 +315,7 @@
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QwW-m4-10d">
-                                        <rect key="frame" x="56" y="30" width="208" height="31"/>
+                                        <rect key="frame" x="56" y="40" width="208" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dNg-xx-l82"/>
                                         </constraints>
@@ -344,7 +335,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueu-Qp-e1v">
-                                        <rect key="frame" x="20" y="68" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="78" width="280" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-Dg-IL6" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="10" width="62.5" height="30"/>
@@ -410,7 +401,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5q-EU-vqq">
-                                        <rect key="frame" x="20" y="126" width="280" height="88"/>
+                                        <rect key="frame" x="20" y="136" width="280" height="88"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qOu-q6-poh">
                                                 <rect key="frame" x="-2" y="6" width="117" height="31"/>
@@ -513,7 +504,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSp-SS-6Xa">
-                                        <rect key="frame" x="20" y="214" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="224" width="280" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-2m-tUu" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="110.5" height="30"/>
@@ -561,35 +552,13 @@
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-UG-qtZ">
-                                        <rect key="frame" x="20" y="309" width="280" height="189"/>
+                                        <rect key="frame" x="20" y="319" width="280" height="151"/>
                                         <color key="backgroundColor" red="0.95088078279999999" green="0.96816581489999998" blue="0.86274613050000004" alpha="0.24609375" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-Yd-0YR" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="506" width="136" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Tos-Q1-FhO"/>
-                                        </constraints>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="doCancelButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="DrK-P4-Mhs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-wh-MIL" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
-                                        <rect key="frame" x="164" y="506" width="136" height="30"/>
-                                        <color key="backgroundColor" red="0.56811934860000002" green="0.75069008309999996" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="s0S-tV-mTE"/>
-                                        </constraints>
-                                        <state key="normal" title="Confirm"/>
-                                        <connections>
-                                            <action selector="doConfirmButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="XiP-m3-xR5"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-I4-Fqr">
-                                        <rect key="frame" x="20" y="259" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="269" width="280" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF6-ZY-2wy" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="88" height="30"/>
@@ -637,37 +606,41 @@
                                             <constraint firstItem="ZF6-ZY-2wy" firstAttribute="leading" secondItem="jqv-I4-Fqr" secondAttribute="leading" id="td3-kR-1lQ"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed index, +- 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQp-5K-NQB">
+                                        <rect key="frame" x="92" y="8" width="136" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1a7-l4-tZ9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="wbk-UG-qtZ" secondAttribute="bottom" constant="46" id="1Lk-l9-Od4"/>
-                                    <constraint firstItem="QwW-m4-10d" firstAttribute="top" secondItem="pBV-Ck-5SN" secondAttribute="bottom" constant="9" id="1b9-tm-zeP"/>
+                                    <constraint firstItem="QwW-m4-10d" firstAttribute="top" secondItem="eQp-5K-NQB" secondAttribute="bottom" constant="11" id="2eK-Zw-cOD"/>
                                     <constraint firstItem="wbk-UG-qtZ" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="4wJ-4R-16r"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="30" id="5eR-hm-QQC"/>
-                                    <constraint firstAttribute="trailing" secondItem="bPw-wh-MIL" secondAttribute="trailing" constant="20" id="7J5-Pb-ZSr"/>
                                     <constraint firstAttribute="trailing" secondItem="ueu-Qp-e1v" secondAttribute="trailing" constant="20" id="8p3-Ec-AtO"/>
                                     <constraint firstItem="a5q-EU-vqq" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="bottom" constant="8" id="9bT-Qo-AjF"/>
-                                    <constraint firstAttribute="bottom" secondItem="E7Y-Yd-0YR" secondAttribute="bottom" constant="8" id="AzV-tu-t20"/>
                                     <constraint firstAttribute="trailing" secondItem="jqv-I4-Fqr" secondAttribute="trailing" constant="20" id="EF7-OA-ZRj"/>
-                                    <constraint firstItem="pBV-Ck-5SN" firstAttribute="centerX" secondItem="qKz-fe-j48" secondAttribute="centerX" id="Fxn-bd-Ezf"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="leading" secondItem="QwW-m4-10d" secondAttribute="trailing" constant="8" id="GmI-Vc-9P2"/>
-                                    <constraint firstItem="bPw-wh-MIL" firstAttribute="width" secondItem="E7Y-Yd-0YR" secondAttribute="width" id="H2u-n9-GX0"/>
                                     <constraint firstItem="wbk-UG-qtZ" firstAttribute="top" secondItem="jqv-I4-Fqr" secondAttribute="bottom" id="K4R-G7-b6n"/>
                                     <constraint firstItem="ueu-Qp-e1v" firstAttribute="top" secondItem="QwW-m4-10d" secondAttribute="bottom" constant="8" id="K4S-cV-wLX"/>
+                                    <constraint firstItem="eQp-5K-NQB" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="8" id="LI3-zw-Gnl"/>
                                     <constraint firstAttribute="trailing" secondItem="wbk-UG-qtZ" secondAttribute="trailing" constant="20" id="M4y-ii-zo9"/>
-                                    <constraint firstItem="E7Y-Yd-0YR" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="Nqs-G8-I63"/>
-                                    <constraint firstItem="bPw-wh-MIL" firstAttribute="leading" secondItem="E7Y-Yd-0YR" secondAttribute="trailing" constant="8" id="PAJ-Cg-S9Z"/>
                                     <constraint firstItem="a5q-EU-vqq" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="PDN-ms-Bby"/>
                                     <constraint firstAttribute="trailing" secondItem="a5q-EU-vqq" secondAttribute="trailing" constant="20" id="Ptg-IM-riG"/>
                                     <constraint firstAttribute="trailing" secondItem="KSp-SS-6Xa" secondAttribute="trailing" constant="20" id="QYs-4d-V4l"/>
                                     <constraint firstAttribute="trailing" secondItem="bov-sk-OuR" secondAttribute="trailing" constant="20" id="RbR-MT-ZO0"/>
+                                    <constraint firstItem="QwW-m4-10d" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="40" id="aG1-YD-LeN"/>
                                     <constraint firstItem="jqv-I4-Fqr" firstAttribute="top" secondItem="KSp-SS-6Xa" secondAttribute="bottom" constant="-5" id="dj2-0Q-02L"/>
                                     <constraint firstItem="N64-F4-ZuT" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="gQD-bd-anQ"/>
                                     <constraint firstItem="ueu-Qp-e1v" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="gRD-Y7-RaV"/>
-                                    <constraint firstAttribute="bottom" secondItem="bPw-wh-MIL" secondAttribute="bottom" constant="8" id="idy-XS-v71"/>
                                     <constraint firstItem="N64-F4-ZuT" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="30" id="otg-ck-ZaE"/>
+                                    <constraint firstItem="eQp-5K-NQB" firstAttribute="centerX" secondItem="qKz-fe-j48" secondAttribute="centerX" id="qsA-zB-R9o"/>
                                     <constraint firstItem="KSp-SS-6Xa" firstAttribute="top" secondItem="a5q-EU-vqq" secondAttribute="bottom" id="rpA-Ja-5xB"/>
-                                    <constraint firstItem="pBV-Ck-5SN" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" id="s3x-RT-GIY"/>
                                     <constraint firstItem="KSp-SS-6Xa" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="uz7-Z4-LCs"/>
                                     <constraint firstItem="jqv-I4-Fqr" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="wCq-4b-wEK"/>
                                     <constraint firstItem="QwW-m4-10d" firstAttribute="leading" secondItem="N64-F4-ZuT" secondAttribute="trailing" constant="8" id="yCC-IN-tH7"/>
@@ -677,17 +650,23 @@
                         <viewLayoutGuide key="safeArea" id="C48-Xk-o41"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qKz-fe-j48" firstAttribute="top" secondItem="C48-Xk-o41" secondAttribute="top" constant="24" id="1wC-DJ-bzM"/>
+                            <constraint firstItem="qKz-fe-j48" firstAttribute="top" secondItem="C48-Xk-o41" secondAttribute="top" constant="8" id="1wC-DJ-bzM"/>
                             <constraint firstItem="qKz-fe-j48" firstAttribute="bottom" secondItem="C48-Xk-o41" secondAttribute="bottom" id="Af8-7T-Zwc"/>
                             <constraint firstItem="qKz-fe-j48" firstAttribute="leading" secondItem="C48-Xk-o41" secondAttribute="leading" id="XL4-pp-UEp"/>
                             <constraint firstItem="qKz-fe-j48" firstAttribute="trailing" secondItem="C48-Xk-o41" secondAttribute="trailing" id="usT-dc-2Ai"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dAw-NR-Ctt"/>
+                    <navigationItem key="navigationItem" title="Speed Calibration" leftItemsSupplementBackButton="YES" id="dAw-NR-Ctt">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="jaF-uy-qTo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WSm-hH-AVV">
+                            <connections>
+                                <action selector="doSaveOnExit:" destination="qXb-Qq-Vgb" id="sGt-1R-3Jk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="buildButton" destination="uAo-mY-rTy" id="1wO-Y1-hbf"/>
-                        <outlet property="cancelButton" destination="E7Y-Yd-0YR" id="djx-bI-quu"/>
-                        <outlet property="confirmButton" destination="bPw-wh-MIL" id="PBF-DX-JFy"/>
                         <outlet property="fastestButton" destination="MOQ-Me-Y6o" id="05d-I5-G6q"/>
                         <outlet property="forwardButton" destination="ZF6-ZY-2wy" id="MFj-ij-8CV"/>
                         <outlet property="leftMotorSpeedSlider" destination="qOu-q6-poh" id="HGY-xa-N1r"/>
@@ -1044,7 +1023,7 @@
             </objects>
             <point key="canvasLocation" x="2706" y="-653"/>
         </scene>
-        <!--Direct View Controller-->
+        <!--Direct Control-->
         <scene sceneID="97T-Fu-QEM">
             <objects>
                 <viewController id="jGu-SE-yap" customClass="DirectViewController" customModule="cartrol" customModuleProvider="target" sceneMemberID="viewController">
@@ -1448,7 +1427,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="2hQ-0c-1EX"/>
+                    <navigationItem key="navigationItem" title="Direct Control" id="2hQ-0c-1EX"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUb-Pb-o4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

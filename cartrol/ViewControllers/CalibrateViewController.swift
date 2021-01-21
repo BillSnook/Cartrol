@@ -44,9 +44,6 @@ extension String {
 	
 	@IBOutlet var responseTextView: UITextView!
 	
-	@IBOutlet var cancelButton: CTButton!
-	@IBOutlet var confirmButton: CTButton!
-	
 	var leftAdjust = 0
 	var rightAdjust = 0
 	
@@ -72,16 +69,17 @@ extension String {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 //		print( "In viewWillAppear in CalibrateViewController" )
+        self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
 
+        targetPort.setCommandResponder( self )
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
 //		print( "In viewDidAppear in CalibrateViewController" )
-
-		targetPort.setCommandResponder( self )
-		targetPort.sendPi( "z\n" )	// Get speed array
-		targetPort.sendPi( "j \(workingSpeedIndex)\n" )	// setSpeedTestIndex
+// WFS during testing, needed for normal operation to get map copy
+//		targetPort.sendPi( "z\n" )	// Get speed array
+//		targetPort.sendPi( "j \(workingSpeedIndex)\n" )	// setSpeedTestIndex
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -197,9 +195,9 @@ extension String {
 		// Release any cached data, images, etc that aren't in use.
 	}
 	
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
+//	override var prefersStatusBarHidden: Bool {
+//		return true
+//	}
 
 	// MARK: - Motor-specific code next
 	func handleReply(msg: String) {
@@ -265,7 +263,16 @@ extension String {
 		// This button is for display only for now
 	}
 	
-	@IBAction func doSaveButtonTouch(_ sender: CTButton) {
+    @IBAction func doSaveOnExit(_ sender: UIBarButtonItem) {
+        print( "In doSaveOnExit nav button" )
+        // If needs saving
+//        targetPort.sendPi( "w\n" )
+
+        guard let nav = self.navigationController else { return }
+        nav.popViewController( animated: true )
+    }
+    
+    @IBAction func doSaveButtonTouch(_ sender: CTButton) {
 		targetPort.sendPi( "w\n" )
 	}
 	
@@ -339,20 +346,6 @@ extension String {
 	
 	@IBAction func doReverseButtonTouch(_ sender: CTButton) {
 		targetPort.sendPi( "g \(-workingSpeedIndex)\n" )
-	}
-	
-	@IBAction func doCancelButtonTouch(_ sender: CTButton) {
-		print( "In doCancelButtonTouch" )
-		guard let nav = self.navigationController else { return }
-		nav.popViewController( animated: true )
-	}
-	
-	@IBAction func doConfirmButtonTouch(_ sender: CTButton) {
-		print( "In doConfirmButtonTouch" )
-		
-		// Check to save new speed table now
-		guard let nav = self.navigationController else { return }
-		nav.popViewController( animated: true )
 	}
 	
 	// MARK: UITextFieldDelegate

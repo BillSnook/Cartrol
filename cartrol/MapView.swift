@@ -22,7 +22,7 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 			lastList = mapList
 		}
 	}
-	var lastList: SonarMap?
+	var lastList: SonarMap?     // Keep a copy for display
 	var sortedMapKeys: [Int]?
 	
 	var mapHeight: CGFloat = 0
@@ -40,6 +40,7 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 	
 	var sweepOrigin = CGPoint( x: 0, y: 0 )
 	
+    
 	public func updateLayout() {
 		
 		if ( mapWidth != frame.size.width || mapHeight != frame.size.height ) {		// If changed
@@ -70,23 +71,23 @@ class MapView: UIView, UIGestureRecognizerDelegate {
 		if let mapList = mapList {
 			sortedMapKeys = mapList.keys.sorted()
 			if let keys = sortedMapKeys {
-				if mapList[0]?.distance == 0 {
-					minAngle = keys[1]
-				} else {
-					minAngle = keys[0]
-				}
-				if mapList[keys.count - 1]?.distance == 0 {
-					maxAngle = keys[keys.count - 2]
-				} else {
-					maxAngle = keys[keys.count - 1]
-				}
 //				print( "Min: \(minAngle), max: \(maxAngle)" )
 				if keys.count > 2 {
+                    if mapList[0]?.distance == 0 {
+                        minAngle = keys[1]
+                    } else {
+                        minAngle = keys[0]
+                    }
+                    if mapList[keys.count - 1]?.distance == 0 {
+                        maxAngle = keys[keys.count - 2]
+                    } else {
+                        maxAngle = keys[keys.count - 1]
+                    }
 					incrementAngle = keys[2] - keys[1]
 					maxDistance = 0
 					for key in keys {
 						if let sonarEntry = mapList[key] {
-//						print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
+//						    print( "Angle: \(key), distance: \(sonarEntry.distance / 29 / 2) cm, \(sonarEntry.distance / 74 / 2) inches " )
 							if sonarEntry.distance > maxDistance {
 								maxDistance = sonarEntry.distance
 							}

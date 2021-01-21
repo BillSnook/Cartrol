@@ -34,7 +34,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	var isConnected = false
     var isConnecting = false    // Enables cancelling
     
-    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "mofopi", "utopia", "workpi"]
+    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "mofopi", "utopia", "workpi", "hughie", "dewie", "louie"]
     
     //  Develop0x       16Gb PiZero
     //  Develop3x       32Gb Pi3
@@ -43,7 +43,11 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
     //  Develop6x       16Gb Pi4 Lite
     //  Camera0x        16Gb PiZero
     //  DevX            16Gb Pi3
-	
+    
+    // 60       Hughie
+    // 61       Dewie
+    // 62       Louie
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 //		print( "In viewDidLoad in ConnectViewController" )
@@ -53,6 +57,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		super.viewWillAppear( animated )
 //		print( "In viewWillAppear in ConnectViewController" )
 
+        targetPort.setCommandResponder( self )
 		setupButtons()
 	}
 	
@@ -60,14 +65,11 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		super.viewDidAppear( animated )
 //		print( "In viewDidAppear in ConnectViewController" )
 
-		targetPort.setCommandResponder( self )
         let savedRow = UserDefaults.standard.integer(forKey: "SelectedDeviceRow")
         devicePickerView.selectRow(savedRow, inComponent: 0, animated: true)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-
-		targetPort.setCommandResponder( nil )
 
 //		print( "In viewWillDisappear in ConnectViewController" )
 		super.viewWillDisappear( animated )
@@ -75,6 +77,8 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		
+        targetPort.setCommandResponder( nil )
+
 //		print( "In viewDidDisappear in ConnectViewController" )
 		super.viewDidDisappear( animated )
 	}
