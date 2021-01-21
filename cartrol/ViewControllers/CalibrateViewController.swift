@@ -72,7 +72,9 @@ extension String {
         self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
 
         targetPort.setCommandResponder( self )
-	}
+
+        setupInitialControls()
+}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
@@ -100,8 +102,8 @@ extension String {
 	public func setupInitialControls() {
 		workingSpeedIndex = 1
 		speedIndexSlider.value = Float( workingSpeedIndex )
-		speedIndexSlider.minimumValue = Float(-speedMax + 1)
-		speedIndexSlider.maximumValue = Float(speedMax - 1)
+		speedIndexSlider.minimumValue = Float(-speedMax)
+		speedIndexSlider.maximumValue = Float(speedMax)
 		speedIndexSlider.isContinuous = false	// Continuous updates not wanted
 		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		
@@ -137,10 +139,11 @@ extension String {
 			  let newLeftValue = Int( parameters[2] ),
 			  let newRightValue = Int( parameters[3] ) else { return }
 		print( "In changedIndexButton from handleReply for getting params with newSpeedIndex: \(newSpeedIndex), newLeftValue: \(newLeftValue), newRightValue: \(newRightValue)" )
+        guard newSpeedIndex < speedMax && newSpeedIndex > -speedMax else { return }
 		workingSpeedIndex = newSpeedIndex
 		workingSpeedLeft = newLeftValue
 		workingSpeedRight = newRightValue
-		speedIndexSlider.value = Float( newSpeedIndex )
+        speedIndexSlider.value = Float( newSpeedIndex )
 		speedIndexButton.setTitle( "\(newSpeedIndex)", for: .normal )
 		
 		leftMotorSpeedSlider.minimumValue = Float(newLeftValue - adjustRange)
@@ -234,29 +237,28 @@ extension String {
 		if ( workingSpeedIndex >= speedMax ) {
 			workingSpeedIndex = speedMax - 1
 		}
+        speedIndexSlider.value = Float(workingSpeedIndex)
 		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
 	
 	@IBAction func doDecrementSpeedIndex(_ sender: UIButton) {
-		workingSpeedIndex -= 1
-		if ( workingSpeedIndex <= -speedMax ) {
-			workingSpeedIndex = -speedMax + 1
+		if ( workingSpeedIndex > -speedMax ) {
+            workingSpeedIndex -= 1
+            targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+            speedIndexSlider.value = Float(workingSpeedIndex)
+            speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		}
-		speedIndexSlider.value = Float(workingSpeedIndex)
-		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
-		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
 	}
 	
 	@IBAction func doIncrementSpeedIndex(_ sender: UIButton) {
-		workingSpeedIndex += 1
-		if ( workingSpeedIndex >= speedMax ) {
-			workingSpeedIndex = speedMax - 1
-		}
-		speedIndexSlider.value = Float(workingSpeedIndex)
-		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
-		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+        if workingSpeedIndex < speedMax {
+            workingSpeedIndex += 1
+            targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+            speedIndexSlider.value = Float(workingSpeedIndex)
+            speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
+        }
 	}
 	
 	@IBAction func doSpeedIndexIncrement(_ sender: UIButton) {

@@ -357,18 +357,6 @@
                                                     <action selector="doResetButtonTouch:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="hiQ-8l-3kb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-9O-ugq">
-                                                <rect key="frame" x="0.0" y="10" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="X1m-J7-ySt"/>
-                                                    <constraint firstAttribute="height" constant="30" id="odc-6y-7T5"/>
-                                                </constraints>
-                                                <state key="normal" title="0"/>
-                                                <connections>
-                                                    <action selector="doSpeedIndexIncrement:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="415-PC-pND"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-0l-oyc" customClass="CTButton" customModule="cartrol" customModuleProvider="target">
                                                 <rect key="frame" x="108.5" y="10" width="63" height="30"/>
                                                 <constraints>
@@ -390,14 +378,10 @@
                                             <constraint firstAttribute="bottom" secondItem="kDf-0l-oyc" secondAttribute="bottom" constant="10" id="Mvc-hc-jD7"/>
                                             <constraint firstItem="kDf-0l-oyc" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="top" constant="10" id="Np5-5t-Ea7"/>
                                             <constraint firstItem="bod-0i-u96" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="top" constant="10" id="Qsd-jd-mWa"/>
-                                            <constraint firstItem="E8P-Dg-IL6" firstAttribute="leading" secondItem="d3T-9O-ugq" secondAttribute="trailing" constant="8" id="RMO-FI-gqn"/>
                                             <constraint firstAttribute="bottom" secondItem="E8P-Dg-IL6" secondAttribute="bottom" constant="10" id="UKr-YJ-zP0"/>
-                                            <constraint firstItem="d3T-9O-ugq" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="top" constant="10" id="UgC-wR-cqm"/>
                                             <constraint firstAttribute="bottom" secondItem="bod-0i-u96" secondAttribute="bottom" constant="10" id="kJ2-co-TMe"/>
-                                            <constraint firstAttribute="bottom" secondItem="d3T-9O-ugq" secondAttribute="bottom" constant="10" id="keE-1L-K6l"/>
                                             <constraint firstItem="E8P-Dg-IL6" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="top" constant="10" id="n7F-fJ-czF"/>
                                             <constraint firstAttribute="trailing" secondItem="bod-0i-u96" secondAttribute="trailing" constant="38" id="qwR-7g-eH8"/>
-                                            <constraint firstItem="d3T-9O-ugq" firstAttribute="leading" secondItem="ueu-Qp-e1v" secondAttribute="leading" id="xYl-wD-MF9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5q-EU-vqq">
@@ -615,6 +599,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-9O-ugq">
+                                        <rect key="frame" x="20" y="3" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.41022321581840515" green="0.99753707647323608" blue="0.0036917971447110176" alpha="0.2011540383" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="X1m-J7-ySt"/>
+                                            <constraint firstAttribute="height" constant="30" id="odc-6y-7T5"/>
+                                        </constraints>
+                                        <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="doSpeedIndexIncrement:" destination="qXb-Qq-Vgb" eventType="touchUpInside" id="415-PC-pND"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -622,10 +618,12 @@
                                     <constraint firstItem="QwW-m4-10d" firstAttribute="top" secondItem="eQp-5K-NQB" secondAttribute="bottom" constant="11" id="2eK-Zw-cOD"/>
                                     <constraint firstItem="wbk-UG-qtZ" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="4wJ-4R-16r"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="30" id="5eR-hm-QQC"/>
+                                    <constraint firstItem="d3T-9O-ugq" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="3" id="6aH-Vx-S3i"/>
                                     <constraint firstAttribute="trailing" secondItem="ueu-Qp-e1v" secondAttribute="trailing" constant="20" id="8p3-Ec-AtO"/>
                                     <constraint firstItem="a5q-EU-vqq" firstAttribute="top" secondItem="ueu-Qp-e1v" secondAttribute="bottom" constant="8" id="9bT-Qo-AjF"/>
                                     <constraint firstAttribute="trailing" secondItem="jqv-I4-Fqr" secondAttribute="trailing" constant="20" id="EF7-OA-ZRj"/>
                                     <constraint firstItem="bov-sk-OuR" firstAttribute="leading" secondItem="QwW-m4-10d" secondAttribute="trailing" constant="8" id="GmI-Vc-9P2"/>
+                                    <constraint firstItem="d3T-9O-ugq" firstAttribute="leading" secondItem="qKz-fe-j48" secondAttribute="leading" constant="20" id="H4X-Od-xdf"/>
                                     <constraint firstItem="wbk-UG-qtZ" firstAttribute="top" secondItem="jqv-I4-Fqr" secondAttribute="bottom" id="K4R-G7-b6n"/>
                                     <constraint firstItem="ueu-Qp-e1v" firstAttribute="top" secondItem="QwW-m4-10d" secondAttribute="bottom" constant="8" id="K4S-cV-wLX"/>
                                     <constraint firstItem="eQp-5K-NQB" firstAttribute="top" secondItem="qKz-fe-j48" secondAttribute="top" constant="8" id="LI3-zw-Gnl"/>

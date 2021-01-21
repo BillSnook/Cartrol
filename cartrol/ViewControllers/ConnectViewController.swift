@@ -31,7 +31,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
-	var isConnected = false
+	var isConnected = true  // WFS for testing UI
     var isConnecting = false    // Enables cancelling
     
     let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "mofopi", "utopia", "workpi", "hughie", "dewie", "louie"]
