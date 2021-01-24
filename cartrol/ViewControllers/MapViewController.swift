@@ -35,6 +35,12 @@ let sampleString = """
 
 """
 
+let sampleString2 = """
+@Rng
+90 1500
+
+"""
+
 extension Int {
 	
 	var cm: Int {
@@ -106,36 +112,37 @@ class MapViewController: UIViewController, SweepParamDelegate, CommandResponder 
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
-		print( "In viewWillAppear in MapViewController" )
+//		print( "In viewWillAppear in MapViewController" )
 
 		self.navigationController?.setNavigationBarHidden( false, animated: true )	// Show it on this page
 		
 		setParamLabel()
 
-        targetPort.setCommandResponder( self )
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
-		print( "In viewDidAppear in MapViewController" )
-		
-//		handleReply( msg: sampleString )		// Test
+//		print( "In viewDidAppear in MapViewController" )
+
+        targetPort.setCommandResponder( self )
+
+//		handleReply( msg: sampleString2 )		// Test
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		
 		self.navigationController?.setNavigationBarHidden( true, animated: true )
 		
-		targetPort.setCommandResponder( nil )
-		targetPort.sendPi( "S" )	// Send test stop all command
+        targetPort.setCommandResponder( nil )
+		targetPort.sendPi( "S" )	// Send test stop all command - no response expected
 
-		print( "In viewWillDisappear in MapViewController" )
+//		print( "In viewWillDisappear in MapViewController" )
 		super.viewWillDisappear( animated )
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
 
-		print( "In viewDidDisappear in MapViewController" )
+//        print( "In viewDidDisappear in MapViewController" )
 		super.viewDidDisappear( animated )
 	}
 	

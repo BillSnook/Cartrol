@@ -31,10 +31,10 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
-	var isConnected = true  // WFS for testing UI
+	var isConnected = false  // WFS true for testing UI w/o connection
     var isConnecting = false    // Enables cancelling
     
-    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "mofopi", "utopia", "workpi", "hughie", "dewie", "louie"]
+    let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "Hughie", "Dewie", "Louie"]
     
     //  Develop0x       16Gb PiZero
     //  Develop3x       32Gb Pi3
@@ -48,6 +48,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
     // 61       Dewie
     // 62       Louie
 
+    // MARK: - Code
 	override func viewDidLoad() {
 		super.viewDidLoad()
 //		print( "In viewDidLoad in ConnectViewController" )
@@ -57,7 +58,6 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		super.viewWillAppear( animated )
 //		print( "In viewWillAppear in ConnectViewController" )
 
-        targetPort.setCommandResponder( self )
 		setupButtons()
 	}
 	
@@ -65,11 +65,15 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 		super.viewDidAppear( animated )
 //		print( "In viewDidAppear in ConnectViewController" )
 
+        targetPort.setCommandResponder( self )
+        
         let savedRow = UserDefaults.standard.integer(forKey: "SelectedDeviceRow")
         devicePickerView.selectRow(savedRow, inComponent: 0, animated: true)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
+
+        targetPort.setCommandResponder( nil )
 
 //		print( "In viewWillDisappear in ConnectViewController" )
 		super.viewWillDisappear( animated )
@@ -77,8 +81,6 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		
-        targetPort.setCommandResponder( nil )
-
 //		print( "In viewDidDisappear in ConnectViewController" )
 		super.viewDidDisappear( animated )
 	}
@@ -202,24 +204,23 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	}
 	
     @IBAction func doClearButtonTouch(_ sender: CTButton) {
-        targetPort.sendPi( "S" )    // Send stop/clear command
         print( "In doClearButtonTouch" )
         responseDisplayTextView.text = ""
     }
 
 	@IBAction func doTest1(_ sender: CTButton) {
-		print( "In doTest1, PingTest 90" )
-		targetPort.sendPi( "E" )	// PingTest 90 degrees
+		print( "In doTest1, Ping" )
+		targetPort.sendPi( "G" )	// doPing
 	}
 	
 	@IBAction func doTest2(_ sender: CTButton) {
-		print( "In doTest2" )
-		targetPort.sendPi( "F 1" )	// Motor relay on
+		print( "In doTest2, center scanner" )
+		targetPort.sendPi( "F 90" )	// Servo at 90 degrees
 	}
 	
 	@IBAction func doTest3(_ sender: CTButton) {
-		print( "In doTest3, ScanTest" )
-		targetPort.sendPi( "Y" )    // ScanTest
+		print( "In doTest3, Stop all" )
+		targetPort.sendPi( "S" )    // Stop
 	}
     
     // MARK: - Device Picker Delegates and DataSources

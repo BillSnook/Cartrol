@@ -71,15 +71,16 @@ extension String {
 //		print( "In viewWillAppear in CalibrateViewController" )
         self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
 
-        targetPort.setCommandResponder( self )
-
         setupInitialControls()
 }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
 //		print( "In viewDidAppear in CalibrateViewController" )
-// WFS during testing, needed for normal operation to get map copy
+        
+        targetPort.setCommandResponder( self )
+
+// WFS - off during testing, needed for normal operation to get map copy
 //		targetPort.sendPi( "z\n" )	// Get speed array
 //		targetPort.sendPi( "j \(workingSpeedIndex)\n" )	// setSpeedTestIndex
 	}

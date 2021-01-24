@@ -147,10 +147,11 @@ public class Sender {
                     print( "\n\nConnection lost while receiving" )
                     break
 				} else {
-//                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(readBuffer)\n" )
+                    let str = String( cString: readBuffer, encoding: .utf8 ) ?? "bad data"
+                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(str)\n" )
 					DispatchQueue.main.async {
 						if self?.commandResponder != nil {
-							self?.commandResponder?.handleReply( msg: String( cString: readBuffer ) )
+							self?.commandResponder?.handleReply( msg: str  )
 						}
 					}
 				}
