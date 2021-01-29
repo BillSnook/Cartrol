@@ -66,7 +66,7 @@ class DirectViewController: UIViewController {
 	@IBAction func huntAction(_ sender: UIButton) {
 		guard isConnected else { print( "Not connected!" ); return }
 		
-		targetPort.sendPi( "M 6" )	// Stop for now until hunt is ready
+//		targetPort.sendPi( "M 6" )	// Stop for now until hunt is ready
 	}
 	
 	// Inner controls

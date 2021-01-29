@@ -1093,9 +1093,9 @@
                                             <constraint firstAttribute="width" constant="60" id="IZE-T7-krB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                         <connections>
-                                            <action selector="pwmValueChangedAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="FmV-bg-SRx"/>
+                                            <action selector="pwmEditEndAction:" destination="QPr-J1-SQD" eventType="editingDidEnd" id="tTN-fm-iFu"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr7-M1-tyk">
@@ -1158,9 +1158,9 @@
                                             <constraint firstAttribute="height" constant="34" id="lGo-XT-gVZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                         <connections>
-                                            <action selector="servoPinValueChangedAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="qnX-NU-ZGr"/>
+                                            <action selector="pinEndEditAction:" destination="QPr-J1-SQD" eventType="editingDidEnd" id="YNz-yo-jmc"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL9-JY-a7V">
@@ -1279,10 +1279,10 @@
                     <navigationItem key="navigationItem" title="Setup and Calibration" id="L1V-uX-792"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="pinTextField" destination="tBg-Kz-G78" id="7NK-m9-l6e"/>
                         <outlet property="pwmTextField" destination="fRC-Ao-bNu" id="LoI-Eg-g7F"/>
                         <outlet property="resetButton" destination="AG5-kX-zdh" id="lpA-Zg-D9Q"/>
                         <outlet property="saveButton" destination="VwA-cz-bEk" id="flI-zx-Z8n"/>
-                        <outlet property="servoPinTextField" destination="tBg-Kz-G78" id="FJh-HK-2QX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9g-JN-5bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

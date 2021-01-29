@@ -93,11 +93,11 @@ extension String {
 		super.viewWillDisappear( animated )
 	}
 	
-	override func viewDidDisappear(_ animated: Bool) {
-		
-//		print( "In viewDidDisappear in CalibrateViewController" )
-		super.viewDidDisappear( animated )
-	}
+//	override func viewDidDisappear(_ animated: Bool) {
+//		
+////		print( "In viewDidDisappear in CalibrateViewController" )
+//		super.viewDidDisappear( animated )
+//	}
 	
 
 	public func setupInitialControls() {
