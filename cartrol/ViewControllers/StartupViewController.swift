@@ -27,10 +27,8 @@ class StartupViewController: UIViewController, CommandResponder {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear( animated )
-        print( "In viewWillAppear in StartupViewController" )
 
         self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
