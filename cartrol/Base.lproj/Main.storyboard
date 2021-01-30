@@ -1099,7 +1099,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="330" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-Ao-bNu">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-Ao-bNu">
                                                 <rect key="frame" x="20" y="68" width="60" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="7X4-9d-vgA"/>
@@ -1174,7 +1174,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="14" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBg-Kz-G78">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBg-Kz-G78">
                                                 <rect key="frame" x="310" y="68" width="60" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="Gge-h4-pY0"/>
@@ -1281,6 +1281,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="speedResetAction" destination="QPr-J1-SQD" eventType="touchUpInside" id="aLc-8L-mZJ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Alignment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY8-NG-TeF">
                                                 <rect key="frame" x="130" y="4" width="130.33333333333337" height="44"/>
@@ -1304,6 +1307,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="speedSaveAction" destination="QPr-J1-SQD" eventType="touchUpInside" id="FHn-kY-lS9"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzG-dT-vkv">
                                                 <rect key="frame" x="20" y="54" width="80" height="14"/>
@@ -1315,13 +1321,16 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1024" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4Z-MU-wXB">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4Z-MU-wXB">
                                                 <rect key="frame" x="20" y="68" width="60" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="eAl-9I-3Dw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <connections>
+                                                    <action selector="speedLeftMotorEditAction:" destination="QPr-J1-SQD" eventType="editingDidEnd" id="4hE-qh-lDs"/>
+                                                </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="51f-iN-JPV">
                                                 <rect key="frame" x="125.66666666666669" y="50" width="139" height="45"/>
@@ -1332,6 +1341,9 @@
                                                     <segment title="Forward"/>
                                                     <segment title="Reverse"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="speedDirectionAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="Eeb-he-Qjn"/>
+                                                </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOs-ow-Ymh">
                                                 <rect key="frame" x="290" y="54" width="80" height="14"/>
@@ -1343,7 +1355,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1024" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zy-1C-yeW">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zy-1C-yeW">
                                                 <rect key="frame" x="310" y="68" width="60" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="IOP-kF-y2V"/>
@@ -1351,13 +1363,19 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <connections>
+                                                    <action selector="speedRightMotorEditAction:" destination="QPr-J1-SQD" eventType="editingDidEnd" id="DCD-j8-x5U"/>
+                                                </connections>
                                             </textField>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="oXh-a5-17u">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="oXh-a5-17u">
                                                 <rect key="frame" x="20" y="110" width="94" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="0Z5-DV-HE0"/>
                                                     <constraint firstAttribute="width" constant="94" id="iZM-Z3-hCR"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedLeftMotorStepAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="eyY-5H-O3Y"/>
+                                                </connections>
                                             </stepper>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9Nm-xR-SKl">
                                                 <rect key="frame" x="148" y="110" width="94" height="32"/>
@@ -1365,21 +1383,40 @@
                                                     <constraint firstAttribute="height" constant="32" id="5hD-df-VeQ"/>
                                                     <constraint firstAttribute="width" constant="94" id="SVu-5v-49C"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedIndexStepAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="4WX-JG-Xsd"/>
+                                                </connections>
                                             </stepper>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-Rw-Yzo">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-Rw-Yzo">
                                                 <rect key="frame" x="276" y="110" width="94" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="2tY-hx-9am"/>
                                                     <constraint firstAttribute="width" constant="94" id="RKo-CZ-m2y"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedRightMotorStepAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="HXL-dQ-aBA"/>
+                                                </connections>
                                             </stepper>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-go-2Hr">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-go-2Hr">
                                                 <rect key="frame" x="20" y="158" width="94" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="Lun-OE-Aog"/>
                                                     <constraint firstAttribute="height" constant="32" id="oPR-YR-0Vo"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedLeftMotorStepXAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="tFX-sk-1qI"/>
+                                                </connections>
                                             </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 64" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNc-hh-bw0">
+                                                <rect key="frame" x="118" y="167" width="30" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="SP2-ME-8qI"/>
+                                                    <constraint firstAttribute="height" constant="14" id="efh-L3-uAW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q79-yL-On9">
                                                 <rect key="frame" x="155" y="144" width="80" height="14"/>
                                                 <constraints>
@@ -1390,7 +1427,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAP-BC-tON">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAP-BC-tON">
                                                 <rect key="frame" x="165" y="158" width="60" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="Iuw-37-0Pj"/>
@@ -1399,12 +1436,25 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                             </textField>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qqA-uz-b5U">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 64" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vs-z0-IRB">
+                                                <rect key="frame" x="248" y="167" width="30" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="JuQ-Nd-HLi"/>
+                                                    <constraint firstAttribute="height" constant="14" id="OeA-Re-ipY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="qqA-uz-b5U">
                                                 <rect key="frame" x="276" y="158" width="94" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="AGp-B6-5bb"/>
                                                     <constraint firstAttribute="width" constant="94" id="t3c-eO-bed"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedRightMotorStepXAction:" destination="QPr-J1-SQD" eventType="valueChanged" id="b1d-8x-TIs"/>
+                                                </connections>
                                             </stepper>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhu-2T-a6m">
                                                 <rect key="frame" x="20" y="206" width="51" height="44"/>
@@ -1419,6 +1469,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="speedRunAction" destination="QPr-J1-SQD" eventType="touchUpInside" id="Wat-sd-sR6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhO-d7-Lze">
                                                 <rect key="frame" x="167" y="206" width="56" height="44"/>
@@ -1433,6 +1486,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="speedStopAction" destination="QPr-J1-SQD" eventType="touchUpInside" id="DEZ-Qb-B7P"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5a-mV-hZB">
                                                 <rect key="frame" x="300" y="206" width="70" height="44"/>
@@ -1447,27 +1503,10 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="speedReturnAction" destination="QPr-J1-SQD" eventType="touchUpInside" id="nY4-t3-ThR"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 64" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNc-hh-bw0">
-                                                <rect key="frame" x="118" y="167" width="30" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="SP2-ME-8qI"/>
-                                                    <constraint firstAttribute="height" constant="14" id="efh-L3-uAW"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 64" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vs-z0-IRB">
-                                                <rect key="frame" x="248" y="167" width="30" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="JuQ-Nd-HLi"/>
-                                                    <constraint firstAttribute="height" constant="14" id="OeA-Re-ipY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
@@ -1541,8 +1580,15 @@
                     <connections>
                         <outlet property="pinTextField" destination="tBg-Kz-G78" id="7NK-m9-l6e"/>
                         <outlet property="pwmTextField" destination="fRC-Ao-bNu" id="LoI-Eg-g7F"/>
-                        <outlet property="resetButton" destination="AG5-kX-zdh" id="lpA-Zg-D9Q"/>
-                        <outlet property="saveButton" destination="VwA-cz-bEk" id="flI-zx-Z8n"/>
+                        <outlet property="speedDirectionSegmentedControl" destination="51f-iN-JPV" id="xi3-5T-qMg"/>
+                        <outlet property="speedIndexStepper" destination="9Nm-xR-SKl" id="70l-wc-y6S"/>
+                        <outlet property="speedIndexTextField" destination="VAP-BC-tON" id="vcG-kE-ZJ8"/>
+                        <outlet property="speedLeftMotorBigStepper" destination="Yg4-go-2Hr" id="WOv-fl-edG"/>
+                        <outlet property="speedLeftMotorStepper" destination="oXh-a5-17u" id="fTY-Uk-Aur"/>
+                        <outlet property="speedLeftMotorTextField" destination="u4Z-MU-wXB" id="qgU-3F-Cvw"/>
+                        <outlet property="speedRightMotorBigStepper" destination="qqA-uz-b5U" id="A5R-eX-7AE"/>
+                        <outlet property="speedRightMotorStepper" destination="Xsv-Rw-Yzo" id="tEv-9o-haK"/>
+                        <outlet property="speedRightMotorTextField" destination="6zy-1C-yeW" id="Mg7-eV-bj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9g-JN-5bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
