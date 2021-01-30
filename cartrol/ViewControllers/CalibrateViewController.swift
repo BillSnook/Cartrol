@@ -58,17 +58,16 @@ extension String {
 	
 	var savedText: String?
 
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		print( "In viewDidLoad in CalibrateViewController" )
 		
-//		targetPort.setCommandResponder( self )
-//		targetPort.sendPi( "Z\n" )
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
-//		print( "In viewWillAppear in CalibrateViewController" )
+
         self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
 
         setupInitialControls()
@@ -76,7 +75,6 @@ extension String {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear( animated )
-//		print( "In viewDidAppear in CalibrateViewController" )
         
         targetPort.setCommandResponder( self )
 
@@ -88,19 +86,13 @@ extension String {
 	override func viewWillDisappear(_ animated: Bool) {
 
 		targetPort.setCommandResponder( nil )
-		
-//		print( "In viewWillDisappear in CalibrateViewController" )
+        targetPort.sendPi( "S" )    // Send quick stop all command - no response expected
+
 		super.viewWillDisappear( animated )
 	}
 	
-//	override func viewDidDisappear(_ animated: Bool) {
-//		
-////		print( "In viewDidDisappear in CalibrateViewController" )
-//		super.viewDidDisappear( animated )
-//	}
-	
 
-	public func setupInitialControls() {
+    public func setupInitialControls() {
 		workingSpeedIndex = 1
 		speedIndexSlider.value = Float( workingSpeedIndex )
 		speedIndexSlider.minimumValue = Float(-speedMax)

@@ -46,6 +46,7 @@ class StartupViewController: UIViewController, CommandResponder {
     override func viewWillDisappear(_ animated: Bool) {
 
         targetPort.setCommandResponder( nil )
+        targetPort.sendPi( "S" )    // Send quick stop all command - no response expected
 
         super.viewWillDisappear( animated )
     }

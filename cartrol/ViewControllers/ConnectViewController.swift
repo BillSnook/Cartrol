@@ -74,6 +74,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	override func viewWillDisappear(_ animated: Bool) {
 
         targetPort.setCommandResponder( nil )
+        targetPort.sendPi( "S" )    // Send quick stop all command - no response expected
 
 //		print( "In viewWillDisappear in ConnectViewController" )
 		super.viewWillDisappear( animated )
@@ -196,7 +197,8 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	@IBAction func doTestRange(_ sender: Any) {
 
-		targetPort.sendPi( "D" )	// Send get range command
+        responseDisplayTextView.text = "Not functional"
+//		targetPort.sendPi( "D" )	// Send get range command
 	}
 	
     @IBAction func doClearButtonTouch(_ sender: CTButton) {
@@ -206,17 +208,17 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 
 	@IBAction func doTest1(_ sender: CTButton) {
 		print( "In doTest1, Ping" )
-		targetPort.sendPi( "G" )	// doPing
+		targetPort.sendPi( "g" )	// doPing
 	}
 	
 	@IBAction func doTest2(_ sender: CTButton) {
 		print( "In doTest2, center scanner" )
-		targetPort.sendPi( "F 90" )	// Servo at 90 degrees
+		targetPort.sendPi( "C 90" )	// Servo at 90 degrees
 	}
 	
 	@IBAction func doTest3(_ sender: CTButton) {
 		print( "In doTest3, Stop all" )
-		targetPort.sendPi( "S" )    // Stop
+		targetPort.sendPi( "S" )    // Stop quickly
 	}
     
     // MARK: - Device Picker Delegates and DataSources
