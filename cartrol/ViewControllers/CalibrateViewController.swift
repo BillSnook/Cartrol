@@ -63,7 +63,7 @@ extension String {
 		print( "In viewDidLoad in CalibrateViewController" )
 		
 //		targetPort.setCommandResponder( self )
-//		targetPort.sendPi( "z\n" )
+//		targetPort.sendPi( "Z\n" )
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -81,8 +81,8 @@ extension String {
         targetPort.setCommandResponder( self )
 
 // WFS - off during testing, needed for normal operation to get map copy
-//		targetPort.sendPi( "z\n" )	// Get speed array
-//		targetPort.sendPi( "j \(workingSpeedIndex)\n" )	// setSpeedTestIndex
+//		targetPort.sendPi( "Z\n" )	// Get speed array
+//		targetPort.sendPi( "J \(workingSpeedIndex)\n" )	// setSpeedTestIndex
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -240,14 +240,14 @@ extension String {
 		}
         speedIndexSlider.value = Float(workingSpeedIndex)
 		speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
-		targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+		targetPort.sendPi( "J \(workingSpeedIndex)\n" )
 	}
 	
 	
 	@IBAction func doDecrementSpeedIndex(_ sender: UIButton) {
 		if ( workingSpeedIndex > -speedMax ) {
             workingSpeedIndex -= 1
-            targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+            targetPort.sendPi( "J \(workingSpeedIndex)\n" )
             speedIndexSlider.value = Float(workingSpeedIndex)
             speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
 		}
@@ -256,7 +256,7 @@ extension String {
 	@IBAction func doIncrementSpeedIndex(_ sender: UIButton) {
         if workingSpeedIndex < speedMax {
             workingSpeedIndex += 1
-            targetPort.sendPi( "j \(workingSpeedIndex)\n" )
+            targetPort.sendPi( "J \(workingSpeedIndex)\n" )
             speedIndexSlider.value = Float(workingSpeedIndex)
             speedIndexButton.setTitle( "\(workingSpeedIndex)", for: .normal )
         }
@@ -269,22 +269,22 @@ extension String {
     @IBAction func doSaveOnExit(_ sender: UIBarButtonItem) {
         print( "In doSaveOnExit nav button" )
         // If needs saving
-//        targetPort.sendPi( "w\n" )
+//        targetPort.sendPi( "W\n" )
 
         guard let nav = self.navigationController else { return }
         nav.popViewController( animated: true )
     }
     
     @IBAction func doSaveButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "w\n" )
+		targetPort.sendPi( "W\n" )
 	}
 	
 	@IBAction func doShowButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "h\n" )
+		targetPort.sendPi( "H\n" )
 	}
 	
 	@IBAction func doResetButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "i\n" )
+		targetPort.sendPi( "I\n" )
 	}
 	
 	
@@ -304,30 +304,30 @@ extension String {
 	// L/R slider touch up inside
 	@IBAction func leftOffsetValueSet(_ sender: UISlider) {
 		print( "In leftOffsetValueSet" )
-		targetPort.sendPi( "l \(leftAdjust)\n" )
+		targetPort.sendPi( "L \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetValueSet(_ sender: UISlider) {
 		print( "In rightOffsetValueSet" )
-		targetPort.sendPi( "k \(rightAdjust)\n" )
+		targetPort.sendPi( "K \(rightAdjust)\n" )
 	}
 	
 	@IBAction func leftOffsetStepperChanged(_ sender: UIStepper) {
 		leftAdjust = Int(sender.value)
 		leftMotorSpeedSlider.value = Float( leftAdjust )
 		leftOffsetTextField.text = String( leftAdjust )
-		targetPort.sendPi( "l \(leftAdjust)\n" )
+		targetPort.sendPi( "L \(leftAdjust)\n" )
 	}
 	
 	@IBAction func rightOffsetStepperChanged(_ sender: UIStepper) {
 		rightAdjust = Int(sender.value)
 		rightMotorSpeedSlider.value = Float( rightAdjust )
 		rightOffsetTextField.text = String( rightAdjust )
-		targetPort.sendPi( "k \(rightAdjust)\n" )
+		targetPort.sendPi( "K \(rightAdjust)\n" )
 	}
 
 	@IBAction func doSlowestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
-		targetPort.sendPi( "u\n" )
+		targetPort.sendPi( "U\n" )
 	}
 	
 	
@@ -335,20 +335,20 @@ extension String {
 	}
 	
 	@IBAction func doFastestButtonTouch(_ sender: CTButton) {	// Set forward speed from index 1 as slowest to index 8 as fastest
-		targetPort.sendPi( "v\n" )
+		targetPort.sendPi( "V\n" )
 }
 	
 	
 	@IBAction func doForwardButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "g \(workingSpeedIndex)\n" )
+		targetPort.sendPi( "G \(workingSpeedIndex)\n" )
 	}
 	
 	@IBAction func doStopButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "s\n" )
+		targetPort.sendPi( "S\n" )
 	}
 	
 	@IBAction func doReverseButtonTouch(_ sender: CTButton) {
-		targetPort.sendPi( "g \(-workingSpeedIndex)\n" )
+		targetPort.sendPi( "G \(-workingSpeedIndex)\n" )
 	}
 	
 	// MARK: UITextFieldDelegate
@@ -366,11 +366,11 @@ extension String {
 		if textField == leftOffsetTextField {
 			leftMotorSpeedSlider.value = Float( newNumber )
 			leftStepper.value = Double( newNumber )
-			targetPort.sendPi( "l \(newNumber)\n" )
+			targetPort.sendPi( "L \(newNumber)\n" )
 		} else {
 			rightMotorSpeedSlider.value = Float( newNumber )
 			rightStepper.value = Double( newNumber )
-			targetPort.sendPi( "k \(newNumber)\n" )
+			targetPort.sendPi( "K \(newNumber)\n" )
 		}
 	}
 	
