@@ -20,7 +20,6 @@
 		A925A8C120A775C600B00291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A925A8BF20A775C600B00291 /* LaunchScreen.storyboard */; };
 		A925A8CC20A775C600B00291 /* cartrolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8CB20A775C600B00291 /* cartrolTests.swift */; };
 		A925A8D920A77AC000B00291 /* ctButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8D820A77AC000B00291 /* ctButton.swift */; };
-		A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */; };
 		A925A8DF20A77C7F00B00291 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925A8DE20A77C7F00B00291 /* Sender.swift */; };
 		A965E47A224FD8FF0004C514 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E479224FD8FF0004C514 /* MapViewController.swift */; };
 		A965E47C224FE3E00004C514 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965E47B224FE3E00004C514 /* SetupViewController.swift */; };
@@ -356,7 +355,6 @@
 				A925A8B920A775C400B00291 /* ConnectViewController.swift in Sources */,
 				A925A8D920A77AC000B00291 /* ctButton.swift in Sources */,
 				A9AAEB7C25C2976D0023AC59 /* StartupViewController.swift in Sources */,
-				A925A8DB20A77AE300B00291 /* CalibrateViewController.swift in Sources */,
 				A965E47E22553BEF0004C514 /* MapView.swift in Sources */,
 				A965E482225A54EC0004C514 /* ControlView.swift in Sources */,
 				A925A8B720A775C400B00291 /* AppDelegate.swift in Sources */,

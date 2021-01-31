@@ -106,7 +106,7 @@ class StartupViewController: UIViewController, CommandResponder {
     // MARK: - Response handler
     func handleReply(msg: String) {
         
-        switch msg[0] {
+        switch msg.first {
         case "R":
             let params = msg.split(separator: " ")
             guard params.count == 3 else { return }
@@ -225,7 +225,7 @@ class StartupViewController: UIViewController, CommandResponder {
         let newPin = sender.text
         pinIsValid =  newPin == "0" || newPin == "1" || newPin == "14" || newPin == "15"
         if !pinIsValid {
-            print( "Invalid value, must be 0, 1, 14, or 15" )
+            print( "Invalid value, must be 0, 1, 14, or 15, not <\(newPin ?? "null")>" )
             sender.text = "14"
         }
     }
