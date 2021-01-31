@@ -269,10 +269,10 @@ class StartupViewController: UIViewController, CommandResponder {
         } else if value == 2.0 {                // If incremented from 1
             sender.value = Double(speedArrayMax - 1)
         } else if value == 0.0 {                // If decremented from 1 or incremented from -1
-            if oldIndexValue > 0.0 {            // If decremented from 1
-                sender.value = -1.0
-            } else {                            // Else incremented from -1
+            if oldIndexValue <= 0.0 {          // If incremented from -1
                 sender.value = 1.0
+            } else {                            // Else decremented from 1
+                sender.value = -1.0
             }
         } else if value == -2.0 {               // If decremented from -1
             sender.value = Double(-speedArrayMax + 1)
@@ -281,7 +281,7 @@ class StartupViewController: UIViewController, CommandResponder {
         } else {
             sender.value = 1.0
         }
-        oldIndexValue = value
+        oldIndexValue = sender.value
         updateSpeedDisplayFor( index: Int(sender.value) )
     }
     
@@ -319,6 +319,12 @@ class StartupViewController: UIViewController, CommandResponder {
     }
     
     @IBAction func speedRunAction() {
+        
+        let direction = calibrationSpeedDirection.rawValue
+        let left = speedArray[calibrationSpeedIndex]?.left ?? 1024
+        let right = speedArray[calibrationSpeedIndex]?.right ?? 1024
+        let setPiMotorCmd = "F \(direction) \(left) \(direction) \(right)"
+        targetPort.sendPi( setPiMotorCmd )    // Set motor direction and direct speed
     }
     
     @IBAction func speedStopAction() {
@@ -326,6 +332,12 @@ class StartupViewController: UIViewController, CommandResponder {
     }
     
     @IBAction func speedReturnAction() {
+
+        let direction = -(calibrationSpeedDirection.rawValue - 1)
+        let left = speedArray[calibrationSpeedIndex]?.left ?? 1024
+        let right = speedArray[calibrationSpeedIndex]?.right ?? 1024
+        let setPiMotorCmd = "F \(direction) \(left) \(direction) \(right)"
+        targetPort.sendPi( setPiMotorCmd )    // Set motor direction and direct speed
     }
     
     // MARK: - Speed Alignment utilities
