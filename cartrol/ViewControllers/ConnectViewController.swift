@@ -31,7 +31,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	
 	@IBOutlet var responseDisplayTextView: UITextView!
 	
-	var isConnected = false  // WFS true for testing UI w/o connection
+	var isConnected = true  // WFS true for testing UI w/o connection
     var isConnecting = false    // Enables cancelling
     
     let deviceArray = ["Camera01", "Develop00", "Develop01", "Develop30", "Develop31", "Develop32", "Develop40", "Develop50", "Develop60", "Devx", "Hughie", "Dewie", "Louie"]
@@ -57,6 +57,8 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear( animated )
 //		print( "In viewWillAppear in ConnectViewController" )
+
+        self.navigationController?.setNavigationBarHidden( false, animated: true )    // Show it on this page
 
 		setupButtons()
 	}
