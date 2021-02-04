@@ -67,7 +67,6 @@
 		A925A8CB20A775C600B00291 /* cartrolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartrolTests.swift; sourceTree = "<group>"; };
 		A925A8CD20A775C600B00291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A925A8D820A77AC000B00291 /* ctButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ctButton.swift; sourceTree = "<group>"; };
-		A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrateViewController.swift; sourceTree = "<group>"; };
 		A925A8DE20A77C7F00B00291 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		A965E479224FD8FF0004C514 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A965E47B224FE3E00004C514 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				A925A8B820A775C400B00291 /* ConnectViewController.swift */,
-				A925A8DA20A77AE300B00291 /* CalibrateViewController.swift */,
 				A9BE480B2193CAD300978371 /* DirectViewController.swift */,
 				A914804B20A81159000444B2 /* GameViewController.swift */,
 				A965E479224FD8FF0004C514 /* MapViewController.swift */,
