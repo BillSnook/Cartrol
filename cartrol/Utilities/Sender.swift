@@ -32,6 +32,9 @@ public class Sender {
 	
 	deinit {
 		if socketConnected {
+            sendPi( "#" )               // Sign off device
+            usleep( 1000000 )
+            deadTime.invalidate()       // Stop sending keep-alive
 			socketConnected = false
 			if socketfd != 0 {
 				close( socketfd )
@@ -42,6 +45,9 @@ public class Sender {
 	
 	public func doBreakConnection() {
 		if socketConnected {
+            sendPi( "#" )               // Sign off device
+            usleep( 1000000 )
+            deadTime.invalidate()       // Stop sending keep-alive
 			socketConnected = false
 			if socketfd != 0 {
 				close( socketfd )
@@ -136,8 +142,6 @@ public class Sender {
     }
     
     func readThread() {         // Start read thread
-        deadTime = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false )
-        sendPi( "@" )
 		DispatchQueue.global(qos: .userInitiated).async { [weak self] () -> Void in
 			while self?.socketfd != 0 {
 				var readBuffer: [CChar] = [CChar](repeating: 0, count: 1024)
@@ -152,7 +156,7 @@ public class Sender {
                     break
 				} else {
                     let str = String( cString: readBuffer, encoding: .utf8 ) ?? "bad data"
-                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(str)\n" )
+//                    print( "\nRead \(rcvLen) bytes from socket \(self!.socketfd), \(str)\n" )
 					DispatchQueue.main.async {
 						if self?.commandResponder != nil {
 							self?.commandResponder?.handleReply( msg: str  )
@@ -161,6 +165,11 @@ public class Sender {
 				}
 			}
 		}
+        DispatchQueue.main.async {
+//            self.deadTime.invalidate()
+//            self.deadTime = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(timerStart), userInfo: nil, repeats: false )
+            self.sendPi( "@" )
+        }
 	}
 	
 	public func sendPi( _ message: String ) {
@@ -190,6 +199,12 @@ public class Sender {
 
     @objc func timerAction() {
         sendPi( "?" )   // Keep-alive
+//        print( "?", terminator: "")
+    }
+
+    @objc func timerStart() {
+        sendPi( "@" )   // Trigger start
+        print( "@", terminator: "")
     }
 
 }

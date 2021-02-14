@@ -194,7 +194,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 
 	@IBAction func doTestStatus(_ sender: CTButton) {
 
-		targetPort.sendPi( "B" )	// Send get status command
+		targetPort.sendPi( "@" )	// Send get status command
 	}
 	
 	@IBAction func doTestRange(_ sender: Any) {
