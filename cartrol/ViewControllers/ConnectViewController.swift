@@ -155,7 +155,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 			isConnected = false
 			setupButtons()
 		} else {
-            if !isConnecting {      // Or if not connecting, we must be connecting
+            if !isConnecting {      // Or if not connecting, we must be connecting now
                 connectButton.setTitle( "Cancel", for: .normal )
                 isConnecting = true
                 print( "\nConnecting to host \(hostName)" )
@@ -173,7 +173,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
                     }
                 }
             } else {                // else if connecting, we must be cancelling
-                if isConnecting {   // If still waiting
+                if isConnecting {   // Make sure we are still waiting
                     isConnecting = false
                     print( "\nCancelled connection to host \(hostName)" )
                     connectButton.setTitle( "Connect", for: .normal )
@@ -184,7 +184,7 @@ class ConnectViewController: UIViewController, CommandResponder, UIPickerViewDel
 	}
 
 	@IBAction func doCommandButtonTouch(_ sender: CTButton) {
-		print( "In doCommandButtonTouch" )
+//		print( "In doCommandButtonTouch" )
 		guard let command = commandTextField.text,
 			!command.isEmpty
 //			let priorText = responseDisplayTextView.text
